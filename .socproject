@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<propelProject>
+    <builder-resource>
+        <socProject sbxfile="./ice40_nano/ice40_nano.sbx" />
+        <verifyProject sbxfile="./verification/ice40_nano_v.sbx" />
+        <ConstraintFile>./ice40_nano.pdc</ConstraintFile>
+    </builder-resource>
+    <builderInfo version="2024.2.2503210206_sp1" />
+</propelProject>

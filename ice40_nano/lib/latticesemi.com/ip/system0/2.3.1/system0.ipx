@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="ice40tp" date="2025 06 30 06:46:35" device="iCE40UP5K" device_int="itpa08" display_module="System Memory" display_vendor="latticesemi.com" family="iCE40UP" gen_platform="Propel" gen_platform_version="2024.2.2503210206_sp1" generator="ipgen" library="ip" module="system_memory" name="system0" operation="Industrial" package="SG48" package_int="SG48" partnumber="iCE40UP5K-SG48I" source_format="Verilog" speed="High-Performance_1.2V" speed_int="6" vendor="latticesemi.com" version="2.3.1">
+ <Package>
+  <File modified="2025 06 30 06:46:35" name="rtl/system0_bb.v" type="black_box_verilog"/>
+  <File modified="2025 06 30 06:46:35" name="system0.cfg" type="cfg"/>
+  <File modified="2025 06 30 06:46:35" name="misc/system0_tmpl.v" type="template_verilog"/>
+  <File modified="2025 06 30 06:46:35" name="misc/system0_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2025 06 30 06:46:35" name="rtl/system0.v" type="top_level_verilog"/>
+  <File modified="2025 06 30 06:46:35" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2025 06 30 06:46:35" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2025 06 30 06:46:35" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2025 06 30 06:46:35" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2023 04 24 05:16:16" name="testbench/lscc_ahblmem_manager.v" type="testbench_verilog"/>
+  <File modified="2023 08 22 08:04:34" name="testbench/lscc_aximem_manager.v" type="testbench_verilog"/>
+  <File modified="2023 03 16 02:51:14" name="testbench/lscc_data_checker.v" type="testbench_verilog"/>
+  <File modified="2020 08 19 08:03:38" name="testbench/lscc_fifo_master.v" type="testbench_verilog"/>
+  <File modified="2023 04 30 09:31:06" name="testbench/tb_top.v" type="testbench_verilog"/>
+ </Package>
+</RadiantModule>

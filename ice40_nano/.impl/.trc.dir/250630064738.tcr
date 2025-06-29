@@ -1,0 +1,4 @@
+#Start recording tcl command: 6/30/2025 06:46:53
+sbp_design open -name {ice40_nano} -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_design close
+#Stop recording: 6/30/2025 06:47:38

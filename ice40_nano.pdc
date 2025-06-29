@@ -1,0 +1,7 @@
+ldc_set_location -site {34} [get_ports rstn_i]
+ldc_set_location -site {39} [get_ports {led_o[1]}]
+ldc_set_location -site {40} [get_ports {led_o[2]}]
+ldc_set_location -site {41} [get_ports {led_o[0]}]
+ldc_set_location -site {31} [get_ports rxd_i]
+ldc_set_location -site {32} [get_ports txd_o]
+

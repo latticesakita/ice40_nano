@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="ice40tp" date="2025 06 30 06:46:52" device="iCE40UP5K" device_int="itpa08" display_module="UART Model" display_vendor="latticesemi.com" family="iCE40UP" gen_platform="Propel" gen_platform_version="2024.2.2503210206_sp1" generator="ipgen" library="sim_model" module="UART_Model" name="uart_model1" operation="Industrial" package="SG48" package_int="SG48" partnumber="iCE40UP5K-SG48I" source_format="Verilog" speed="High-Performance_1.2V" speed_int="6" vendor="latticesemi.com" version="1.0.0">
+ <Package>
+  <File modified="2025 06 30 06:46:52" name="rtl/uart_model1_bb.v" type="black_box_verilog"/>
+  <File modified="2025 06 30 06:46:52" name="uart_model1.cfg" type="cfg"/>
+  <File modified="2025 06 30 06:46:52" name="misc/uart_model1_tmpl.v" type="template_verilog"/>
+  <File modified="2025 06 30 06:46:52" name="misc/uart_model1_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2025 06 30 06:46:52" name="rtl/uart_model1.v" type="top_level_verilog"/>
+  <File modified="2025 06 30 06:46:52" name="rtl/uart_model1_globals.v" type="core_verilog"/>
+  <File modified="2020 09 23 14:55:04" name="rtl/uart_model.v" type="core_verilog"/>
+  <File modified="2023 07 06 11:09:30" name="rtl/uart_rx.v" type="core_verilog"/>
+  <File modified="2020 09 03 15:09:44" name="rtl/uart_tx.v" type="core_verilog"/>
+  <File modified="2025 06 30 06:46:52" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2025 06 30 06:46:52" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2025 06 30 06:46:52" name="rtl/uart_model.v" type="core_verilog"/>
+  <File modified="2025 06 30 06:46:52" name="rtl/uart_rx.v" type="core_verilog"/>
+  <File modified="2025 06 30 06:46:52" name="rtl/uart_tx.v" type="core_verilog"/>
+ </Package>
+</RadiantModule>
