@@ -45,8 +45,8 @@ component ice40_nano is
     port (gpio_00_i: in std_logic_vector(7 downto 0);
         gpio_00_o: out std_logic_vector(7 downto 0);
         gpio_en_00_o: out std_logic_vector(7 downto 0);
-        rstn_i: in std_logic;
         clk_i: in std_logic;
+        rstn_i: in std_logic;
         uart_rxd_00_i: in std_logic;
         uart_txd_00_o: out std_logic
     );
@@ -55,8 +55,8 @@ end component ice40_nano;
 _inst: ice40_nano port map (gpio_00_i => __,
                             gpio_00_o => __,
                             gpio_en_00_o => __,
-                            rstn_i => __,
                             clk_i => __,
+                            rstn_i => __,
                             uart_rxd_00_i => __,
                             uart_txd_00_o => __);
                             

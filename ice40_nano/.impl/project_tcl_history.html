@@ -2,7 +2,32 @@
 <HEAD>
 <TITLE>Lattice TCL Log</TITLE>
 </HEAD>
-<BODY><DIV id="content" ><PRE><A name="250630064738" href="#250630064738"></A><B><U><big>250630064738</big></U></B>
+<BODY><DIV id="content" ><PRE><A name="250630070542" href="#250630070542"></A><B><U><big>250630070542</big></U></B>
+#Start recording tcl command: 6/30/2025 06:50:03
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../}
+sbp_config_ip -vlnv {latticesemi.com:ip:system0:2.3.1} -meta_vlnv {latticesemi.com:ip:system_memory:2.3.1} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Code.mem,INIT_MEM:true,REGMODE_S0:true}
+sbp_replace -vlnv {latticesemi.com:ip:system0:2.3.1} -name {system0_inst} -component {ice40_nano/system0_inst}
+sbp_config_ip -vlnv {latticesemi.com:ip:system1:2.3.1} -meta_vlnv {latticesemi.com:ip:system_memory:2.3.1} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Data.mem,INIT_MEM:true,REGMODE_S0:true}
+sbp_replace -vlnv {latticesemi.com:ip:system1:2.3.1} -name {system1_inst} -component {ice40_nano/system1_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design close
+#Stop recording: 6/30/2025 07:05:42
+
+<A name="250630064952" href="#250630064952"></A><B><U><big>250630064952</big></U></B>
+#Start recording tcl command: 6/30/2025 06:49:12
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_config_ip -vlnv {personal:ip:aaa:1.0.1} -meta_vlnv {personal:ip:ahb_spsram_if:1.0.1}
+sbp_design close
+#Stop recording: 6/30/2025 06:49:52
+
+<A name="250630064738" href="#250630064738"></A><B><U><big>250630064738</big></U></B>
 #Start recording tcl command: 6/30/2025 06:46:53
 sbp_design open -name {ice40_nano} -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
 sbp_design close

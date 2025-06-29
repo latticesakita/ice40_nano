@@ -388,7 +388,7 @@
         </lsccip:deviceInfo>
         <lsccip:generationInfo>
             <lsccip:fileVersion>20180929</lsccip:fileVersion>
-            <lsccip:createdTimestamp>2025 06 30 06:46:36</lsccip:createdTimestamp>
+            <lsccip:createdTimestamp>2025 06 30 06:59:13</lsccip:createdTimestamp>
             <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2024.2.2503210206_sp1</lsccip:radiantBuild>
         </lsccip:generationInfo>
     </ipxact:vendorExtensions>
