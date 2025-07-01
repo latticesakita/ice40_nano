@@ -52,11 +52,11 @@ component ice40_nano is
     );
     
 end component ice40_nano;
-_inst: ice40_nano port map (gpio_00_i => __,
+_inst: ice40_nano port map (clk_i => __,
+                            rstn_i => __,
+                            gpio_00_i => __,
                             gpio_00_o => __,
                             gpio_en_00_o => __,
-                            clk_i => __,
-                            rstn_i => __,
                             uart_rxd_00_i => __,
                             uart_txd_00_o => __);
                             
