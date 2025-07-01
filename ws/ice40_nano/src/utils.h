@@ -91,6 +91,6 @@ void trap_init();
 void plic_enable_global_interrupts(uint8_t enable_bit);
 void delay(uint32_t count);
 
-#define RTL_SIM 0
+#define RTL_SIM 1
 
 #endif /* UTILS_H_ */
