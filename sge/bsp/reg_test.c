@@ -33,11 +33,6 @@ uint8_t mem_access_test(void)
 {
     uint8_t ret = 1;
     
-#ifdef UART0_INST_BASE_ADDR    
-
-    ret *= access_detect(UART0_INST_BASE_ADDR, OFFSET_UART0_INST_IER, MASK_UART0_INST_IER, "uart0_inst", "IER");
-#endif 
-
     return ret;
 }
 #endif

@@ -10,7 +10,7 @@
             <ipxact:componentRef library="module" name="ahb_lite_interconnect" vendor="latticesemi.com" version="1.4.0">
                 <ipxact:configurableElementValues>
                     <ipxact:configurableElementValue referenceId="TOTAL_MASTER_CNT">1</ipxact:configurableElementValue>
-                    <ipxact:configurableElementValue referenceId="TOTAL_SLAVE_CNT">2</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="TOTAL_SLAVE_CNT">3</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="M_ADDR_WIDTH">32</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="FULL_DECODE_EN_IN">True</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="FULL_DECODE_EN">1</ipxact:configurableElementValue>
@@ -3830,7 +3830,7 @@
                     <ipxact:configurableElementValue referenceId="en_m31">0</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="en_s0">1</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="en_s1">1</ipxact:configurableElementValue>
-                    <ipxact:configurableElementValue referenceId="en_s2">0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="en_s2">1</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="en_s3">0</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="en_s4">0</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="en_s5">0</ipxact:configurableElementValue>
@@ -14619,7 +14619,6 @@
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hready_mstr_i.2:2</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hready_mstr_i">
                     <ipxact:partSelect>
@@ -14629,11 +14628,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hready_mstr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hresp_mstr_i.2:2</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hresp_mstr_i">
                     <ipxact:partSelect>
@@ -14643,11 +14649,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hresp_mstr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hrdata_mstr_i.95:64</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hrdata_mstr_i">
                     <ipxact:partSelect>
@@ -14657,11 +14670,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hrdata_mstr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hsel_mstr_o.2:2</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hsel_mstr_o">
                     <ipxact:partSelect>
@@ -14671,11 +14691,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hsel_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_haddr_mstr_o.95:64</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_haddr_mstr_o">
                     <ipxact:partSelect>
@@ -14685,11 +14712,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_haddr_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hburst_mstr_o.8:6</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hburst_mstr_o">
                     <ipxact:partSelect>
@@ -14699,11 +14733,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hburst_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hsize_mstr_o.8:6</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hsize_mstr_o">
                     <ipxact:partSelect>
@@ -14713,11 +14754,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hsize_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hmastlock_mstr_o.2:2</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hmastlock_mstr_o">
                     <ipxact:partSelect>
@@ -14727,11 +14775,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hmastlock_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hprot_mstr_o.11:8</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hprot_mstr_o">
                     <ipxact:partSelect>
@@ -14741,11 +14796,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hprot_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_htrans_mstr_o.5:4</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_htrans_mstr_o">
                     <ipxact:partSelect>
@@ -14755,11 +14817,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_htrans_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hwdata_mstr_o.95:64</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hwdata_mstr_o">
                     <ipxact:partSelect>
@@ -14769,11 +14838,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hwdata_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hwrite_mstr_o.2:2</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hwrite_mstr_o">
                     <ipxact:partSelect>
@@ -14783,11 +14859,18 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hwrite_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>
             <ipxact:name>ahbl0.ahbl_hready_mstr_o.2:2</ipxact:name>
-            <ipxact:tiedValue>open</ipxact:tiedValue>
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahbl0" portRef="ahbl_hready_mstr_o">
                     <ipxact:partSelect>
@@ -14797,6 +14880,14 @@
                         </ipxact:range>
                     </ipxact:partSelect>
                 </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_m02_hready_mstr_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
         <ipxact:adHocConnection>

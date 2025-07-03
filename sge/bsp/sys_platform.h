@@ -59,20 +59,19 @@
 
 /* ip instance base address */
 
-#define GPIO0_INST_NAME "gpio0_inst"
-#define GPIO_INST_NAME GPIO0_INST_NAME
-#define GPIO0_INST_BASE_ADDR 0x3000
-#define GPIO_INST_BASE_ADDR GPIO0_INST_BASE_ADDR
-
 #define SYSTEM0_INST_NAME "system0_inst"
 #define SYSTEM0_INST_BASE_ADDR 0x0
 
 #define SYSTEM1_INST_NAME "system1_inst"
 #define SYSTEM1_INST_BASE_ADDR 0x2000
 
-#define UART0_INST_NAME "uart0_inst"
-#define UART0_INST_BASE_ADDR 0x5000
-#define UART_INST_BASE_ADDR UART0_INST_BASE_ADDR
+#define AHBL_UART_INST_NAME "ahbl_uart_inst"
+#define AHBL_UART_INST_BASE_ADDR 0x5000
+
+#define GPIO0_INST_NAME "gpio0_inst"
+#define GPIO_INST_NAME GPIO0_INST_NAME
+#define GPIO0_INST_BASE_ADDR 0x3000
+#define GPIO_INST_BASE_ADDR GPIO0_INST_BASE_ADDR
 
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
 testable register of each IP instance, it might affect the environment during test. 
@@ -88,23 +87,19 @@ and make sure to disable it when developing the application firmware. */
 #define CPU0_INST_NANO_CPU 1
 #define CPU0_INST_PIC_ENABLE True
 
-/* gpio0_inst parameters */
-#define GPIO0_INST_GPIO_DIRS 0x000000FF
-#define GPIO_INST_GPIO_DIRS GPIO0_INST_GPIO_DIRS
-#define GPIO0_INST_LINES_NUM 8
-#define GPIO_INST_LINES_NUM GPIO0_INST_LINES_NUM
+/* ahbl_uart_inst parameters */
+#define AHBL_UART_INST_BUFFER_SIZE 512
+#define AHBL_UART_INST_CLOCK_FREQ 48000000
+#define AHBL_UART_INST_UART_BAUDRATE 115200
 
-/* uart0_inst parameters */
-#define UART0_INST_BAUD_RATE 115200
-#define UART_INST_BAUD_RATE UART0_INST_BAUD_RATE
-#define UART0_INST_DATA_WIDTH 8
-#define UART0_INST_STOP_BITS 1
-#define UART0_INST_SYS_CLK 18.0
-#define UART_INST_SYS_CLK UART0_INST_SYS_CLK
+/* gpio0_inst parameters */
+#define GPIO0_INST_BUS_WIDTH 8
+#define GPIO0_INST_DEVICE ICE40UP
+#define GPIO0_INST_DIRECTION 0xFF
+#define GPIO0_INST_INIT_OUTVAL 0x00
 
 /* interrupt */
 
-#define GPIO0_INST_IRQ 0
-#define UART0_INST_IRQ 1
+#define AHBL_UART_INST_IRQ 1
 
 #endif

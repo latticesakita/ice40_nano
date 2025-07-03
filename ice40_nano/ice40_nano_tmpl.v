@@ -41,10 +41,8 @@
 
 //Verilog instantiation template
 
-ice40_nano _inst (.clk_i(), 
-                  .rstn_i(), 
-                  .gpio_00_i(), 
-                  .gpio_00_o(), 
-                  .gpio_en_00_o(), 
+ice40_nano _inst (.rstn_i(), 
+                  .clk_i(), 
                   .uart_rxd_00_i(), 
-                  .uart_txd_00_o());
+                  .uart_txd_00_o(), 
+                  .gpio0_io());

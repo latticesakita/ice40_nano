@@ -9,8 +9,12 @@
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/rtl/ahbl0.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_nano.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/module/pll0/1.0.1/rtl/pll0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/uart0/1.4.0/rtl/uart0.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/tb.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/dpram512x8.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/dpram1024x8.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/dpram2048x8.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/dpram4096x8.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahbl_uart/1.0.2/rtl/ahbl_uart.v" type="VERILOG" worklib="work"/>
     <SimLib value="pmi_work ovi_ice40up"/>
     <GlbInc value="&quot;.&quot;"/>
     <Macro value=""/>

@@ -9,17 +9,14 @@ set DEVICE "iCE40UP5K-SG48I"
 set DESIGN "ice40_nano"
 
 array set VFILE_LIST ""
-set VFILE_LIST(1) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/module/pll0/1.0.1/pll0.ipx"
-set VFILE_LIST(2) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/system1/2.3.1/system1.ipx"
-set VFILE_LIST(3) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/gpio0/1.8.0/gpio0.ipx"
-set VFILE_LIST(4) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.v"
-set VFILE_LIST(5) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/module/ahbl2apb0/1.1.2/ahbl2apb0.ipx"
-set VFILE_LIST(6) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano_Top.v"
-set VFILE_LIST(7) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/uart0/1.4.0/uart0.ipx"
-set VFILE_LIST(8) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/module/apb0/1.3.0/apb0.ipx"
-set VFILE_LIST(9) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/system0/2.3.1/system0.ipx"
-set VFILE_LIST(10) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/cpu0/1.0.0/cpu0.ipx"
-set VFILE_LIST(11) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/ahbl0.ipx"
+set VFILE_LIST(1) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano_Top.v"
+set VFILE_LIST(2) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/ahbl0.ipx"
+set VFILE_LIST(3) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/system0/2.3.1/system0.ipx"
+set VFILE_LIST(4) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/personal/ip/ahbl_uart/1.0.3/ahbl_uart.ipx"
+set VFILE_LIST(5) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/cpu0/1.0.0/cpu0.ipx"
+set VFILE_LIST(6) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/personal/ip/gpio0/1.0.4/gpio0.ipx"
+set VFILE_LIST(7) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.v"
+set VFILE_LIST(8) "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/ip/system1/2.3.1/system1.ipx"
 
 set index [array names VFILE_LIST]
 if { [file exists $radiant_project] == 1} {
@@ -30,6 +27,7 @@ if { [file exists $radiant_project] == 1} {
     prj_save
 }
 
+prj_remove_source "O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/lib/latticesemi.com/module/pll0/1.0.1/pll0.ipx"
 
 foreach i $index {
     if { [catch {prj_add_source $VFILE_LIST($i)} fid] } {

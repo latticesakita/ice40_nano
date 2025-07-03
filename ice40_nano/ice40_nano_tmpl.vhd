@@ -42,9 +42,7 @@
 --VHDL instantiation template
 
 component ice40_nano is
-    port (gpio_00_i: in std_logic_vector(7 downto 0);
-        gpio_00_o: out std_logic_vector(7 downto 0);
-        gpio_en_00_o: out std_logic_vector(7 downto 0);
+    port (gpio0_io: inout std_logic_vector(7 downto 0);
         clk_i: in std_logic;
         rstn_i: in std_logic;
         uart_rxd_00_i: in std_logic;
@@ -52,11 +50,9 @@ component ice40_nano is
     );
     
 end component ice40_nano;
-_inst: ice40_nano port map (clk_i => __,
-                            rstn_i => __,
-                            gpio_00_i => __,
-                            gpio_00_o => __,
-                            gpio_en_00_o => __,
+_inst: ice40_nano port map (rstn_i => __,
+                            clk_i => __,
                             uart_rxd_00_i => __,
-                            uart_txd_00_o => __);
+                            uart_txd_00_o => __,
+                            gpio0_io => __);
                             

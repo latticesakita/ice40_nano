@@ -2,16 +2,16 @@
 <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
     <ipxact:vendor>latticesemi.com</ipxact:vendor>
     <ipxact:library>module</ipxact:library>
-    <ipxact:name>pll0</ipxact:name>
+    <ipxact:name>gpll</ipxact:name>
     <ipxact:version>1.0.1</ipxact:version>
     <ipxact:model>
         <ipxact:instantiations>
             <ipxact:componentInstantiation>
-                <ipxact:name>pll0</ipxact:name>
+                <ipxact:name>gpll</ipxact:name>
             </ipxact:componentInstantiation>
             <ipxact:designInstantiation>
-                <ipxact:name>pll0_design</ipxact:name>
-                <ipxact:designRef library="module" name="pll0" vendor="latticesemi.com" version="1.0.1"/>
+                <ipxact:name>gpll_design</ipxact:name>
+                <ipxact:designRef library="module" name="gpll" vendor="latticesemi.com" version="1.0.1"/>
             </ipxact:designInstantiation>
         </ipxact:instantiations>
         <ipxact:ports>
@@ -56,23 +56,23 @@
         <ipxact:fileSet>
             <ipxact:name>ipx_file_list</ipxact:name>
             <ipxact:file>
-                <ipxact:name>rtl/pll0_bb.v</ipxact:name>
+                <ipxact:name>rtl/gpll_bb.v</ipxact:name>
                 <ipxact:fileType user="black_box_verilog">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>pll0.cfg</ipxact:name>
+                <ipxact:name>gpll.cfg</ipxact:name>
                 <ipxact:fileType user="cfg">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>misc/pll0_tmpl.v</ipxact:name>
+                <ipxact:name>misc/gpll_tmpl.v</ipxact:name>
                 <ipxact:fileType user="template_verilog">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>misc/pll0_tmpl.vhd</ipxact:name>
+                <ipxact:name>misc/gpll_tmpl.vhd</ipxact:name>
                 <ipxact:fileType user="template_vhdl">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>rtl/pll0.v</ipxact:name>
+                <ipxact:name>rtl/gpll.v</ipxact:name>
                 <ipxact:fileType user="top_level_verilog">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
@@ -97,8 +97,8 @@
         </lsccip:deviceInfo>
         <lsccip:generationInfo>
             <lsccip:fileVersion>20180929</lsccip:fileVersion>
-            <lsccip:createdTimestamp>2025 07 03 08:31:33</lsccip:createdTimestamp>
-            <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2024.2.2503210206_sp1</lsccip:radiantBuild>
+            <lsccip:createdTimestamp>2025 07 03 09:16:02</lsccip:createdTimestamp>
+            <lsccip:radiantBuild>&quot;Lattice Radiant Software&quot; (64-bit) 2025.2.t.105.0</lsccip:radiantBuild>
         </lsccip:generationInfo>
     </ipxact:vendorExtensions>
 </ipxact:component>

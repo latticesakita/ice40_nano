@@ -24,8 +24,14 @@
                         <ipxact:width>32</ipxact:width>
                         <ipxact:segments>
                             <ipxact:segment>
-                                <ipxact:name>ice40_nano_gpio0_inst_gpio_mem_map</ipxact:name>
-                                <ipxact:displayName>ice40_nano/gpio0_inst/gpio_mem_map</ipxact:displayName>
+                                <ipxact:name>ice40_nano_ahbl_uart_inst_ahb_uart</ipxact:name>
+                                <ipxact:displayName>ice40_nano/ahbl_uart_inst/ahb_uart</ipxact:displayName>
+                                <ipxact:addressOffset>0x5000</ipxact:addressOffset>
+                                <ipxact:range>0x400</ipxact:range>
+                            </ipxact:segment>
+                            <ipxact:segment>
+                                <ipxact:name>ice40_nano_gpio0_inst_gpio_ahbl</ipxact:name>
+                                <ipxact:displayName>ice40_nano/gpio0_inst/gpio_ahbl</ipxact:displayName>
                                 <ipxact:addressOffset>0x3000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
@@ -34,12 +40,6 @@
                                 <ipxact:displayName>ice40_nano/system1_inst/ahbl_slv0_model_mem_map</ipxact:displayName>
                                 <ipxact:addressOffset>0x2000</ipxact:addressOffset>
                                 <ipxact:range>0x1000</ipxact:range>
-                            </ipxact:segment>
-                            <ipxact:segment>
-                                <ipxact:name>ice40_nano_uart0_inst_uart_mem_map</ipxact:name>
-                                <ipxact:displayName>ice40_nano/uart0_inst/uart_mem_map</ipxact:displayName>
-                                <ipxact:addressOffset>0x5000</ipxact:addressOffset>
-                                <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                         </ipxact:segments>
                     </ipxact:addressSpace>
@@ -84,37 +84,6 @@
                     </lattice:configurableParameter>
                 </lattice:configurableParameters>
                 <lattice:driverVersion>1.0.0</lattice:driverVersion>
-            </lattice:ipInstance>
-            <lattice:ipInstance>
-                <lattice:instanceName vendor="latticesemi.com" library="ip" name="gpio" version="1.8.0">gpio0_inst</lattice:instanceName>
-                <ipxact:memoryMaps>
-                    <ipxact:memoryMap>
-                        <ipxact:name>gpio_mem_map</ipxact:name>
-                        <ipxact:description>GPIO memory map</ipxact:description>
-                        <ipxact:addressBlock>
-                            <ipxact:name>GPIO_Registers</ipxact:name>
-                            <ipxact:baseAddress>0x3000</ipxact:baseAddress>
-                            <ipxact:range>0x400</ipxact:range>
-                            <ipxact:width>32</ipxact:width>
-                            <ipxact:vendorExtensions/>
-                        </ipxact:addressBlock>
-                    </ipxact:memoryMap>
-                </ipxact:memoryMaps>
-                <lattice:configurableParameters>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="1">LINES_NUM</lattice:name>
-                        <lattice:value>8</lattice:value>
-                    </lattice:configurableParameter>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="2">GPIO_DIRS</lattice:name>
-                        <lattice:value>0x000000FF</lattice:value>
-                    </lattice:configurableParameter>
-                </lattice:configurableParameters>
-                <lattice:interruptPort>IRQ_S0</lattice:interruptPort>
-                <lattice:structName>gpio_instance</lattice:structName>
-                <lattice:initName>gpio_init</lattice:initName>
-                <lattice:headerFile>gpio.h</lattice:headerFile>
-                <lattice:driverVersion>1.6.2</lattice:driverVersion>
             </lattice:ipInstance>
             <lattice:ipInstance>
                 <lattice:instanceName vendor="latticesemi.com" library="ip" name="system_memory" version="2.3.1">system0_inst</lattice:instanceName>
@@ -1591,13 +1560,21 @@
                 </lattice:configurableParameters>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="latticesemi.com" library="ip" name="uart" version="1.4.0">uart0_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="ahb_uart" version="1.0.3">ahbl_uart_inst</lattice:instanceName>
+                <ipxact:addressSpaces>
+                    <ipxact:addressSpace>
+                        <ipxact:name>INT_Address_Space</ipxact:name>
+                        <ipxact:range>4294967296</ipxact:range>
+                        <ipxact:width>32</ipxact:width>
+                        <ipxact:segments/>
+                    </ipxact:addressSpace>
+                </ipxact:addressSpaces>
                 <ipxact:memoryMaps>
                     <ipxact:memoryMap>
-                        <ipxact:name>uart_mem_map</ipxact:name>
-                        <ipxact:description>UART memory map</ipxact:description>
+                        <ipxact:name>ahb_uart</ipxact:name>
+                        <ipxact:description>New Memorymap</ipxact:description>
                         <ipxact:addressBlock>
-                            <ipxact:name>UART_Registers</ipxact:name>
+                            <ipxact:name>NewAddressBlock1</ipxact:name>
                             <ipxact:baseAddress>0x5000</ipxact:baseAddress>
                             <ipxact:range>0x400</ipxact:range>
                             <ipxact:width>32</ipxact:width>
@@ -1607,27 +1584,61 @@
                 </ipxact:memoryMaps>
                 <lattice:configurableParameters>
                     <lattice:configurableParameter>
-                        <lattice:name sequence_id="1">SYS_CLK</lattice:name>
-                        <lattice:value>18.0</lattice:value>
+                        <lattice:name sequence_id="0">CLOCK_FREQ</lattice:name>
+                        <lattice:value>48000000</lattice:value>
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
-                        <lattice:name sequence_id="4">DATA_WIDTH</lattice:name>
-                        <lattice:value>8</lattice:value>
-                    </lattice:configurableParameter>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="3">STOP_BITS</lattice:name>
-                        <lattice:value>1</lattice:value>
-                    </lattice:configurableParameter>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="2">BAUD_RATE</lattice:name>
+                        <lattice:name sequence_id="0">UART_BAUDRATE</lattice:name>
                         <lattice:value>115200</lattice:value>
+                    </lattice:configurableParameter>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">BUFFER_SIZE</lattice:name>
+                        <lattice:value>512</lattice:value>
                     </lattice:configurableParameter>
                 </lattice:configurableParameters>
                 <lattice:interruptPort>IRQ_S1</lattice:interruptPort>
-                <lattice:structName>uart_instance</lattice:structName>
-                <lattice:initName>uart_init</lattice:initName>
-                <lattice:headerFile>uart.h</lattice:headerFile>
-                <lattice:driverVersion>null</lattice:driverVersion>
+            </lattice:ipInstance>
+            <lattice:ipInstance>
+                <lattice:instanceName vendor="personal" library="ip" name="gpio_ahbl_io" version="1.0.4">gpio0_inst</lattice:instanceName>
+                <ipxact:addressSpaces>
+                    <ipxact:addressSpace>
+                        <ipxact:name>IRQ_Address_Space</ipxact:name>
+                        <ipxact:range>4294967296</ipxact:range>
+                        <ipxact:width>32</ipxact:width>
+                        <ipxact:segments/>
+                    </ipxact:addressSpace>
+                </ipxact:addressSpaces>
+                <ipxact:memoryMaps>
+                    <ipxact:memoryMap>
+                        <ipxact:name>gpio_ahbl</ipxact:name>
+                        <ipxact:description>gpio_ahbl</ipxact:description>
+                        <ipxact:addressBlock>
+                            <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:baseAddress>0x3000</ipxact:baseAddress>
+                            <ipxact:range>0x400</ipxact:range>
+                            <ipxact:width>32</ipxact:width>
+                            <ipxact:vendorExtensions/>
+                        </ipxact:addressBlock>
+                    </ipxact:memoryMap>
+                </ipxact:memoryMaps>
+                <lattice:configurableParameters>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">BUS_WIDTH</lattice:name>
+                        <lattice:value>8</lattice:value>
+                    </lattice:configurableParameter>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">DIRECTION</lattice:name>
+                        <lattice:value>0xFF</lattice:value>
+                    </lattice:configurableParameter>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">INIT_OUTVAL</lattice:name>
+                        <lattice:value>0x00</lattice:value>
+                    </lattice:configurableParameter>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">DEVICE</lattice:name>
+                        <lattice:value>ICE40UP</lattice:value>
+                    </lattice:configurableParameter>
+                </lattice:configurableParameters>
             </lattice:ipInstance>
         </lattice:ipInstances>
         <lattice:memoryRegions>
