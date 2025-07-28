@@ -59,7 +59,7 @@ SECTIONS
     *(.rodata .rodata.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(4);
-  } >system1_inst
+  } >system0_inst
 
   .data : ALIGN(4)
   {
