@@ -4,7 +4,7 @@ module ice40_nano_Top (
 	inout [7:0] led_o
 );
 
-reg [3:0] r_rst_cnt;
+reg [3:0] r_rst_cnt = 0;
 wire oclk;
 wire clk_soc;
 wire resetn;
@@ -24,6 +24,7 @@ HSOSC #(.CLKHF_DIV ("0b10")) osc0(.CLKHFEN (1'b1), .CLKHFPU(1'b1), .CLKHF(oclk))
 
 gpll gpll_i (
         .rst_n_i	(resetn), 
+	.ref_clk_i	(oclk),
         .lock_o		(gpll_lock), 
         .outcore_o	(), 
         .outglobal_o	(clk_soc)
