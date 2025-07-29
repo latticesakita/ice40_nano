@@ -54,7 +54,7 @@ pullup(led[14]);
 pullup(led[15]);
 
 ice40_nano_Top dut (
-	.rstn_i	(rstn),
+	//.rstn_i	(rstn),
 	.rxd_i	(uart_rx),
 	//.clk12m	(clk),
 	.txd_o	(uart_tx),
