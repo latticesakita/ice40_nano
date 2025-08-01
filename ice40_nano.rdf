@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RadiantProject version="4.2" radiant="2025.1.0.39.0" title="ice40_nano" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="impl_1">
+<RadiantProject version="4.2" radiant="2025.2.t.105.0" title="ice40_nano" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="synplify" default_strategy="Strategy1">
-        <Options>
+        <Options hdl_sort="off">
             <Option name="include path" value="."/>
             <Option name="top" value="ice40_nano_Top"/>
         </Options>
         <Source name="ice40_nano/ice40_nano_Top.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="ice40_nano/lib/latticesemi.com/ip/system0/2.3.1/system0.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="ice40_nano/lib/latticesemi.com/ip/cpu0/1.0.0/cpu0.ipx" type="IPX_Module" type_short="IPX">
@@ -24,19 +21,16 @@
         <Source name="ice40_nano/ice40_nano.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="ice40_nano/tb.v" type="Verilog" type_short="Verilog" syn_sim="SimOnly">
+        <Source name="ice40_nano/ice40_common/dpram512x8.v" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options/>
         </Source>
-        <Source name="ice40_nano/ice40_common/dpram512x8.v" type="Verilog" type_short="Verilog">
+        <Source name="ice40_nano/ice40_common/dpram1024x8.v" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options/>
         </Source>
-        <Source name="ice40_nano/ice40_common/dpram1024x8.v" type="Verilog" type_short="Verilog">
+        <Source name="ice40_nano/ice40_common/dpram2048x8.v" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options/>
         </Source>
-        <Source name="ice40_nano/ice40_common/dpram2048x8.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="ice40_nano/ice40_common/dpram4096x8.v" type="Verilog" type_short="Verilog">
+        <Source name="ice40_nano/ice40_common/dpram4096x8.v" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options/>
         </Source>
         <Source name="ice40_nano/lib/personal/ip/ahbl_uart/1.0.3/ahbl_uart.ipx" type="IPX_Module" type_short="IPX">
@@ -46,6 +40,36 @@
             <Options/>
         </Source>
         <Source name="gpll/gpll.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/ice40_common/spram16384x32.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="dpram512x8/dpram512x8.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="dpram1024x8/dpram1024x8.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="dpram2048x8/dpram2048x8.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="dpram4096x8/dpram4096x8.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/ice40_common/spi_fifo.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/tb.v" type="Verilog" type_short="Verilog" syn_sim="SimOnly">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/ice40_common/spi_flash_tb.v" type="Verilog" type_short="Verilog" syn_sim="SimOnly">
+            <Options/>
+        </Source>
+        <Source name="dpram2048x2_512x8/dpram2048x2_512x8.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/lib/personal/ip/ahb_spram/1.3.0/ahb_spram.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="ice40_nano.pdc" type="Physical Constraints File" type_short="PDC">

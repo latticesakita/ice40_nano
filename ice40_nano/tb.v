@@ -28,6 +28,10 @@ wire [1:0] scl_io;
 wire [1:0] sda_io;
 wire       scl_i3c_io;
 wire       sda_i3c_io;
+wire spi_cs  ;
+wire spi_clk ;
+wire spi_mosi;
+wire spi_miso;
 
 pullup(uart_rx);
 pullup(scl_io[0]);
@@ -52,13 +56,26 @@ pullup(led[12]);
 pullup(led[13]);
 pullup(led[14]);
 pullup(led[15]);
+pullup(spi_miso);
+pullup(spi_mosi);
 
 ice40_nano_Top dut (
 	//.rstn_i	(rstn),
 	.rxd_i	(uart_rx),
 	//.clk12m	(clk),
 	.txd_o	(uart_tx),
-	.led_o	(led[7:0])
+	.led_o	(led[7:0]),
+	.spi_cs  	(spi_cs  ),
+	.spi_clk 	(spi_clk ), 
+	.spi_miso	(spi_miso),
+	.spi_mosi	(spi_mosi) 
+);
+// SPI Flash 
+spi_flash spi_flash_i (
+	.clk		(spi_clk),
+	.cs		(spi_cs),
+	.miso		(spi_miso),
+	.mosi		(spi_mosi)
 );
 
 endmodule

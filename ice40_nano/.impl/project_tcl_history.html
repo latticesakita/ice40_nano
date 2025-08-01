@@ -2,7 +2,61 @@
 <HEAD>
 <TITLE>Lattice TCL Log</TITLE>
 </HEAD>
-<BODY><DIV id="content" ><PRE><A name="250729154427" href="#250729154427"></A><B><U><big>250729154427</big></U></B>
+<BODY><DIV id="content" ><PRE><A name="250731105358" href="#250731105358"></A><B><U><big>250731105358</big></U></B>
+#Start recording tcl command: 7/31/2025 10:17:17
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_config_ip -vlnv {personal:ip:ahb_spram:1.1.0} -meta_vlnv {personal:ip:ahb_spsram_if:1.1.0}
+sbp_replace -vlnv {personal:ip:ahb_spram:1.1.0} -name {ahb_spram_inst} -component {ice40_nano/ahb_spram_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_config_ip -vlnv {personal:ip:ahb_spram:1.2.0} -meta_vlnv {personal:ip:ahb_spsram_if:1.2.0}
+sbp_replace -vlnv {personal:ip:ahb_spram:1.2.0} -name {ahb_spram_inst} -component {ice40_nano/ahb_spram_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_design close
+#Stop recording: 7/31/2025 10:53:58
+
+<A name="250729163854" href="#250729163854"></A><B><U><big>250729163854</big></U></B>
+#Start recording tcl command: 7/29/2025 16:23:50
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_unassign_addr_seg {ice40_nano/system0_inst/AHBL_S0}
+sbp_assign_addr_seg -offset 'h00000000 {ice40_nano/cpu0_inst/AHBL_M0_INSTR} {ice40_nano/system0_inst/AHBL_S0}
+sbp_config_ip -vlnv {latticesemi.com:ip:system0:2.4.0} -meta_vlnv {latticesemi.com:ip:system_memory:2.4.0} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Code.mem,INIT_MEM:true,REGMODE_S0:true}
+sbp_replace -vlnv {latticesemi.com:ip:system0:2.4.0} -name {system0_inst} -component {ice40_nano/system0_inst}
+sbp_config_ip -vlnv {personal:ip:ahb_spram:1.1.0} -meta_vlnv {personal:ip:ahb_spsram_if:1.1.0}
+sbp_add_component -vlnv {personal:ip:ahb_spram:1.1.0} -name {ahb_spram_inst}
+sbp_delete {ice40_nano/system0_inst} -type component
+sbp_connect_interface_net {ice40_nano/ahb_spram_inst/AHBL_S0} {ice40_nano/cpu0_inst/AHBL_M0_INSTR}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/ahb_spram_inst/HCLK}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/ahb_spram_inst/HRESETn}
+sbp_add_port -from 31 -to 0 -direction out sram_addr
+sbp_add_port -from 31 -to 0 -direction out sram_din
+sbp_add_port -direction out sram_re
+sbp_add_port -direction out sram_we
+sbp_connect_net {ice40_nano/sram_addr} {ice40_nano/ahb_spram_inst/sram_addr}
+sbp_connect_net {ice40_nano/sram_din} {ice40_nano/ahb_spram_inst/sram_din}
+sbp_connect_net {ice40_nano/sram_re} {ice40_nano/ahb_spram_inst/sram_re}
+sbp_connect_net {ice40_nano/sram_we} {ice40_nano/ahb_spram_inst/sram_we}
+sbp_add_port -from 31 -to 0 -direction in sram_dout
+sbp_connect_net {ice40_nano/sram_dout} {ice40_nano/ahb_spram_inst/sram_dout}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_design close
+#Stop recording: 7/29/2025 16:38:54
+
+<A name="250729154427" href="#250729154427"></A><B><U><big>250729154427</big></U></B>
 #Start recording tcl command: 7/29/2025 15:43:32
 sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
 sbp_design close
