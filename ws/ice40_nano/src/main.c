@@ -74,16 +74,10 @@ static int lscc_uart_putc(char c, FILE *file)
 		int ret = EOF;
 #if (defined UART_INST_BASE_ADDR)
 		ret = uart_putc(&uart_core_uart, c);
-		if (c == '\n' && ret == 0)
-			ret = uart_putc(&uart_core_uart, '\r');
-#elif (defined LOCAL_UART_INST_BASE_ADDR)
-		ret = local_uart_putc(&local_uart_core, c);
-		if (c == '\n' && ret == 0)
-			ret = local_uart_putc(&local_uart_core, '\r');
+		//if (c == '\n' && ret == 0)
+			//ret = uart_putc(&uart_core_uart, '\r');
 #endif
 		return ret;
-#else
-		return EOF;
 #endif
 }
 
@@ -105,27 +99,12 @@ static int lscc_uart_flush(FILE *file)
 static void bsp_init(void)
 {
 #if (defined UART_INST_BASE_ADDR)
-#ifndef _UART_NO_INTERRUPTS_
-	//setup uart IRQ
-	pic_init(CPU0_INST_PICTIMER_START_ADDR);
-	uart_core_uart.intrLevel = UART0_INST_IRQ;
-	uart_core_uart.intrAvail = true;
-	//pic_isr_register(UART0_INST_IRQ, uart_isr, (void *)&uart_core_uart);
-#endif
 
 	//initialize UART
-	uart_init(&uart_core_uart, UART_INST_BASE_ADDR, UART_INST_SYS_CLK * 1000000, UART_INST_BAUD_RATE, 1, 8);
-#elif (defined LOCAL_UART_INST_BASE_ADDR)
-    local_uart_init(&local_uart_core, LOCAL_UART_INST_BASE_ADDR, CPU0_INST_SYS_CLOCK_FREQ * 1000000, CPU0_INST_BAUD_RATE, 1, 8);
+	uart_init(&uart_core_uart, UART_INST_BASE_ADDR, UART_INST_SYS_CLK, UART_INST_BAUD_RATE, 1, 8);
 #endif
 	iob_init(lscc_uart_putc, lscc_uart_getc, lscc_uart_flush);
 	trap_init();
-
-#if REG_TEST_ENABLE
-	/* Used for register access test, If not sure how to use, disable it. */
-	reg_test_assert(mem_access_test());
-	printf("\nmem_access_test success!\n\n");
-#endif
 
 #ifdef GPIO_INST_BASE_ADDR
 	//initialize GPIO
@@ -133,10 +112,6 @@ static void bsp_init(void)
 	gpio_init(&gpio_inst, GPIO_INST_BASE_ADDR, GPIO_INST_LINES_NUM, GPIO_INST_GPIO_DIRS);
 #endif
 
-#ifdef RISCV_RX_DRV_VER
-	/*If driver support, set global interrupt-enable bit to 1.*/
-	plic_enable_global_interrupts(1);
-#endif
 }
 
 
@@ -145,7 +120,15 @@ int main(void) {
 	static uint8_t pin_state = 0xFF;
 
 	bsp_init();
-
+	gpio_output_write(&gpio_inst, idx, pin_state);
+	gpio_output_write(&gpio_inst, idx+1, pin_state);
+	pin_state = 0x00;
+	gpio_output_write(&gpio_inst, idx, pin_state);
+	gpio_output_write(&gpio_inst, idx+1, pin_state);
+	uart_putc(&uart_core_uart, '0');
+	uart_putc(&uart_core_uart, '1');
+	uart_printf(&uart_core_uart, "Started!\nHello RISC-V world!\n");
+	// uart_puts(&uart_core_uart, "Started!\nHello RISC-V world!\n");
 	printf("Started!\nHello RISC-V world!\n"); 
 
 	while (true) {

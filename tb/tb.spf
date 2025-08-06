@@ -1,22 +1,22 @@
 <RadiantSimulationProject language="1" name="tb" path="." simType="QuestaSim Qrun" stage="0" version="2.0">
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/tb.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spi_flash_tb.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_nano_Top.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/cpu0/1.0.0/rtl/cpu0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/system1/2.3.1/rtl/system1.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/rtl/ahbl0.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_nano.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahbl_uart/1.0.3/rtl/ahbl_uart.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/gpio0/1.0.4/rtl/gpio0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="gpll/rtl/gpll.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spi_fifo.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spram16384x32.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/rtl/ahbl0.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="gpll/rtl/gpll.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram512x8/rtl/dpram512x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram1024x8/rtl/dpram1024x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram2048x8/rtl/dpram2048x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram4096x8/rtl/dpram4096x8.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spi_fifo.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/tb.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spi_flash_tb.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram2048x2_512x8/rtl/dpram2048x2_512x8.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahb_spram/1.3.0/rtl/ahb_spram.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahb_spram/1.5.0/rtl/ahb_spram.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/gpio0/1.0.5/rtl/gpio0.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/system1/2.4.0/rtl/system1.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/cpu0/1.1.0/rtl/cpu0.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahbl_uart/1.0.5/rtl/ahbl_uart.v" type="VERILOG" worklib="work"/>
     <SimLib value="pmi_work ovi_ice40up"/>
     <GlbInc value="&quot;.&quot;"/>
     <Macro value=""/>

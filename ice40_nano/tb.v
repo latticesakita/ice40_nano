@@ -77,6 +77,51 @@ spi_flash spi_flash_i (
 	.miso		(spi_miso),
 	.mosi		(spi_mosi)
 );
+integer code_log;
+integer data_log;
+
+initial begin
+	code_log = $fopen("code.log", "w");
+	data_log = $fopen("data.log", "w");
+end
+reg r_hreadyout_d = 0;
+reg r_htrans_d = 0;
+reg r_m1_access = 0;
+always @(posedge dut.clk_soc) begin
+	r_hreadyout_d <= dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HREADYOUT;
+	r_htrans_d    <= dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HTRANS[1];
+end
+always @(posedge dut.clk_soc) begin
+	if(~r_htrans_d &dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HTRANS[1]) begin
+		r_m1_access <= 1'b1;
+	end
+	else if(r_m1_access && dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HREADYOUT) begin
+		r_m1_access <= 1'b0;
+	end
+end
+always @(posedge dut.clk_soc) begin
+	if(~r_hreadyout_d & dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HREADYOUT) begin
+		$display("%0t: %08x, %08x", $time, 
+			dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HADDR,
+			dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HRDATA);
+		$fwrite(code_log, "%0t: %08x, %08x\n", $time, 
+			dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HADDR,
+			dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HRDATA);
+	end
+end
+always @(posedge dut.clk_soc) begin
+	if(r_m1_access && dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HREADYOUT) begin
+		if(dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HWRITE) begin
+			$fwrite(data_log, "%0t: %08x, %08x, write\n", $time, 
+				dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HADDR,
+				dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HWDATA);
+		end else begin
+			$fwrite(data_log, "%0t: %08x, %08x, read\n", $time, 
+				dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HADDR,
+				dut.ice40_nano_inst.cpu0_inst_AHBL_M1_DATA_interconnect_HRDATA);
+		end
+	end
+end
+
 
 endmodule
-

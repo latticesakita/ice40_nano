@@ -63,17 +63,17 @@
 #define CPU0_INST_NAME "cpu0_inst"
 
 #define SYSTEM1_INST_NAME "system1_inst"
-#define SYSTEM1_INST_BASE_ADDR 0x2000
+#define SYSTEM1_INST_BASE_ADDR 0x20000
 
 #define AHB_SPRAM_INST_NAME "ahb_spram_inst"
-#define AHB_SPRAM_INST_BASE_ADDR 0x20000
+#define AHB_SPRAM_INST_BASE_ADDR 0x0
 
 #define AHBL_UART_INST_NAME "ahbl_uart_inst"
-#define AHBL_UART_INST_BASE_ADDR 0x5000
+#define AHBL_UART_INST_BASE_ADDR 0x25000
 
 #define GPIO0_INST_NAME "gpio0_inst"
 #define GPIO_INST_NAME GPIO0_INST_NAME
-#define GPIO0_INST_BASE_ADDR 0x3000
+#define GPIO0_INST_BASE_ADDR 0x23000
 #define GPIO_INST_BASE_ADDR GPIO0_INST_BASE_ADDR
 
 /* ip instance rename */
@@ -101,7 +101,7 @@ and make sure to disable it when developing the application firmware. */
 
 /* ahbl_uart_inst parameters */
 #define AHBL_UART_INST_BUFFER_SIZE 512
-#define AHBL_UART_INST_CLOCK_FREQ 48000000
+#define AHBL_UART_INST_CLOCK_FREQ 24000000
 #define AHBL_UART_INST_UART_BAUDRATE 115200
 
 /* gpio0_inst parameters */

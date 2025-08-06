@@ -61,17 +61,17 @@
 
 #define GPIO0_INST_NAME "gpio0_inst"
 #define GPIO_INST_NAME GPIO0_INST_NAME
-#define GPIO0_INST_BASE_ADDR 0x3000
+#define GPIO0_INST_BASE_ADDR 0x23000
 #define GPIO_INST_BASE_ADDR GPIO0_INST_BASE_ADDR
 
 #define SYSTEM0_INST_NAME "system0_inst"
 #define SYSTEM0_INST_BASE_ADDR 0x0
 
 #define SYSTEM1_INST_NAME "system1_inst"
-#define SYSTEM1_INST_BASE_ADDR 0x2000
+#define SYSTEM1_INST_BASE_ADDR 0x20000
 
 #define UART0_INST_NAME "uart0_inst"
-#define UART0_INST_BASE_ADDR 0x5000
+#define UART0_INST_BASE_ADDR 0x25000
 #define UART_INST_BASE_ADDR UART0_INST_BASE_ADDR
 
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
@@ -99,7 +99,7 @@ and make sure to disable it when developing the application firmware. */
 #define UART_INST_BAUD_RATE UART0_INST_BAUD_RATE
 #define UART0_INST_DATA_WIDTH 8
 #define UART0_INST_STOP_BITS 1
-#define UART0_INST_SYS_CLK 18.0
+#define UART0_INST_SYS_CLK 24000000
 #define UART_INST_SYS_CLK UART0_INST_SYS_CLK
 
 /* interrupt */

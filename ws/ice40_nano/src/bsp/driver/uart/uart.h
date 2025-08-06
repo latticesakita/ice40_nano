@@ -85,10 +85,11 @@ struct uart_dev {
 	volatile unsigned int lcr;
 	volatile unsigned int reserved1;
 	volatile unsigned int lsr;
-	volatile unsigned int reserved2;
+	volatile unsigned int txb; // tx available bytes (16bits)
 	volatile unsigned int reserved3;
-	volatile unsigned int dlr_lsb;
-	volatile unsigned int dlr_msb;
+	volatile unsigned int dlr_lsb; // divisor (lsb)
+	volatile unsigned int dlr_msb; // divisor (msb)
+	volatile unsigned int dlr; // divisor (16bits)
 };
 
 #define UART_BUFFER_SIZE    16
@@ -96,6 +97,7 @@ struct uart_dev {
 struct uart_instance {
 	const char *name;
 	unsigned int base;
+#if 0
 	unsigned int sys_clk;
 	unsigned char intrLevel;
 	unsigned char intrAvail;
@@ -118,6 +120,7 @@ struct uart_instance {
 	volatile unsigned char rxDataBytes;
 	unsigned int errors;
 	unsigned char ier;
+#endif
 };
 
 #define UART_ERR_WOULD_BLOCK        (1)
@@ -131,6 +134,9 @@ unsigned char uart_init(struct uart_instance *this_uart,
 			unsigned char stop_bits, unsigned char data_width);
 unsigned char uart_putc(struct uart_instance *this_uart,
 			unsigned char ucChar);
+unsigned char uart_puts(struct uart_instance *this_uart,
+			unsigned char *s);
+void uart_printf(struct uart_instance *this_uart, const char *format, ...);
 unsigned char uart_getc(struct uart_instance *this_uart,
 			unsigned char *pucChar);
 unsigned char uart_set_rate(struct uart_instance *this_uart,

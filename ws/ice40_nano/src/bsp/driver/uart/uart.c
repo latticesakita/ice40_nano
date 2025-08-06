@@ -50,6 +50,9 @@
      ================================================================== */
 #include "uart.h"
 #include "hal.h"
+#include "sys_platform.h"
+#include <stdio.h>
+#include <stdarg.h>
 
 /*
  ***************************************************************
@@ -171,47 +174,24 @@ unsigned char uart_init(struct uart_instance *this_uart,
 			unsigned int baud_rate,
 			unsigned char stop_bits, unsigned char data_width)
 {
-	volatile struct uart_dev *dev;
+	//volatile struct uart_dev *dev;
 	if (NULL == this_uart) {
 		return 1;
 	}
 	this_uart->base = base_addr;
-	dev = (volatile struct uart_dev *) (this_uart->base);
+	//dev = (volatile struct uart_dev *) (this_uart->base);
 
 	/*initialize the instance data */
 	this_uart->base = base_addr;
+#if 0
 	this_uart->sys_clk = sys_clk;
 	this_uart->baudrate = baud_rate;
 	this_uart->databits = data_width;
 	this_uart->stopbits = stop_bits;
-
 	/* set the data-configuration */
 	//uart_config(this_uart, 8, 0, 0, 1);
 
 	this_uart->blockingTx = 1;
-#ifndef _UART_NO_INTERRUPTS_
-	/* If interrupts are available use interrupt-mode */
-	if (this_uart->intrAvail) {
-
-		/* initialize buffer-related parameters */
-		this_uart->txDataBytes = 0;
-		this_uart->rxDataBytes = 0;
-		this_uart->txReadLoc = 0;
-		this_uart->txWriteLoc = 0;
-		this_uart->rxReadLoc = 0;
-		this_uart->rxWriteLoc = 0;
-		this_uart->rxBufferSize = UART_BUFFER_SIZE;
-		this_uart->txBufferSize = UART_BUFFER_SIZE;
-		/*
-		 * Don't enable transmit interrupt as the write-function takes care of
-		 * doing that
-		 */
-		this_uart->ier = UART_IER_RX_INT_MASK;
-		dev->ier = this_uart->ier;
-
-		/* Register interrupt-handler for this uart's interrupt */
-		pic_isr_register(this_uart->intrLevel, uart_isr, this_uart);	//uart_isr have two parameter!!!!!
-	}
 #endif
 
 	/* all done! */
@@ -271,8 +251,8 @@ unsigned char uart_getc(struct uart_instance *this_uart,
 		}
 
 		/* if rx is non-blocking, return immediately */
-		if (this_uart->blockingRx == 0)
-			return (UART_ERR_WOULD_BLOCK);
+		//if (this_uart->blockingRx == 0)
+			//return (UART_ERR_WOULD_BLOCK);
 
 	} while (1);
 
@@ -296,51 +276,55 @@ unsigned char uart_putc(struct uart_instance *this_uart,
 	}
 	dev = (volatile struct uart_dev *) (this_uart->base);
 
-#ifndef _UART_NO_INTERRUPTS_
-	if (this_uart->intrAvail) {
-		/* if tx-buffer's full, wait for it to get empty */
-		while (this_uart->txDataBytes == this_uart->txBufferSize) {
-
-			/* if non-blocking tx, return immediately */
-			if (this_uart->blockingTx == 0)
-				return (UART_ERR_WOULD_BLOCK);
-		}
-
-		/* stuff data into the write-buffer */
-		this_uart->txBuffer[this_uart->txWriteLoc] = ucChar;
-		this_uart->txWriteLoc++;
-		if (this_uart->txWriteLoc >= this_uart->txBufferSize)
-			this_uart->txWriteLoc = 0;
-
-		/* increment tx-databytes and enable transmit interrupt */
-		pic_int_disable(this_uart->intrLevel);
-		this_uart->txDataBytes++;
-		this_uart->ier |= UART_IER_TX_INT_MASK;
-		dev->ier = this_uart->ier;
-		pic_int_enable(this_uart->intrLevel);
-
-		/* all done */
-		return (0);
-	} else
-#endif
 	{
 		do {
 			/* if uart's ready to accept character, send immediately */
-			uiValue = dev->lsr;
-			if (uiValue & UART_LSR_TX_RDY_MASK) {
+			uiValue = dev->txb;
+			if (uiValue != 0) {
 				dev->rxtx = ucChar;
 				return (0);
 			}
-
-			/* if non-blocking tx, return immediately */
-			if (this_uart->blockingTx == 0)
-				return (UART_ERR_WOULD_BLOCK);
 
 		} while (1);
 	}
 
 	/* all done */
 	return 0;
+}
+unsigned char uart_puts(struct uart_instance *this_uart,
+			unsigned char *s)
+{
+	volatile unsigned char uiValue;
+	volatile struct uart_dev *dev;
+	if (NULL == this_uart) {
+		return 1;
+	}
+	dev = (volatile struct uart_dev *) (this_uart->base);
+
+	uiValue = dev->txb;
+	while(*s != 0) {
+		if (uiValue != 0) {
+			dev->rxtx = *s++;
+			uiValue--;
+		}
+		else {
+			uiValue = dev->txb;
+		}
+	}
+
+	/* all done */
+	return 0;
+}
+
+void uart_printf(struct uart_instance *this_uart, const char *format, ...) {
+    unsigned char buffer[80];  // 出力用バッファ（必要に応じてサイズ調整）
+    va_list args;
+
+    va_start(args, format);
+    vsnprintf(buffer, sizeof(buffer), format, args);
+    va_end(args);
+
+    uart_puts(this_uart, buffer);
 }
 
 /*
@@ -368,7 +352,7 @@ unsigned char uart_config(struct uart_instance *this_uart,
 		return 1;
 	}
 	dev = (volatile struct uart_dev *) (this_uart->base);
-
+#if 0
 	/* check data-width value */
 	if (dwidth > 8)
 		return (UART_ERR_INVALID_ARGUMENT);
@@ -412,6 +396,7 @@ unsigned char uart_config(struct uart_instance *this_uart,
 			lcr |= 0x8;
 	}
 	dev->lcr = lcr;
+#endif
 
 	/* all done */
 	return 0;
@@ -444,23 +429,17 @@ unsigned char uart_set_rate(struct uart_instance *this_uart,
 #endif
 
 	/* set to new baudrate */
-	this_uart->baudrate = baudrate;
+	//this_uart->baudrate = baudrate;
 
 	/* Calculate clock-divisor */
-	divisor = (this_uart->sys_clk) / baudrate;
+	//divisor = (this_uart->sys_clk) / baudrate;
+	divisor = UART_INST_SYS_CLK / baudrate;
 	/*
 	 * Setup uart:
 	 * - divisor
 	 */
-	unsigned int *address = (unsigned int *) &(dev->dlr_lsb);
-	*address = (unsigned char) (divisor);
-	address++;
-	*address = (unsigned char) (divisor >> 8);
-
-#ifndef _UART_NO_INTERRUPTS_
-	/* re-enable interrupt for the UART */
-	pic_int_enable(this_uart->intrLevel);
-#endif
+	unsigned int *address = (unsigned int *) &(dev->dlr);
+	*address = divisor;
 
 	return 0;
 }

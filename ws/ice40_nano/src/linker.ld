@@ -7,8 +7,8 @@ _STACK_SIZE = DEFINED(_STACK_SIZE) ? _STACK_SIZE : 0x0A00;
 
 MEMORY
 {
-    system0_inst (rx) : org = 0x0, len = 0x1000
-    system1_inst (rw) : org = 0x2000, len = 0x1000
+    system0_inst (rx) : org = 0x0, len = 0x20000
+    system1_inst (rw) : org = 0x20000, len = 0x1000
 }
 
 SECTIONS
@@ -59,7 +59,7 @@ SECTIONS
     *(.rodata .rodata.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(4);
-  } >system0_inst
+  } >system1_inst
 
   .data : ALIGN(4)
   {

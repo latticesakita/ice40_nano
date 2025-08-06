@@ -41,15 +41,15 @@
 
 //Verilog instantiation template
 
-ice40_nano _inst (.sram_addr(), 
+ice40_nano _inst (.gpio0_io(), 
+                  .sram_addr(), 
                   .sram_din(), 
                   .sram_dout(), 
                   .clk_i(), 
                   .sram_re(), 
-                  .sram_we(), 
                   .sram_read_valid(), 
+                  .sram_we(), 
                   .sram_write_done(), 
-                  .gpio0_io(), 
                   .uart_rxd_00_i(), 
                   .uart_txd_00_o(), 
                   .rstn_i());

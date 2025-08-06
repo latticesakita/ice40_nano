@@ -17,7 +17,7 @@
         </lattice:general>
         <lattice:ipInstances>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="latticesemi.com" library="ip" name="riscv_nano" version="1.0.0">cpu0_inst</lattice:instanceName>
+                <lattice:instanceName vendor="latticesemi.com" library="ip" name="riscv_nano" version="1.1.0">cpu0_inst</lattice:instanceName>
                 <ipxact:addressSpaces>
                     <ipxact:addressSpace>
                         <ipxact:name>riscv_ahbl_m_data_Address_Space</ipxact:name>
@@ -27,19 +27,19 @@
                             <ipxact:segment>
                                 <ipxact:name>ice40_nano_ahbl_uart_inst_ahb_uart</ipxact:name>
                                 <ipxact:displayName>ice40_nano/ahbl_uart_inst/ahb_uart</ipxact:displayName>
-                                <ipxact:addressOffset>0x5000</ipxact:addressOffset>
+                                <ipxact:addressOffset>0x25000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                             <ipxact:segment>
                                 <ipxact:name>ice40_nano_gpio0_inst_gpio_ahbl</ipxact:name>
                                 <ipxact:displayName>ice40_nano/gpio0_inst/gpio_ahbl</ipxact:displayName>
-                                <ipxact:addressOffset>0x3000</ipxact:addressOffset>
+                                <ipxact:addressOffset>0x23000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                             <ipxact:segment>
                                 <ipxact:name>ice40_nano_system1_inst_ahbl_slv0_model_mem_map</ipxact:name>
                                 <ipxact:displayName>ice40_nano/system1_inst/ahbl_slv0_model_mem_map</ipxact:displayName>
-                                <ipxact:addressOffset>0x2000</ipxact:addressOffset>
+                                <ipxact:addressOffset>0x20000</ipxact:addressOffset>
                                 <ipxact:range>0x1000</ipxact:range>
                             </ipxact:segment>
                         </ipxact:segments>
@@ -52,7 +52,7 @@
                             <ipxact:segment>
                                 <ipxact:name>ice40_nano_ahb_spram_inst_ahb_spsram_if</ipxact:name>
                                 <ipxact:displayName>ice40_nano/ahb_spram_inst/ahb_spsram_if</ipxact:displayName>
-                                <ipxact:addressOffset>0x20000</ipxact:addressOffset>
+                                <ipxact:addressOffset>0x0</ipxact:addressOffset>
                                 <ipxact:range>0x20000</ipxact:range>
                             </ipxact:segment>
                         </ipxact:segments>
@@ -84,10 +84,10 @@
                         <lattice:value>True</lattice:value>
                     </lattice:configurableParameter>
                 </lattice:configurableParameters>
-                <lattice:driverVersion>1.0.0</lattice:driverVersion>
+                <lattice:driverVersion>1.1.0</lattice:driverVersion>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="latticesemi.com" library="ip" name="system_memory" version="2.3.1">system1_inst</lattice:instanceName>
+                <lattice:instanceName vendor="latticesemi.com" library="ip" name="system_memory" version="2.4.0">system1_inst</lattice:instanceName>
                 <ipxact:memoryMaps>
                     <ipxact:memoryMap>
                         <ipxact:name>ahbl_slv0_model_mem_map</ipxact:name>
@@ -96,7 +96,7 @@
                             <ipxact:name>memory</ipxact:name>
                             <ipxact:displayName>memory</ipxact:displayName>
                             <ipxact:description>Memory Block</ipxact:description>
-                            <ipxact:baseAddress>0x2000</ipxact:baseAddress>
+                            <ipxact:baseAddress>0x20000</ipxact:baseAddress>
                             <ipxact:range>0x1000</ipxact:range>
                             <ipxact:width>32</ipxact:width>
                             <ipxact:usage>memory</ipxact:usage>
@@ -195,7 +195,7 @@
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">INIT_FILE</lattice:name>
-                        <lattice:value>O:\src\Propel\iCE40UP\ice40_nano\ice40_nano\../ws/ice40_nano/Debug/ice40_nano_Data.mem</lattice:value>
+                        <lattice:value>O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../ws/ice40_nano/Debug/ice40_nano_Data.mem</lattice:value>
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">load_file</lattice:name>
@@ -203,11 +203,11 @@
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">INIT_VALUE_00</lattice:name>
-                        <lattice:value>0x00000000000000100110001001010110001001110000011001100000000000000x00000000000000011111110100101100000100100000111011110000000000000x00000000000001100111010000100110011001100000011001100000000000000x00000000000001000111001100000101010000010000100110010000000000000x00000000000001100010010101100100011001110111010101110010001000100x00000000000011000000001111111000010101000100111100000000000000000x00000000000001110101010001100000011101010111001101100011001100110x0011000000000010011010011100101001000011001100000111100010001000</lattice:value>
+                        <lattice:value>0x00100111000000100110001001010110001001110000011001100000000000000x00010010000000011111110100101100000100100000111011110000000000000x01100110000001100111010000100110011001100000011001100000000000000x01000001000001000111001100000101010000010000100110010010001000100x01100111000001100010010101100100011001110111010101110000000000000x01010100000011000000001111111000010101000100111100000000000000000x01110101000001110101010001100000011101010111001101100110011001100x0100001110100010011010011100101001000011001100000111100010001000</lattice:value>
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">INIT_VALUE_01</lattice:name>
-                        <lattice:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000101010001000x00000000000000000000000000000000000000000000000011110100111110010x0000000000000000000000000000000000000000000000001111010001000100</lattice:value>
+                        <lattice:value>0x00000000000000000000000000000110000001100000001001100010010101100x00000000000000000000000000001111000011000000000111111101001011000x00000000000000000000000000100110000001110000011001110100001001100x00000000000000000000000010101100000001010000010001110011000001010x00000000000000000000000001110110001001100000011000100101011001000x00000110010101010000000001000110100111100000110000000011111110000x11110001110001100000000001100010011000100000011101010100011000000x1111110011001100001100000001101011001000000000100110100111001010</lattice:value>
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">INIT_VALUE_02</lattice:name>
@@ -824,14 +824,14 @@
                 </lattice:configurableParameters>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="ahb_spsram_if" version="1.3.0">ahb_spram_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="ahb_spsram_if" version="1.5.0">ahb_spram_inst</lattice:instanceName>
                 <ipxact:memoryMaps>
                     <ipxact:memoryMap>
                         <ipxact:name>ahb_spsram_if</ipxact:name>
                         <ipxact:description>AHBL_S0</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>SPSRAM_SRAM</ipxact:name>
-                            <ipxact:baseAddress>0x20000</ipxact:baseAddress>
+                            <ipxact:baseAddress>0x0</ipxact:baseAddress>
                             <ipxact:range>0x20000</ipxact:range>
                             <ipxact:width>32</ipxact:width>
                             <ipxact:vendorExtensions/>
@@ -841,7 +841,7 @@
                 <lattice:configurableParameters/>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="ahb_uart" version="1.0.3">ahbl_uart_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="ahb_uart" version="1.0.5">ahbl_uart_inst</lattice:instanceName>
                 <ipxact:addressSpaces>
                     <ipxact:addressSpace>
                         <ipxact:name>INT_Address_Space</ipxact:name>
@@ -856,7 +856,7 @@
                         <ipxact:description>New Memorymap</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>NewAddressBlock1</ipxact:name>
-                            <ipxact:baseAddress>0x5000</ipxact:baseAddress>
+                            <ipxact:baseAddress>0x25000</ipxact:baseAddress>
                             <ipxact:range>0x400</ipxact:range>
                             <ipxact:width>32</ipxact:width>
                             <ipxact:vendorExtensions/>
@@ -866,7 +866,7 @@
                 <lattice:configurableParameters>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">CLOCK_FREQ</lattice:name>
-                        <lattice:value>48000000</lattice:value>
+                        <lattice:value>24000000</lattice:value>
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">UART_BAUDRATE</lattice:name>
@@ -880,7 +880,7 @@
                 <lattice:interruptPort>IRQ_S1</lattice:interruptPort>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="gpio_ahbl_io" version="1.0.4">gpio0_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="gpio_ahbl_io" version="1.0.5">gpio0_inst</lattice:instanceName>
                 <ipxact:addressSpaces>
                     <ipxact:addressSpace>
                         <ipxact:name>IRQ_Address_Space</ipxact:name>
@@ -895,7 +895,7 @@
                         <ipxact:description>gpio_ahbl</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>NewAddressBlock1</ipxact:name>
-                            <ipxact:baseAddress>0x3000</ipxact:baseAddress>
+                            <ipxact:baseAddress>0x23000</ipxact:baseAddress>
                             <ipxact:range>0x400</ipxact:range>
                             <ipxact:width>32</ipxact:width>
                             <ipxact:vendorExtensions/>
@@ -933,7 +933,7 @@
                 <lattice:masterPorts>
                     <lattice:masterPort>
                         <lattice:name>cpu0_inst_AHBL_M1_DATA</lattice:name>
-                        <lattice:baseAddress>0x2000</lattice:baseAddress>
+                        <lattice:baseAddress>0x20000</lattice:baseAddress>
                         <lattice:range>0x1000</lattice:range>
                     </lattice:masterPort>
                 </lattice:masterPorts>

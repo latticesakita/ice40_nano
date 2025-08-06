@@ -51,7 +51,7 @@
 #ifndef HAL_H_
 #define HAL_H_
 
-#define RISCV_NANO_DRV_VER "v1.0.0"
+#define RISCV_NANO_DRV_VER "v1.1.0"
 
 #include "pic.h"
 #include "reg_access.h"
