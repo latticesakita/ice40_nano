@@ -57,7 +57,10 @@ component ice40_nano is
     );
     
 end component ice40_nano;
-_inst: ice40_nano port map (gpio0_io => __,
+_inst: ice40_nano port map (rstn_i => __,
+                            uart_rxd_00_i => __,
+                            uart_txd_00_o => __,
+                            gpio0_io => __,
                             sram_addr => __,
                             sram_din => __,
                             sram_dout => __,
@@ -65,8 +68,5 @@ _inst: ice40_nano port map (gpio0_io => __,
                             sram_re => __,
                             sram_read_valid => __,
                             sram_we => __,
-                            sram_write_done => __,
-                            uart_rxd_00_i => __,
-                            uart_txd_00_o => __,
-                            rstn_i => __);
+                            sram_write_done => __);
                             

@@ -3,11 +3,11 @@
     <ipxact:vendor>personal</ipxact:vendor>
     <ipxact:library>ip</ipxact:library>
     <ipxact:name>gpio0</ipxact:name>
-    <ipxact:version>1.0.5</ipxact:version>
+    <ipxact:version>1.0.7</ipxact:version>
     <ipxact:componentInstances>
         <ipxact:componentInstance>
             <ipxact:instanceName>gpio_ahbl_inst</ipxact:instanceName>
-            <ipxact:componentRef library="ip" name="gpio_ahbl_io" vendor="personal" version="1.0.5">
+            <ipxact:componentRef library="ip" name="gpio_ahbl_io" vendor="personal" version="1.0.7">
                 <ipxact:configurableElementValues>
                     <ipxact:configurableElementValue referenceId="BUS_WIDTH">8</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="DIRECTION">8'hFF</ipxact:configurableElementValue>

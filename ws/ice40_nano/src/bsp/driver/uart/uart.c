@@ -179,10 +179,10 @@ unsigned char uart_init(struct uart_instance *this_uart,
 		return 1;
 	}
 	this_uart->base = base_addr;
-	//dev = (volatile struct uart_dev *) (this_uart->base);
-
 	/*initialize the instance data */
 	this_uart->base = base_addr;
+	//dev = (volatile struct uart_dev *) (this_uart->base);
+
 #if 0
 	this_uart->sys_clk = sys_clk;
 	this_uart->baudrate = baud_rate;

@@ -74,6 +74,10 @@
 #define UART0_INST_BASE_ADDR 0x25000
 #define UART_INST_BASE_ADDR UART0_INST_BASE_ADDR
 
+#define TIMER_INST_NAME "timer_inst"
+#define TIMER_INST_BASE_ADDR 0x30000
+#define TIMER_PRESCALE   23  // 24MHz system clock
+
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
 testable register of each IP instance, it might affect the environment during test. 
 Treat this with care, it's expected to be done only once when the SOC is generated on fly, 
@@ -104,7 +108,7 @@ and make sure to disable it when developing the application firmware. */
 
 /* interrupt */
 
-#define GPIO0_INST_IRQ 0
+#define TIMER_INST_IRQ 0
 #define UART0_INST_IRQ 1
 
 #endif

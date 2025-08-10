@@ -57,38 +57,76 @@
 #include <stdint.h>
 
 //#define _DIRECTION_INTERNAL_MEMORY_USE_
-#define MAX_NUMBER_OF_GPIO	32
+#define MAX_NUMBER_OF_GPIO	16
 
-enum gpio_direction {
-	GPIO_INPUT,
-	GPIO_OUTPUT
-};
+
+#define GPIO0   (0x0001)
+#define GPIO1   (0x0002)
+#define GPIO2   (0x0004)
+#define GPIO3   (0x0008)
+#define GPIO4   (0x0010)
+#define GPIO5   (0x0020)
+#define GPIO6   (0x0040)
+#define GPIO7   (0x0080)
+#define GPIO8   (0x0100)
+#define GPIO9   (0x0200)
+#define GPIO10  (0x0400)
+#define GPIO11  (0x0800)
+#define GPIO12  (0x1000)
+#define GPIO13  (0x2000)
+#define GPIO14  (0x4000)
+#define GPIO15  (0x8000)
+#define GPIO_ALL  (0xFFFF)
+
+// mask value
+#define MGPIO0     ((~0x0001) & 0xFFFF)
+#define MGPIO1     ((~0x0002) & 0xFFFF)
+#define MGPIO2     ((~0x0004) & 0xFFFF)
+#define MGPIO3     ((~0x0008) & 0xFFFF)
+#define MGPIO4     ((~0x0010) & 0xFFFF)
+#define MGPIO5     ((~0x0020) & 0xFFFF)
+#define MGPIO6     ((~0x0040) & 0xFFFF)
+#define MGPIO7     ((~0x0080) & 0xFFFF)
+#define MGPIO8     ((~0x0100) & 0xFFFF)
+#define MGPIO9     ((~0x0200) & 0xFFFF)
+#define MGPIO10    ((~0x0400) & 0xFFFF)
+#define MGPIO11    ((~0x0800) & 0xFFFF)
+#define MGPIO12    ((~0x1000) & 0xFFFF)
+#define MGPIO13    ((~0x2000) & 0xFFFF)
+#define MGPIO14    ((~0x4000) & 0xFFFF)
+#define MGPIO15    ((~0x8000) & 0xFFFF)
+#define MGPIO_ALL  (0x0000)
+
+
+//enum gpio_direction
+#define GPIO_INPUT   (0     )
+#define GPIO_OUTPUT  (0xFFFF)
+
+//enum gpio_state {
+#define GPIO_LOW   (0     )
+#define GPIO_HIGH  (0xFFFF)
 
 struct gpio_cfg {
 	uint32_t pin;
-#ifdef _DIRECTION_INTERNAL_MEMORY_USE_
-	enum gpio_direction direction;
-#endif
 };
 
 struct gpio_instance {
-	const char *instance_name;
+	// const char *instance_name;
 	uint32_t base_address;
-	struct gpio_cfg gpio_config[MAX_NUMBER_OF_GPIO];
+	// struct gpio_cfg gpio_config[MAX_NUMBER_OF_GPIO];
 };
 
 unsigned char gpio_init(struct gpio_instance *this_gpio,
 		uint32_t base_addr,
-		uint32_t lines_num, uint32_t gpio_dirs);
+		uint16_t gpio_val, uint16_t gpio_dirs);
 
 unsigned char gpio_set_direction(struct gpio_instance *this_gpio,
-		uint32_t index,
-		enum gpio_direction gpio_dir);
+		uint16_t index, uint16_t gpio_dir);
 
 unsigned char gpio_output_write(struct gpio_instance *this_gpio,
-		uint32_t index, uint32_t value);
+		uint16_t pin, uint16_t value);
 
 unsigned char gpio_input_get(struct gpio_instance *this_gpio,
-		uint32_t index, uint32_t *data);
+		uint16_t pin, uint16_t *data);
 
 #endif

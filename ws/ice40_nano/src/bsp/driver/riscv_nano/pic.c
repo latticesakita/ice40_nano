@@ -78,9 +78,9 @@ unsigned char pic_isr_register(unsigned char src, void (*isr) (void *),
 	if (src > S_INT_NUM) {
 		return 1;
 	}
-	if (NULL == context) {
-		return 1;
-	}
+	//if (NULL == context) {
+	//	return 1;
+	//}
 
 	/* register on the isr */
 	int_table[src].isr = isr;

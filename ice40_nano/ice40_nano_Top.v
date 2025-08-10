@@ -8,15 +8,18 @@ module ice40_nano_Top (
 	inout  spi_mosi 
 );
 
-reg [3:0] r_rst_cnt = 0;
-wire oclk;
+reg [7:0] r_rst_cnt = 0;
+wire oclk; // 24MHz
 wire clk_soc;
+wire pclk; // 48MHz
 wire resetn;
+wire resetn_pll;
 wire resetn_soc;
 wire gpll_lock;
 
-assign resetn = r_rst_cnt[3];
-assign resetn_soc = gpll_lock;
+assign clk_soc = oclk;
+assign resetn_pll = r_rst_cnt[7];
+assign resetn = gpll_lock;
 
 reg [13:0]	r_spi_sram_addr;
 wire 		spi_sram_we;
@@ -41,27 +44,28 @@ assign sram_we   = load_done ? soc_sram_we   : spi_sram_we     ;
 assign soc_sram_dout = sram_dout;
 assign load_done = ~r_fill;
 assign soc_sram_write_done = 1'b1;
+assign resetn_soc = load_done;
 
 
 always @(posedge oclk) begin
-	if(!resetn) begin
+	if(!resetn_pll) begin
 		r_rst_cnt <= r_rst_cnt + 1;
 	end
 end
 
-HSOSC #(.CLKHF_DIV ("0b10")) osc0(.CLKHFEN (1'b1), .CLKHFPU(1'b1), .CLKHF(oclk));
+HSOSC #(.CLKHF_DIV ("0b01")) osc0(.CLKHFEN (1'b1), .CLKHFPU(1'b1), .CLKHF(oclk));
 
 gpll gpll_i (
-        .rst_n_i	(resetn), 
+        .rst_n_i	(resetn_pll), 
 	.ref_clk_i	(oclk),
         .lock_o		(gpll_lock), 
         .outcore_o	(), 
-        .outglobal_o	(clk_soc)
+        .outglobal_o	(pclk)
 );
 
 ice40_nano ice40_nano_inst (
 	.clk_i		(clk_soc), 
-	.rstn_i		(load_done), 
+	.rstn_i		(resetn_soc), 
 	.uart_rxd_00_i	(rxd_i),
 	.uart_txd_00_o	(txd_o),
 	.gpio0_io	(led_o),
@@ -110,7 +114,7 @@ always @(posedge clk_soc or negedge resetn) begin
 	end
 end
 spi_fifo spi_fifo_i (
-	.clk2x	(clk_soc) ,
+	.clk2x	(pclk) ,
 	.clk	(clk_soc) ,
 	
 	.i_flash_addr	(24'h030000),

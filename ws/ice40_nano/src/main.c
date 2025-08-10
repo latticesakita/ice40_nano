@@ -51,16 +51,15 @@
 
 #ifdef UART_INST_BASE_ADDR
 #include "uart.h"
-
-#ifndef _UART_NO_INTERRUPTS_
-#include "pic.h"
-#endif
 #endif
 
 #ifdef GPIO_INST_BASE_ADDR
 #include "gpio.h"
 struct gpio_instance gpio_inst;
 #endif
+
+#include "timer.h"
+#include "pic.h"
 
 #if (defined UART_INST_BASE_ADDR)
 struct uart_instance uart_core_uart;
@@ -108,27 +107,41 @@ static void bsp_init(void)
 
 #ifdef GPIO_INST_BASE_ADDR
 	//initialize GPIO
-	gpio_inst.instance_name = GPIO_INST_NAME;
-	gpio_init(&gpio_inst, GPIO_INST_BASE_ADDR, GPIO_INST_LINES_NUM, GPIO_INST_GPIO_DIRS);
+	//gpio_inst.instance_name = GPIO_INST_NAME;
+	gpio_init(&gpio_inst, GPIO_INST_BASE_ADDR, GPIO_LOW, GPIO_INST_GPIO_DIRS);
 #endif
 
 }
 
+static void toggle_led7(void)
+{
+	static uint16_t pin_state = 0;
+	pin_state = ~pin_state;
+	gpio_output_write(&gpio_inst, GPIO7, pin_state);
+}
 
 int main(void) {
-	static uint8_t idx = 0;
-	static uint8_t pin_state = 0xFF;
+	static uint16_t idx = GPIO4;
+	static uint16_t pin_state = GPIO_HIGH;
 
 	bsp_init();
-	gpio_output_write(&gpio_inst, idx, pin_state);
-	gpio_output_write(&gpio_inst, idx+1, pin_state);
-	pin_state = 0x00;
-	gpio_output_write(&gpio_inst, idx, pin_state);
-	gpio_output_write(&gpio_inst, idx+1, pin_state);
-	uart_putc(&uart_core_uart, '0');
-	uart_putc(&uart_core_uart, '1');
-	uart_printf(&uart_core_uart, "Started!\nHello RISC-V world!\n");
+#ifdef TIMER_INST_BASE_ADDR
+	timer_init(TIMER_INST_BASE_ADDR, TIMER_PRESCALE);
+	gpio_set_direction(&gpio_inst, GPIO7, GPIO_OUTPUT);
+	timer_register(TMER3_SRC, toggle_led7);
+	timer_set(TMER3_SRC, 500, TIMER_REPEAT);
+
+#endif
+	pic_init(0);
+	pic_isr_register(TIMER_INST_IRQ, timer_isr, NULL);
+
+
+	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
+	usleep(1000);
+	pin_state = GPIO_LOW;
+	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
 	// uart_puts(&uart_core_uart, "Started!\nHello RISC-V world!\n");
+	// uart_printf(&uart_core_uart, "Started!\nHello RISC-V world!\n");
 	printf("Started!\nHello RISC-V world!\n"); 
 
 	while (true) {
@@ -139,7 +152,7 @@ int main(void) {
 #endif
 
 		if (++idx == LED_COUNT) {
-			idx = 0;
+			idx = GPIO4;
 			pin_state = ~pin_state;
 		}
 

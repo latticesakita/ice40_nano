@@ -193,8 +193,8 @@
         <ipxact:version>1.0</ipxact:version>
         <ipxact:componentInstances>
             <ipxact:componentInstance>
-                <ipxact:instanceName>ahb_spram_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="personal" library="ip" name="ahb_spram" version="1.5.0" />
+                <ipxact:instanceName>ahb_spsram_inst</ipxact:instanceName>
+                <ipxact:componentRef vendor="personal" library="ip" name="ahb_spsram" version="1.0.0" />
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>ahbl0_inst</ipxact:instanceName>
@@ -210,11 +210,15 @@
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>gpio0_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="personal" library="ip" name="gpio0" version="1.0.5" />
+                <ipxact:componentRef vendor="personal" library="ip" name="gpio0" version="1.0.7" />
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>system1_inst</ipxact:instanceName>
                 <ipxact:componentRef vendor="latticesemi.com" library="ip" name="system1" version="2.4.0" />
+            </ipxact:componentInstance>
+            <ipxact:componentInstance>
+                <ipxact:instanceName>timer_inst</ipxact:instanceName>
+                <ipxact:componentRef vendor="personal" library="ip" name="timer" version="1.0.4" />
             </ipxact:componentInstance>
         </ipxact:componentInstances>
         <ipxact:interconnections>
@@ -234,6 +238,11 @@
                 <ipxact:activeInterface busRef="AHBL" componentRef="ahbl_uart_inst" />
             </ipxact:interconnection>
             <ipxact:interconnection>
+                <ipxact:name>ahbl0_inst_AHBL_M03_interconnect</ipxact:name>
+                <ipxact:activeInterface busRef="AHBL_M03" componentRef="ahbl0_inst" />
+                <ipxact:activeInterface busRef="AHBL_S0" componentRef="timer_inst" />
+            </ipxact:interconnection>
+            <ipxact:interconnection>
                 <ipxact:name>ahbl_uart_inst_INT_interconnect</ipxact:name>
                 <ipxact:activeInterface busRef="INT" componentRef="ahbl_uart_inst" />
                 <ipxact:activeInterface busRef="IRQ_S1" componentRef="cpu0_inst" />
@@ -241,28 +250,33 @@
             <ipxact:interconnection>
                 <ipxact:name>cpu0_inst_AHBL_M0_INSTR_interconnect</ipxact:name>
                 <ipxact:activeInterface busRef="AHBL_M0_INSTR" componentRef="cpu0_inst" />
-                <ipxact:activeInterface busRef="AHBL_S0" componentRef="ahb_spram_inst" />
+                <ipxact:activeInterface busRef="AHBL_S0" componentRef="ahb_spsram_inst" />
             </ipxact:interconnection>
             <ipxact:interconnection>
                 <ipxact:name>cpu0_inst_AHBL_M1_DATA_interconnect</ipxact:name>
                 <ipxact:activeInterface busRef="AHBL_M1_DATA" componentRef="cpu0_inst" />
                 <ipxact:activeInterface busRef="AHBL_S00" componentRef="ahbl0_inst" />
             </ipxact:interconnection>
+            <ipxact:interconnection>
+                <ipxact:name>timer_inst_INT0_interconnect</ipxact:name>
+                <ipxact:activeInterface busRef="INT0" componentRef="timer_inst" />
+                <ipxact:activeInterface busRef="IRQ_S0" componentRef="cpu0_inst" />
+            </ipxact:interconnection>
         </ipxact:interconnections>
         <ipxact:adHocConnections>
             <ipxact:adHocConnection>
-                <ipxact:name>ahb_spram_inst_sram_re_net</ipxact:name>
-                <ipxact:displayName>ahb_spram_inst_sram_re_net</ipxact:displayName>
+                <ipxact:name>ahb_spsram_inst_sram_re_net</ipxact:name>
+                <ipxact:displayName>ahb_spsram_inst_sram_re_net</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_re" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_re" />
                     <ipxact:externalPortReference portRef="sram_re" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
             <ipxact:adHocConnection>
-                <ipxact:name>ahb_spram_inst_sram_we_net</ipxact:name>
-                <ipxact:displayName>ahb_spram_inst_sram_we_net</ipxact:displayName>
+                <ipxact:name>ahb_spsram_inst_sram_we_net</ipxact:name>
+                <ipxact:displayName>ahb_spsram_inst_sram_we_net</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_we" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_we" />
                     <ipxact:externalPortReference portRef="sram_we" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
@@ -278,11 +292,12 @@
                 <ipxact:name>cpu0_inst_system_resetn_o_net</ipxact:name>
                 <ipxact:displayName>cpu0_inst_system_resetn_o_net</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hresetn_i" />
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="HRESETn" />
-                    <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hresetn_i" />
                     <ipxact:internalPortReference componentRef="cpu0_inst" portRef="system_resetn_o" />
                     <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="resetn" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HRESETn" />
+                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hresetn_i" />
+                    <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hresetn_i" />
+                    <ipxact:internalPortReference componentRef="timer_inst" portRef="resetn_i" />
                     <ipxact:internalPortReference componentRef="system1_inst" portRef="ahbl_hresetn_i" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
@@ -290,11 +305,12 @@
                 <ipxact:name>ice40_nano_clk_i_net</ipxact:name>
                 <ipxact:displayName>ice40_nano_clk_i_net</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hclk_i" />
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="HCLK" />
-                    <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hclk_i" />
                     <ipxact:internalPortReference componentRef="cpu0_inst" portRef="clk_i" />
                     <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="clk" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HCLK" />
+                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hclk_i" />
+                    <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hclk_i" />
+                    <ipxact:internalPortReference componentRef="timer_inst" portRef="clk_i" />
                     <ipxact:internalPortReference componentRef="system1_inst" portRef="ahbl_hclk_i" />
                     <ipxact:externalPortReference portRef="clk_i" />
                 </ipxact:portReferences>
@@ -311,7 +327,7 @@
                 <ipxact:name>ice40_nano_sram_read_valid_net</ipxact:name>
                 <ipxact:displayName>ice40_nano_sram_read_valid_net</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_read_valid" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_read_valid" />
                     <ipxact:externalPortReference portRef="sram_read_valid" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
@@ -319,7 +335,7 @@
                 <ipxact:name>ice40_nano_sram_write_done_net</ipxact:name>
                 <ipxact:displayName>ice40_nano_sram_write_done_net</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_write_done" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_write_done" />
                     <ipxact:externalPortReference portRef="sram_write_done" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
@@ -332,10 +348,10 @@
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
             <ipxact:adHocConnection>
-                <ipxact:name>ahb_spram_inst_sram_addr_netbus</ipxact:name>
-                <ipxact:displayName>ahb_spram_inst_sram_addr_netbus</ipxact:displayName>
+                <ipxact:name>ahb_spsram_inst_sram_addr_netbus</ipxact:name>
+                <ipxact:displayName>ahb_spsram_inst_sram_addr_netbus</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_addr">
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_addr">
                         <ipxact:partSelect>
                             <ipxact:range>
                                 <ipxact:left>31</ipxact:left>
@@ -354,10 +370,10 @@
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
             <ipxact:adHocConnection>
-                <ipxact:name>ahb_spram_inst_sram_din_netbus</ipxact:name>
-                <ipxact:displayName>ahb_spram_inst_sram_din_netbus</ipxact:displayName>
+                <ipxact:name>ahb_spsram_inst_sram_din_netbus</ipxact:name>
+                <ipxact:displayName>ahb_spsram_inst_sram_din_netbus</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_din">
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_din">
                         <ipxact:partSelect>
                             <ipxact:range>
                                 <ipxact:left>31</ipxact:left>
@@ -401,7 +417,7 @@
                 <ipxact:name>ice40_nano_sram_dout_netbus</ipxact:name>
                 <ipxact:displayName>ice40_nano_sram_dout_netbus</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="ahb_spram_inst" portRef="sram_dout">
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_dout">
                         <ipxact:partSelect>
                             <ipxact:range>
                                 <ipxact:left>31</ipxact:left>
@@ -704,6 +720,12 @@
                         <ipxact:addressOffset>32&apos;h00020000</ipxact:addressOffset>
                         <ipxact:range>32&apos;h00001000</ipxact:range>
                     </ipxact:segment>
+                    <ipxact:segment>
+                        <ipxact:name>ice40_nano_timer_inst_NewMemmap1</ipxact:name>
+                        <ipxact:displayName>ice40_nano/timer_inst/NewMemmap1</ipxact:displayName>
+                        <ipxact:addressOffset>32&apos;h00030000</ipxact:addressOffset>
+                        <ipxact:range>32&apos;h00000400</ipxact:range>
+                    </ipxact:segment>
                 </ipxact:segments>
             </ipxact:addressSpace>
             <ipxact:addressSpace>
@@ -712,8 +734,8 @@
                 <ipxact:width>32</ipxact:width>
                 <ipxact:segments>
                     <ipxact:segment>
-                        <ipxact:name>ice40_nano_ahb_spram_inst_ahb_spsram_if</ipxact:name>
-                        <ipxact:displayName>ice40_nano/ahb_spram_inst/ahb_spsram_if</ipxact:displayName>
+                        <ipxact:name>ice40_nano_ahb_spsram_inst_ahb_spsram_nano</ipxact:name>
+                        <ipxact:displayName>ice40_nano/ahb_spsram_inst/ahb_spsram_nano</ipxact:displayName>
                         <ipxact:addressOffset>32&apos;h00000000</ipxact:addressOffset>
                         <ipxact:range>32&apos;h00020000</ipxact:range>
                     </ipxact:segment>
@@ -1483,11 +1505,11 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>INIT_VALUE_00</ipxact:name>
-                <ipxact:value>0x00100111000000100110001001010110001001110000011001100000000000000x00010010000000011111110100101100000100100000111011110000000000000x01100110000001100111010000100110011001100000011001100000000000000x01000001000001000111001100000101010000010000100110010010001000100x01100111000001100010010101100100011001110111010101110000000000000x01010100000011000000001111111000010101000100111100000000000000000x01110101000001110101010001100000011101010111001101100110011001100x0100001110100010011010011100101001000011001100000111100010001000</ipxact:value>
+                <ipxact:value>0x00000000000000000000000000100110001001010110001001110000000000000x00000000000000000000000000011111110100101100000100100000000000000x00000000000000000000000001100111010000100110011001100000000000000x00000000000000000000000001000111001100000101010000010010001000100x00000000000000000000000001100010010101100100011001110000000000000x10000111011100000000000011000000001111111000010101000000000000000x00011101011100000000000001110101010001100000011101010010001000100x1100010011000011000000000010011010011100101001000011110011001100</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>INIT_VALUE_01</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000110000001100000001001100010010101100x00000000000000000000000000001111000011000000000111111101001011000x00000000000000000000000000100110000001110000011001110100001001100x00000000000000000000000010101100000001010000010001110011000001010x00000000000000000000000001110110001001100000011000100101011001000x00000110010101010000000001000110100111100000110000000011111110000x11110001110001100000000001100010011000100000011101010100011000000x1111110011001100001100000001101011001000000000100110100111001010</ipxact:value>
+                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000011110x00000000000000000000000000000000000000000000000000000000000011110x00000000000000000000000000000000000000000000000000000000000011110x0000000000000000000000000000000000000000000000000000000000001111</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>INIT_VALUE_02</ipxact:name>
@@ -2526,6 +2548,138 @@
                 </ipxact:parameters>
             </ipxact:busInterface>
             <ipxact:busInterface>
+                <ipxact:name>AHBL_M03</ipxact:name>
+                <ipxact:displayName>AHBL_M03</ipxact:displayName>
+                <ipxact:description>AHB-Lite master port</ipxact:description>
+                <ipxact:busType vendor="amba.com" library="AMBA3" name="AHBLite" version="r1p0" />
+                <ipxact:abstractionTypes>
+                    <ipxact:abstractionType>
+                        <ipxact:abstractionRef vendor="amba.com" library="AMBA3" name="AHBLite_rtl" version="r1p0" />
+                        <ipxact:portMaps>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HADDR</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_haddr_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HBURST</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hburst_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HMASTLOCK</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hmastlock_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HPROT</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hprot_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HRDATA</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hrdata_mstr_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HREADY</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hready_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HREADYOUT</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hready_mstr_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HRESP</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hresp_mstr_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HSELx</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hsel_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HSIZE</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hsize_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HTRANS</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_htrans_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HWDATA</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hwdata_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HWRITE</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>ahbl_m03_hwrite_mstr_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                        </ipxact:portMaps>
+                    </ipxact:abstractionType>
+                </ipxact:abstractionTypes>
+                <ipxact:master />
+                <ipxact:parameters>
+                    <ipxact:parameter>
+                        <ipxact:name>SB_BASE_ADDR</ipxact:name>
+                        <ipxact:value>S3_BASE_ADDR</ipxact:value>
+                    </ipxact:parameter>
+                    <ipxact:parameter>
+                        <ipxact:name>SB_NUM_OF_FRAGMENTS</ipxact:name>
+                        <ipxact:value>S3_FRAGMENT_EN</ipxact:value>
+                    </ipxact:parameter>
+                    <ipxact:parameter>
+                        <ipxact:name>SB_RANGE</ipxact:name>
+                        <ipxact:value>S3_ADDR_RANGE</ipxact:value>
+                    </ipxact:parameter>
+                </ipxact:parameters>
+            </ipxact:busInterface>
+            <ipxact:busInterface>
                 <ipxact:name>AHBL_S00</ipxact:name>
                 <ipxact:displayName>AHBL_S00</ipxact:displayName>
                 <ipxact:description>AHB-Lite slave port</ipxact:description>
@@ -2704,6 +2858,21 @@
                             <ipxact:displayName>S2_FRAGMENT_EN</ipxact:displayName>
                             <ipxact:value>1</ipxact:value>
                         </ipxact:moduleParameter>
+                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="" parameterId="S3_ADDR_RANGE" resolve="generated" type="string">
+                            <ipxact:name>S3_ADDR_RANGE</ipxact:name>
+                            <ipxact:displayName>INFO: Actual Address Range</ipxact:displayName>
+                            <ipxact:value>32&apos;h00000400</ipxact:value>
+                        </ipxact:moduleParameter>
+                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="000000400" parameterId="S3_BASE_ADDR" resolve="generated" type="string">
+                            <ipxact:name>S3_BASE_ADDR</ipxact:name>
+                            <ipxact:displayName>INFO: Actual Base Address</ipxact:displayName>
+                            <ipxact:value>32&apos;h00030000</ipxact:value>
+                        </ipxact:moduleParameter>
+                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="1" parameterId="S3_FRAGMENT_EN" resolve="generated" type="int">
+                            <ipxact:name>S3_FRAGMENT_EN</ipxact:name>
+                            <ipxact:displayName>S3_FRAGMENT_EN</ipxact:displayName>
+                            <ipxact:value>1</ipxact:value>
+                        </ipxact:moduleParameter>
                     </ipxact:moduleParameters>
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
@@ -2854,6 +3023,48 @@
                 <ipxact:port>
                     <ipxact:name>ahbl_m02_hwrite_mstr_o</ipxact:name>
                     <ipxact:displayName>ahbl_m02_hwrite_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hmastlock_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hmastlock_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hready_mstr_i</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hready_mstr_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hready_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hready_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hresp_mstr_i</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hresp_mstr_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hsel_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hsel_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hwrite_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hwrite_mstr_o</ipxact:displayName>
                     <ipxact:wire>
                         <ipxact:direction>out</ipxact:direction>
                     </ipxact:wire>
@@ -3163,6 +3374,97 @@
                 <ipxact:port>
                     <ipxact:name>ahbl_m02_hwdata_mstr_o</ipxact:name>
                     <ipxact:displayName>ahbl_m02_hwdata_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_haddr_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_haddr_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hburst_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hburst_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>2</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hprot_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hprot_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>3</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hrdata_mstr_i</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hrdata_mstr_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hsize_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hsize_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>2</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_htrans_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_htrans_mstr_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>1</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>ahbl_m03_hwdata_mstr_o</ipxact:name>
+                    <ipxact:displayName>ahbl_m03_hwdata_mstr_o</ipxact:displayName>
                     <ipxact:wire>
                         <ipxact:direction>out</ipxact:direction>
                         <ipxact:vectors>
@@ -8187,7 +8489,7 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>TOTAL_SLAVE_CNT</ipxact:name>
-                <ipxact:value>3</ipxact:value>
+                <ipxact:value>4</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>en_m0</ipxact:name>
@@ -8411,7 +8713,7 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>en_s3</ipxact:name>
-                <ipxact:value>0</ipxact:value>
+                <ipxact:value>1</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>en_s30</ipxact:name>
@@ -18706,8 +19008,8 @@
     <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
         <ipxact:vendor>personal</ipxact:vendor>
         <ipxact:library>ip</ipxact:library>
-        <ipxact:name>ahb_spram</ipxact:name>
-        <ipxact:version>1.5.0</ipxact:version>
+        <ipxact:name>ahb_spsram</ipxact:name>
+        <ipxact:version>1.0.0</ipxact:version>
         <ipxact:busInterfaces>
             <ipxact:busInterface>
                 <ipxact:name>AHBL_S0</ipxact:name>
@@ -18809,16 +19111,19 @@
                     </ipxact:abstractionType>
                 </ipxact:abstractionTypes>
                 <ipxact:slave>
-                    <ipxact:memoryMapRef memoryMapRef="ahb_spsram_if" />
+                    <ipxact:memoryMapRef memoryMapRef="ahb_spsram_nano" />
                 </ipxact:slave>
             </ipxact:busInterface>
         </ipxact:busInterfaces>
         <ipxact:memoryMaps>
             <ipxact:memoryMap>
-                <ipxact:name>ahb_spsram_if</ipxact:name>
+                <ipxact:name>ahb_spsram_nano</ipxact:name>
+                <ipxact:displayName>NewMemmap1</ipxact:displayName>
                 <ipxact:description>AHBL_S0</ipxact:description>
                 <ipxact:addressBlock>
                     <ipxact:name>SPSRAM_SRAM</ipxact:name>
+                    <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
+                    <ipxact:description>NewAddressBlock1</ipxact:description>
                     <ipxact:baseAddress>32&apos;h00000000</ipxact:baseAddress>
                     <ipxact:range>32&apos;h00020000</ipxact:range>
                     <ipxact:width>32</ipxact:width>
@@ -18831,11 +19136,11 @@
         <ipxact:model>
             <ipxact:instantiations>
                 <ipxact:componentInstantiation>
-                    <ipxact:name>ahb_spram</ipxact:name>
+                    <ipxact:name>ahb_spsram</ipxact:name>
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
-                    <ipxact:name>ahb_spram_design</ipxact:name>
-                    <ipxact:designRef vendor="personal" library="ip" name="ahb_spram" version="1.5.0" />
+                    <ipxact:name>ahb_spsram_design</ipxact:name>
+                    <ipxact:designRef vendor="personal" library="ip" name="ahb_spsram" version="1.0.0" />
                 </ipxact:designInstantiation>
             </ipxact:instantiations>
             <ipxact:ports>
@@ -19040,13 +19345,13 @@
                 <ipxact:name>IP</ipxact:name>
                 <ipxact:group>ip</ipxact:group>
                 <ipxact:file>
-                    <ipxact:name>./lib/personal/ip/ahb_spram/1.5.0/component.xml</ipxact:name>
+                    <ipxact:name>./lib/personal/ip/ahb_spsram/1.0.0/component.xml</ipxact:name>
                     <ipxact:fileType user="xml">user</ipxact:fileType>
                 </ipxact:file>
             </ipxact:fileSet>
         </ipxact:fileSets>
         <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="ahb_spsram_if" lsccip:vendor="personal" lsccip:version="1.5.0" lsccip:display_name="ahb_spsram_if" lsccip:display_vendor="personal" />
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="ahb_spsram_nano" lsccip:vendor="personal" lsccip:version="1.0.0" lsccip:display_name="ahb_spsram_nano" lsccip:display_vendor="personal" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>
@@ -19452,7 +19757,7 @@
         <ipxact:vendor>personal</ipxact:vendor>
         <ipxact:library>ip</ipxact:library>
         <ipxact:name>gpio0</ipxact:name>
-        <ipxact:version>1.0.5</ipxact:version>
+        <ipxact:version>1.0.7</ipxact:version>
         <ipxact:busInterfaces>
             <ipxact:busInterface>
                 <ipxact:name>AHBL</ipxact:name>
@@ -19592,6 +19897,7 @@
         <ipxact:memoryMaps>
             <ipxact:memoryMap>
                 <ipxact:name>gpio_ahbl</ipxact:name>
+                <ipxact:displayName>gpio_ahbl</ipxact:displayName>
                 <ipxact:description>gpio_ahbl</ipxact:description>
                 <ipxact:addressBlock>
                     <ipxact:name>NewAddressBlock1</ipxact:name>
@@ -19611,7 +19917,7 @@
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
                     <ipxact:name>gpio0_design</ipxact:name>
-                    <ipxact:designRef vendor="personal" library="ip" name="gpio0" version="1.0.5" />
+                    <ipxact:designRef vendor="personal" library="ip" name="gpio0" version="1.0.7" />
                 </ipxact:designInstantiation>
             </ipxact:instantiations>
             <ipxact:ports>
@@ -19795,7 +20101,7 @@
                 <ipxact:name>IP</ipxact:name>
                 <ipxact:group>ip</ipxact:group>
                 <ipxact:file>
-                    <ipxact:name>./lib/personal/ip/gpio0/1.0.5/component.xml</ipxact:name>
+                    <ipxact:name>./lib/personal/ip/gpio0/1.0.7/component.xml</ipxact:name>
                     <ipxact:fileType user="xml">user</ipxact:fileType>
                 </ipxact:file>
             </ipxact:fileSet>
@@ -19819,7 +20125,347 @@
             </ipxact:parameter>
         </ipxact:parameters>
         <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="gpio_ahbl_io" lsccip:vendor="personal" lsccip:version="1.0.5" lsccip:display_name="gpio_ahbl_io" lsccip:display_vendor="personal" />
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="gpio_ahbl_io" lsccip:vendor="personal" lsccip:version="1.0.7" lsccip:display_name="gpio_ahbl_io" lsccip:display_vendor="personal" />
+            <lsccip:deviceInfo>
+                <lsccip:device>iCE40UP5K</lsccip:device>
+                <lsccip:architecture>ice40tp</lsccip:architecture>
+                <lsccip:package>SG48</lsccip:package>
+                <lsccip:family>iCE40UP</lsccip:family>
+                <lsccip:operation>Industrial</lsccip:operation>
+            </lsccip:deviceInfo>
+            <lattice:radiant>2025.1.0.23.0</lattice:radiant>
+            <lattice:addressMerge>False</lattice:addressMerge>
+        </ipxact:vendorExtensions>
+    </ipxact:component>
+    <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
+        <ipxact:vendor>personal</ipxact:vendor>
+        <ipxact:library>ip</ipxact:library>
+        <ipxact:name>timer</ipxact:name>
+        <ipxact:version>1.0.4</ipxact:version>
+        <ipxact:busInterfaces>
+            <ipxact:busInterface>
+                <ipxact:name>AHBL_S0</ipxact:name>
+                <ipxact:displayName>AHBL_S0</ipxact:displayName>
+                <ipxact:busType vendor="amba.com" library="AMBA3" name="AHBLite" version="r1p0" />
+                <ipxact:abstractionTypes>
+                    <ipxact:abstractionType>
+                        <ipxact:abstractionRef vendor="amba.com" library="AMBA3" name="AHBLite_rtl" version="r1p0" />
+                        <ipxact:portMaps>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HADDR</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>haddr_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HBURST</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hburst_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HRDATA</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hrdata_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HREADY</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hready_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HREADYOUT</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hready_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HRESP</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hresp_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HSELx</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hsel_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HSIZE</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hsize_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HTRANS</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>htrans_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HWDATA</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hwdata_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>HWRITE</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>hwrite_i</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                        </ipxact:portMaps>
+                    </ipxact:abstractionType>
+                </ipxact:abstractionTypes>
+                <ipxact:slave>
+                    <ipxact:memoryMapRef memoryMapRef="NewMemmap1" />
+                </ipxact:slave>
+            </ipxact:busInterface>
+            <ipxact:busInterface>
+                <ipxact:name>INT0</ipxact:name>
+                <ipxact:displayName>INT0</ipxact:displayName>
+                <ipxact:busType vendor="spiritconsortium.org" library="busdef.interrupt" name="interrupt" version="1.0" />
+                <ipxact:abstractionTypes>
+                    <ipxact:abstractionType>
+                        <ipxact:abstractionRef vendor="spiritconsortium.org" library="busdef.interrupt" name="interrupt_rtl" version="1.0" />
+                        <ipxact:portMaps>
+                            <ipxact:portMap>
+                                <ipxact:logicalPort>
+                                    <ipxact:name>IRQ</ipxact:name>
+                                </ipxact:logicalPort>
+                                <ipxact:physicalPort>
+                                    <ipxact:name>int_o</ipxact:name>
+                                </ipxact:physicalPort>
+                            </ipxact:portMap>
+                        </ipxact:portMaps>
+                    </ipxact:abstractionType>
+                </ipxact:abstractionTypes>
+                <ipxact:master>
+                    <ipxact:addressSpaceRef addressSpaceRef="INT0_Address_Space" />
+                </ipxact:master>
+            </ipxact:busInterface>
+        </ipxact:busInterfaces>
+        <ipxact:addressSpaces>
+            <ipxact:addressSpace>
+                <ipxact:name>INT0_Address_Space</ipxact:name>
+                <ipxact:description>INT0_Address_Space</ipxact:description>
+                <ipxact:range>4294967296</ipxact:range>
+                <ipxact:width>32</ipxact:width>
+                <ipxact:segments />
+            </ipxact:addressSpace>
+        </ipxact:addressSpaces>
+        <ipxact:memoryMaps>
+            <ipxact:memoryMap>
+                <ipxact:name>NewMemmap1</ipxact:name>
+                <ipxact:displayName>NewMemmap1</ipxact:displayName>
+                <ipxact:description>New Memorymap</ipxact:description>
+                <ipxact:addressBlock>
+                    <ipxact:name>NewAddressBlock1</ipxact:name>
+                    <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
+                    <ipxact:description>NewAddressBlock1</ipxact:description>
+                    <ipxact:baseAddress>32&apos;h00030000</ipxact:baseAddress>
+                    <ipxact:range>32&apos;h00000400</ipxact:range>
+                    <ipxact:width>32</ipxact:width>
+                    <ipxact:vendorExtensions>
+                        <lattice:fixedOffset>true</lattice:fixedOffset>
+                    </ipxact:vendorExtensions>
+                </ipxact:addressBlock>
+            </ipxact:memoryMap>
+        </ipxact:memoryMaps>
+        <ipxact:model>
+            <ipxact:instantiations>
+                <ipxact:componentInstantiation>
+                    <ipxact:name>timer</ipxact:name>
+                </ipxact:componentInstantiation>
+                <ipxact:designInstantiation>
+                    <ipxact:name>timer_design</ipxact:name>
+                    <ipxact:designRef vendor="personal" library="ip" name="timer" version="1.0.4" />
+                </ipxact:designInstantiation>
+            </ipxact:instantiations>
+            <ipxact:ports>
+                <ipxact:port>
+                    <ipxact:name>clk_i</ipxact:name>
+                    <ipxact:displayName>clk_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hready_i</ipxact:name>
+                    <ipxact:displayName>hready_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hready_o</ipxact:name>
+                    <ipxact:displayName>hready_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hresp_o</ipxact:name>
+                    <ipxact:displayName>hresp_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hsel_i</ipxact:name>
+                    <ipxact:displayName>hsel_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hwrite_i</ipxact:name>
+                    <ipxact:displayName>hwrite_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>int_o</ipxact:name>
+                    <ipxact:displayName>int_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>resetn_i</ipxact:name>
+                    <ipxact:displayName>resetn_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>haddr_i</ipxact:name>
+                    <ipxact:displayName>haddr_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hburst_i</ipxact:name>
+                    <ipxact:displayName>hburst_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>2</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hrdata_o</ipxact:name>
+                    <ipxact:displayName>hrdata_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hsize_i</ipxact:name>
+                    <ipxact:displayName>hsize_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>2</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>htrans_i</ipxact:name>
+                    <ipxact:displayName>htrans_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>1</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>hwdata_i</ipxact:name>
+                    <ipxact:displayName>hwdata_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
+            </ipxact:ports>
+        </ipxact:model>
+        <ipxact:fileSets>
+            <ipxact:fileSet>
+                <ipxact:name>IP</ipxact:name>
+                <ipxact:group>ip</ipxact:group>
+                <ipxact:file>
+                    <ipxact:name>./lib/personal/ip/timer/1.0.4/component.xml</ipxact:name>
+                    <ipxact:fileType user="xml">user</ipxact:fileType>
+                </ipxact:file>
+            </ipxact:fileSet>
+        </ipxact:fileSets>
+        <ipxact:parameters>
+            <ipxact:parameter>
+                <ipxact:name>PRESCALE</ipxact:name>
+                <ipxact:value>23</ipxact:value>
+            </ipxact:parameter>
+            <ipxact:parameter>
+                <ipxact:name>USE_DSP</ipxact:name>
+                <ipxact:value>1</ipxact:value>
+            </ipxact:parameter>
+        </ipxact:parameters>
+        <ipxact:vendorExtensions>
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="timer_ahb" lsccip:vendor="personal" lsccip:version="1.0.4" lsccip:display_name="timer_ahb" lsccip:display_vendor="personal" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>

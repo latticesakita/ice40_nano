@@ -4,4 +4,5 @@ ldc_set_location -site {40} [get_ports {led_o[2]}]
 ldc_set_location -site {41} [get_ports {led_o[0]}]
 ldc_set_location -site {31} [get_ports rxd_i]
 ldc_set_location -site {32} [get_ports txd_o]
-create_clock -name {gpll_i/lscc_pll_inst/u_PLL_B/OUTGLOBAL} -period 41.6666666666667 [get_pins gpll_i/lscc_pll_inst/u_PLL_B/OUTGLOBAL]
+create_clock -name {gpll_i/lscc_pll_inst/u_PLL_B/OUTGLOBAL} -period 20.8333333333333 [get_pins gpll_i/lscc_pll_inst/u_PLL_B/OUTGLOBAL]
+set_clock_groups -group [get_clocks osc0/CLKHF] -group [get_clocks gpll_i/lscc_pll_inst/u_PLL_B/OUTGLOBAL] -asynchronous

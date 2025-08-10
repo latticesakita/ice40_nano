@@ -2,6 +2,19 @@ component ahbl0 is
     port(
         ahbl_hclk_i: in std_logic;
         ahbl_hresetn_i: in std_logic;
+        ahbl_m03_hready_mstr_i: in std_logic_vector(0 to 0);
+        ahbl_m03_hresp_mstr_i: in std_logic_vector(0 to 0);
+        ahbl_m03_hrdata_mstr_i: in std_logic_vector(31 downto 0);
+        ahbl_m03_hsel_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m03_haddr_mstr_o: out std_logic_vector(31 downto 0);
+        ahbl_m03_hburst_mstr_o: out std_logic_vector(2 downto 0);
+        ahbl_m03_hsize_mstr_o: out std_logic_vector(2 downto 0);
+        ahbl_m03_hmastlock_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m03_hprot_mstr_o: out std_logic_vector(3 downto 0);
+        ahbl_m03_htrans_mstr_o: out std_logic_vector(1 downto 0);
+        ahbl_m03_hwdata_mstr_o: out std_logic_vector(31 downto 0);
+        ahbl_m03_hwrite_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m03_hready_mstr_o: out std_logic_vector(0 to 0);
         ahbl_m02_hready_mstr_i: in std_logic_vector(0 to 0);
         ahbl_m02_hresp_mstr_i: in std_logic_vector(0 to 0);
         ahbl_m02_hrdata_mstr_i: in std_logic_vector(31 downto 0);
@@ -60,6 +73,19 @@ end component;
 __: ahbl0 port map(
     ahbl_hclk_i=>,
     ahbl_hresetn_i=>,
+    ahbl_m03_hready_mstr_i=>,
+    ahbl_m03_hresp_mstr_i=>,
+    ahbl_m03_hrdata_mstr_i=>,
+    ahbl_m03_hsel_mstr_o=>,
+    ahbl_m03_haddr_mstr_o=>,
+    ahbl_m03_hburst_mstr_o=>,
+    ahbl_m03_hsize_mstr_o=>,
+    ahbl_m03_hmastlock_mstr_o=>,
+    ahbl_m03_hprot_mstr_o=>,
+    ahbl_m03_htrans_mstr_o=>,
+    ahbl_m03_hwdata_mstr_o=>,
+    ahbl_m03_hwrite_mstr_o=>,
+    ahbl_m03_hready_mstr_o=>,
     ahbl_m02_hready_mstr_i=>,
     ahbl_m02_hresp_mstr_i=>,
     ahbl_m02_hrdata_mstr_i=>,

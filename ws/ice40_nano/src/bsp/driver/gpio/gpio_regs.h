@@ -67,4 +67,18 @@
 #define GPIO_INT_ENABLE                 (0x08*4)
 #define GPIO_INT_SET                    (0x09*4)
 
+struct gpio_dev {
+	volatile unsigned int rd_data;
+	volatile unsigned int wr_data;
+	volatile unsigned int set_data;
+	volatile unsigned int clear_data;
+	volatile unsigned int direction;
+	volatile unsigned int int_type;
+	volatile unsigned int int_method;
+	volatile unsigned int int_status;
+	volatile unsigned int int_enable;
+	volatile unsigned int int_set;
+};
+
+
 #endif

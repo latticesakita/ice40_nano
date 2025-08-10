@@ -1,5 +1,5 @@
 localparam TOTAL_MASTER_CNT = 1;
-localparam TOTAL_SLAVE_CNT = 3;
+localparam TOTAL_SLAVE_CNT = 4;
 localparam M_ADDR_WIDTH = 32;
 localparam FULL_DECODE_EN = 1;
 localparam DATA_WIDTH = 32;

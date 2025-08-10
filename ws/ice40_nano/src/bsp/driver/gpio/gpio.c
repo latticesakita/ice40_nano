@@ -56,68 +56,67 @@
 
 unsigned char gpio_init(struct gpio_instance *this_gpio,
 		uint32_t base_addr,
-		uint32_t lines_num, uint32_t gpio_dirs)
+		uint16_t gpio_val, uint16_t gpio_dirs)
 {
-	unsigned int index = 0;
+	struct gpio_dev *dev;
 	if (NULL == this_gpio) {
 		return 1;
 	}
 	this_gpio->base_address = base_addr;
+	dev = (struct gpio_dev *) base_addr;
+	dev->direction = gpio_dirs;
+	dev->wr_data   = gpio_val;
 
-	for (index = 0; index < lines_num; index++) {
-		this_gpio->gpio_config[index].pin = 0x01 << index;
-
-		if (gpio_dirs & (0x01 << index)) {
-			reg_32b_modify(this_gpio->base_address | GPIO_DIRECTION,
-					this_gpio->gpio_config[index].pin, (GPIO_OUTPUT << index));
-#ifdef _DIRECTION_INTERNAL_MEMORY_USE_
-			this_gpio->gpio_config[index].direction = GPIO_OUTPUT;
-#endif
-		} else {
-			reg_32b_modify(this_gpio->base_address | GPIO_DIRECTION,
-					this_gpio->gpio_config[index].pin, (GPIO_INPUT << index));
-#ifdef _DIRECTION_INTERNAL_MEMORY_USE_
-			this_gpio->gpio_config[index].direction = GPIO_INPUT;
-#endif
-		}
-	}
 	return 0;
 }
 
 unsigned char gpio_set_direction(struct gpio_instance *this_gpio,
-		uint32_t index, enum gpio_direction gpio_dir)
+		uint16_t index, uint16_t gpio_dir)
 {
+	struct gpio_dev *dev;
+	uint32_t dir;
 	if (NULL == this_gpio) {
 		return 1;
 	}
+	dev = (struct gpio_dev *) this_gpio->base_address;
+	dir = index;
+	dir = (dir << 16) | gpio_dir;
+	dev->direction = dir;
 
-	reg_32b_modify(this_gpio->base_address | GPIO_DIRECTION,
-			this_gpio->gpio_config[index].pin, (gpio_dir << index));
-#ifdef _DIRECTION_INTERNAL_MEMORY_USE_
-	this_gpio->gpio_config[index].direction = gpio_dir;
-#endif
 	return 0;
 }
 
 unsigned char gpio_output_write(struct gpio_instance *this_gpio,
-		uint32_t index, uint32_t value)
+		uint16_t pin, uint16_t value)
 {
+	struct gpio_dev *dev;
+	uint32_t wdata;
 	if (NULL == this_gpio) {
 		return 1;
 	}
-
-	reg_32b_modify(this_gpio->base_address | GPIO_WR_DATA,
-			this_gpio->gpio_config[index].pin, value);
+	dev = (struct gpio_dev *) this_gpio->base_address;
+	wdata = pin;
+	wdata = (wdata << 16) | value;
+	dev->wr_data = wdata;
 
 	return 0;
 }
 
 unsigned char gpio_input_get(struct gpio_instance *this_gpio,
-		uint32_t index, uint32_t *data)
+		uint16_t pin, uint16_t *data)
 {
+	struct gpio_dev *dev;
+	uint16_t val;
 	if (NULL == this_gpio) {
 		return 1;
 	}
-	reg_32b_read(this_gpio->base_address | GPIO_RD_DATA, data);
+	dev = (struct gpio_dev *) this_gpio->base_address;
+	val = (uint16_t)dev->rd_data;
+	if( pin == GPIO_ALL ){
+		*data = val;
+	}
+	else{
+		*data = ( (val & pin) != 0 ) ? 1 : 0;
+	}
 	return 0;
 }

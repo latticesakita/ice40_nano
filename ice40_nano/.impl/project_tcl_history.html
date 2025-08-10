@@ -2,7 +2,110 @@
 <HEAD>
 <TITLE>Lattice TCL Log</TITLE>
 </HEAD>
-<BODY><DIV id="content" ><PRE><A name="250806210058" href="#250806210058"></A><B><U><big>250806210058</big></U></B>
+<BODY><DIV id="content" ><PRE><A name="250810180724" href="#250810180724"></A><B><U><big>250810180724</big></U></B>
+#Start recording tcl command: 8/9/2025 20:40:56
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_config_ip -vlnv {latticesemi.com:module:ahbl0:1.4.0} -meta_vlnv {latticesemi.com:module:ahb_lite_interconnect:1.4.0} -cfg_value {TOTAL_MASTER_CNT:1,TOTAL_SLAVE_CNT:4,m0_s0_conn_en:true}
+sbp_replace -vlnv {latticesemi.com:module:ahbl0:1.4.0} -name {ahbl0_inst} -component {ice40_nano/ahbl0_inst}
+sbp_config_ip -vlnv {personal:ip:timer:1.0.0} -meta_vlnv {personal:ip:timer_ahb:1.0.0}
+sbp_add_component -vlnv {personal:ip:timer:1.0.0} -name {timer_inst}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M03} {ice40_nano/timer_inst/AHBL_S0}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/timer_inst/clk_i}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/timer_inst/resetn_i}
+sbp_config_ip -vlnv {personal:ip:timer:1.0.1} -meta_vlnv {personal:ip:timer_ahb:1.0.1}
+sbp_replace -vlnv {personal:ip:timer:1.0.1} -name {timer_inst} -component {ice40_nano/timer_inst}
+sbp_connect_interface_net {ice40_nano/cpu0_inst/IRQ_S0} {ice40_nano/timer_inst/INT0}
+sbp_assign_addr_seg -offset 'h00030000 {ice40_nano/ahbl0_inst/AHBL_M03} {ice40_nano/timer_inst/AHBL_S0}
+sbp_assign_addr_seg -offset 'h00000000 {ice40_nano/cpu0_inst/AHBL_M0_INSTR} {ice40_nano/ahb_spsram_inst/AHBL_S0}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_config_ip -vlnv {latticesemi.com:ip:system1:2.4.0} -meta_vlnv {latticesemi.com:ip:system_memory:2.4.0} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Data.mem,INIT_MEM:true,REGMODE_S0:true}
+sbp_replace -vlnv {latticesemi.com:ip:system1:2.4.0} -name {system1_inst} -component {ice40_nano/system1_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_config_ip -vlnv {personal:ip:gpio0:1.0.6} -meta_vlnv {personal:ip:gpio_ahbl_io:1.0.6} -cfg_value {DEVICE:ICE40UP}
+sbp_replace -vlnv {personal:ip:gpio0:1.0.6} -name {gpio0_inst} -component {ice40_nano/gpio0_inst}
+sbp_config_ip -vlnv {personal:ip:timer:1.0.3} -meta_vlnv {personal:ip:timer_ahb:1.0.3}
+sbp_replace -vlnv {personal:ip:timer:1.0.3} -name {timer_inst} -component {ice40_nano/timer_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_config_ip -vlnv {personal:ip:gpio0:1.0.7} -meta_vlnv {personal:ip:gpio_ahbl_io:1.0.7} -cfg_value {DEVICE:ICE40UP}
+sbp_replace -vlnv {personal:ip:gpio0:1.0.7} -name {gpio0_inst} -component {ice40_nano/gpio0_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_config_ip -vlnv {latticesemi.com:ip:system1:2.4.0} -meta_vlnv {latticesemi.com:ip:system_memory:2.4.0} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Data.mem,INIT_MEM:true,REGMODE_S0:true}
+sbp_replace -vlnv {latticesemi.com:ip:system1:2.4.0} -name {system1_inst} -component {ice40_nano/system1_inst}
+sbp_config_ip -vlnv {personal:ip:timer:1.0.4} -meta_vlnv {personal:ip:timer_ahb:1.0.4}
+sbp_replace -vlnv {personal:ip:timer:1.0.4} -name {timer_inst} -component {ice40_nano/timer_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_config_ip -vlnv {latticesemi.com:ip:system1:2.4.0} -meta_vlnv {latticesemi.com:ip:system_memory:2.4.0} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Data.mem,INIT_MEM:true,REGMODE_S0:true}
+sbp_replace -vlnv {latticesemi.com:ip:system1:2.4.0} -name {system1_inst} -component {ice40_nano/system1_inst}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design close
+#Stop recording: 8/10/2025 18:07:24
+
+<A name="250807151011" href="#250807151011"></A><B><U><big>250807151011</big></U></B>
+#Start recording tcl command: 8/7/2025 11:31:47
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_delete {ice40_nano/ahb_spram_inst} -type component
+sbp_config_ip -vlnv {personal:ip:ahb_spsram_if:1.0.0} -meta_vlnv {personal:ip:ahb_spsram_nano:1.0.0}
+sbp_add_component -vlnv {personal:ip:ahb_spsram_if:1.0.0} -name {ahb_spsram_if_inst}
+sbp_connect_interface_net {ice40_nano/ahb_spsram_if_inst/AHBL_S0} {ice40_nano/cpu0_inst/AHBL_M0_INSTR}
+sbp_connect_net {ice40_nano/sram_dout} {ice40_nano/ahb_spsram_if_inst/sram_dout}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/ahb_spsram_if_inst/HCLK}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/ahb_spsram_if_inst/HRESETn}
+sbp_connect_net {ice40_nano/sram_read_valid} {ice40_nano/ahb_spsram_if_inst/sram_read_valid}
+sbp_connect_net {ice40_nano/sram_write_done} {ice40_nano/ahb_spsram_if_inst/sram_write_done}
+sbp_connect_net {ice40_nano/sram_we} {ice40_nano/ahb_spsram_if_inst/sram_we}
+sbp_connect_net {ice40_nano/sram_re} {ice40_nano/ahb_spsram_if_inst/sram_re}
+sbp_connect_net {ice40_nano/sram_addr} {ice40_nano/ahb_spsram_if_inst/sram_addr}
+sbp_connect_net {ice40_nano/sram_din} {ice40_nano/ahb_spsram_if_inst/sram_din}
+sbp_delete {ice40_nano/ahb_spsram_if_inst} -type component
+sbp_config_ip -vlnv {personal:ip:ahb_spsram:1.0.0} -meta_vlnv {personal:ip:ahb_spsram_nano:1.0.0}
+sbp_add_component -vlnv {personal:ip:ahb_spsram:1.0.0} -name {ahb_spsram_inst}
+sbp_connect_interface_net {ice40_nano/cpu0_inst/AHBL_M0_INSTR} {ice40_nano/ahb_spsram_inst/AHBL_S0}
+sbp_connect_net {ice40_nano/sram_dout} {ice40_nano/ahb_spsram_inst/sram_dout}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/ahb_spsram_inst/HCLK}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/ahb_spsram_inst/HRESETn}
+sbp_connect_net {ice40_nano/sram_read_valid} {ice40_nano/ahb_spsram_inst/sram_read_valid}
+sbp_connect_net {ice40_nano/sram_write_done} {ice40_nano/ahb_spsram_inst/sram_write_done}
+sbp_connect_net {ice40_nano/sram_addr} {ice40_nano/ahb_spsram_inst/sram_addr}
+sbp_connect_net {ice40_nano/sram_din} {ice40_nano/ahb_spsram_inst/sram_din}
+sbp_connect_net {ice40_nano/sram_re} {ice40_nano/ahb_spsram_inst/sram_re}
+sbp_connect_net {ice40_nano/sram_we} {ice40_nano/ahb_spsram_inst/sram_we}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_design close
+#Stop recording: 8/7/2025 15:10:11
+
+<A name="250806210058" href="#250806210058"></A><B><U><big>250806210058</big></U></B>
 #Start recording tcl command: 8/6/2025 18:26:47
 sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
 sbp_config_ip -vlnv {latticesemi.com:ip:system1:2.4.0} -meta_vlnv {latticesemi.com:ip:system_memory:2.4.0} -cfg_value {ADDR_DEPTH:1024,INIT_FILE_IN:../ws/ice40_nano/Debug/ice40_nano_Data.mem,INIT_MEM:true,REGMODE_S0:true}

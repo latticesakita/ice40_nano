@@ -519,6 +519,138 @@
                 </ipxact:parameter>
             </ipxact:parameters>
         </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>AHBL_M03</ipxact:name>
+            <ipxact:displayName>AHBL_M03</ipxact:displayName>
+            <ipxact:description>AHB-Lite master port</ipxact:description>
+            <ipxact:busType library="AMBA3" name="AHBLite" vendor="amba.com" version="r1p0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="AMBA3" name="AHBLite_rtl" vendor="amba.com" version="r1p0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HSELx</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hsel_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HADDR</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_haddr_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HBURST</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hburst_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HSIZE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hsize_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HMASTLOCK</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hmastlock_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HPROT</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hprot_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HTRANS</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_htrans_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HWDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hwdata_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HWRITE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hwrite_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HREADY</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hready_mstr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HREADYOUT</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hready_mstr_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HRESP</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hresp_mstr_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HRDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m03_hrdata_mstr_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:master/>
+            <ipxact:parameters>
+                <ipxact:parameter>
+                    <ipxact:name>SB_BASE_ADDR</ipxact:name>
+                    <ipxact:value>S3_BASE_ADDR</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>SB_RANGE</ipxact:name>
+                    <ipxact:value>S3_ADDR_RANGE</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>SB_NUM_OF_FRAGMENTS</ipxact:name>
+                    <ipxact:value>S3_FRAGMENT_EN</ipxact:value>
+                </ipxact:parameter>
+            </ipxact:parameters>
+        </ipxact:busInterface>
     </ipxact:busInterfaces>
     <ipxact:model>
         <ipxact:instantiations>
@@ -580,6 +712,21 @@
                         <ipxact:displayName>INFO: Actual Address Range</ipxact:displayName>
                         <ipxact:value>32'h00000400</ipxact:value>
                     </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="1" parameterId="S3_FRAGMENT_EN" resolve="generated" type="int">
+                        <ipxact:name>S3_FRAGMENT_EN</ipxact:name>
+                        <ipxact:displayName>S3_FRAGMENT_EN</ipxact:displayName>
+                        <ipxact:value>1</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="000000400" parameterId="S3_BASE_ADDR" resolve="generated" type="string">
+                        <ipxact:name>S3_BASE_ADDR</ipxact:name>
+                        <ipxact:displayName>INFO: Actual Base Address</ipxact:displayName>
+                        <ipxact:value>32'h00006000</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="" parameterId="S3_ADDR_RANGE" resolve="generated" type="string">
+                        <ipxact:name>S3_ADDR_RANGE</ipxact:name>
+                        <ipxact:displayName>INFO: Actual Address Range</ipxact:displayName>
+                        <ipxact:value>32'h00000400</ipxact:value>
+                    </ipxact:moduleParameter>
                 </ipxact:moduleParameters>
             </ipxact:componentInstantiation>
             <ipxact:designInstantiation>
@@ -607,6 +754,175 @@
                 <ipxact:vendorExtensions>
                     <lsccip:isRst>true</lsccip:isRst>
                 </ipxact:vendorExtensions>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hready_mstr_i</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hready_mstr_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hresp_mstr_i</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hresp_mstr_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hrdata_mstr_i</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hrdata_mstr_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hsel_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hsel_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_haddr_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_haddr_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hburst_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hburst_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hsize_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hsize_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hmastlock_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hmastlock_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hprot_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hprot_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_htrans_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_htrans_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hwdata_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hwdata_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hwrite_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hwrite_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m03_hready_mstr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m03_hready_mstr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
             </ipxact:port>
             <ipxact:port>
                 <ipxact:name>ahbl_m02_hready_mstr_i</ipxact:name>
@@ -1369,8 +1685,8 @@
         </lsccip:deviceInfo>
         <lsccip:generationInfo>
             <lsccip:fileVersion>20180929</lsccip:fileVersion>
-            <lsccip:createdTimestamp>2025 07 02 11:14:11</lsccip:createdTimestamp>
-            <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2024.2.2503210206_sp1</lsccip:radiantBuild>
+            <lsccip:createdTimestamp>2025 08 09 20:42:11</lsccip:createdTimestamp>
+            <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2025.1.0.2506031608</lsccip:radiantBuild>
         </lsccip:generationInfo>
     </ipxact:vendorExtensions>
 </ipxact:component>

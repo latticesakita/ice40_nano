@@ -65,8 +65,8 @@
 #define SYSTEM1_INST_NAME "system1_inst"
 #define SYSTEM1_INST_BASE_ADDR 0x20000
 
-#define AHB_SPRAM_INST_NAME "ahb_spram_inst"
-#define AHB_SPRAM_INST_BASE_ADDR 0x0
+#define AHB_SPSRAM_INST_NAME "ahb_spsram_inst"
+#define AHB_SPSRAM_INST_BASE_ADDR 0x0
 
 #define AHBL_UART_INST_NAME "ahbl_uart_inst"
 #define AHBL_UART_INST_BASE_ADDR 0x25000
@@ -76,12 +76,16 @@
 #define GPIO0_INST_BASE_ADDR 0x23000
 #define GPIO_INST_BASE_ADDR GPIO0_INST_BASE_ADDR
 
+#define TIMER_INST_NAME "timer_inst"
+#define TIMER_INST_BASE_ADDR 0x30000
+
 /* ip instance rename */
 #define RISCV_NANO_INST_0 CPU0_INST
 #define SYSTEM_MEMORY_INST_0 SYSTEM1_INST
-#define AHB_SPSRAM_IF_INST_0 AHB_SPRAM_INST
+#define AHB_SPSRAM_NANO_INST_0 AHB_SPSRAM_INST
 #define AHB_UART_INST_0 AHBL_UART_INST
 #define GPIO_AHBL_IO_INST_0 GPIO0_INST
+#define TIMER_AHB_INST_0 TIMER_INST
 
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
 testable register of each IP instance, it might affect the environment during test. 
@@ -97,7 +101,7 @@ and make sure to disable it when developing the application firmware. */
 #define CPU0_INST_NANO_CPU 1
 #define CPU0_INST_PIC_ENABLE True
 
-/* ahb_spram_inst parameters */
+/* ahb_spsram_inst parameters */
 
 /* ahbl_uart_inst parameters */
 #define AHBL_UART_INST_BUFFER_SIZE 512
@@ -110,8 +114,13 @@ and make sure to disable it when developing the application firmware. */
 #define GPIO0_INST_DIRECTION 0xFF
 #define GPIO0_INST_INIT_OUTVAL 0x00
 
+/* timer_inst parameters */
+#define TIMER_INST_PRESCALE 23
+#define TIMER_INST_USE_DSP 1
+
 /* interrupt */
 
+#define TIMER_INST_IRQ 0
 #define AHBL_UART_INST_IRQ 1
 
 #endif

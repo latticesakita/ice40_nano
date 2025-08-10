@@ -33,10 +33,10 @@
           </registers>
     </peripheral>
     <peripheral>
-          <name>ahb_spram_inst</name>
-          <version>1.5.0</version>
+          <name>ahb_spsram_inst</name>
+          <version>1.0.0</version>
           <baseAddress>0x00000000</baseAddress>
-          <groupName>ahb_spsram_if</groupName>
+          <groupName>ahb_spsram_nano</groupName>
           <description></description>
 
           <addressBlock>
@@ -68,9 +68,26 @@
     </peripheral>
     <peripheral>
           <name>gpio0_inst</name>
-          <version>1.0.5</version>
+          <version>1.0.7</version>
           <baseAddress>0x00023000</baseAddress>
           <groupName>gpio_ahbl_io</groupName>
+          <description></description>
+
+          <addressBlock>
+            <offset>0x0</offset>
+            <size>0x00000400</size>
+            <usage>registers</usage>
+          </addressBlock>
+
+          <registers>
+          
+          </registers>
+    </peripheral>
+    <peripheral>
+          <name>timer_inst</name>
+          <version>1.0.4</version>
+          <baseAddress>0x00030000</baseAddress>
+          <groupName>timer_ahb</groupName>
           <description></description>
 
           <addressBlock>

@@ -45,12 +45,6 @@
         <Source name="dpram2048x2_512x8/dpram2048x2_512x8.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="ice40_nano/lib/personal/ip/ahb_spram/1.5.0/ahb_spram.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="ice40_nano/lib/personal/ip/gpio0/1.0.5/gpio0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
         <Source name="ice40_nano/lib/latticesemi.com/ip/system1/2.4.0/system1.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
@@ -58,6 +52,15 @@
             <Options/>
         </Source>
         <Source name="ice40_nano/lib/personal/ip/ahbl_uart/1.0.5/ahbl_uart.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/lib/personal/ip/ahb_spsram/1.0.0/ahb_spsram.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/lib/personal/ip/gpio0/1.0.7/gpio0.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ice40_nano/lib/personal/ip/timer/1.0.4/timer.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="ice40_nano.pdc" type="Physical Constraints File" type_short="PDC">
