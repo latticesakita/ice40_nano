@@ -1,0 +1,286 @@
+<!DOCTYPE ispTLA>
+<ispTLA>
+ <CreationDate>Wed Aug 13 09:02:43 2025</CreationDate>
+ <XCFFileName/>
+ <CableSetting>
+  <IsTRSTConnected val="false"/>
+  <TRSTSetting val="0"/>
+  <IsBSCANConnected val="false"/>
+  <BSCANSetting val="0"/>
+  <CableType val="USB2"/>
+  <PortAddress val="2"/>
+  <PortSetting val="0"/>
+  <TCKDelay val="2"/>
+ </CableSetting>
+ <DeviceCount>0</DeviceCount>
+ <Device>
+  <DeviceIndex>0</DeviceIndex>
+  <DeviceName/>
+  <DeviceID/>
+  <HasIspTRACY>true</HasIspTRACY>
+  <HasJTAG2WB>false</HasJTAG2WB>
+  <SERDES/>
+  <IRBypassLen>8</IRBypassLen>
+  <RVLFileName>ice40_nano.rvl</RVLFileName>
+  <RVSFileName>ice40_nano.rvs</RVSFileName>
+  <LACoreCount>1</LACoreCount>
+  <WinUI CoreIndex="0" CoreType="LA">
+   <TraceSigTreeData>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:31" NodeType="2" PortIndex="216"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:30" NodeType="2" PortIndex="215"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:29" NodeType="2" PortIndex="214"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:28" NodeType="2" PortIndex="213"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:27" NodeType="2" PortIndex="212"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:26" NodeType="2" PortIndex="211"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:25" NodeType="2" PortIndex="210"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:24" NodeType="2" PortIndex="209"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:23" NodeType="2" PortIndex="208"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:22" NodeType="2" PortIndex="207"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:21" NodeType="2" PortIndex="206"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:20" NodeType="2" PortIndex="205"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:19" NodeType="2" PortIndex="204"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:18" NodeType="2" PortIndex="203"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:17" NodeType="2" PortIndex="202"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:16" NodeType="2" PortIndex="201"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:15" NodeType="2" PortIndex="200"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:14" NodeType="2" PortIndex="199"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:13" NodeType="2" PortIndex="198"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:12" NodeType="2" PortIndex="197"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:11" NodeType="2" PortIndex="196"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:10" NodeType="2" PortIndex="195"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:9" NodeType="2" PortIndex="194"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:8" NodeType="2" PortIndex="193"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:7" NodeType="2" PortIndex="192"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:6" NodeType="2" PortIndex="191"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:5" NodeType="2" PortIndex="190"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:4" NodeType="2" PortIndex="189"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:3" NodeType="2" PortIndex="188"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:2" NodeType="2" PortIndex="187"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:1" NodeType="2" PortIndex="186"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/systime_o:0" NodeType="2" PortIndex="185"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:31" NodeType="2" PortIndex="184"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:30" NodeType="2" PortIndex="183"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:29" NodeType="2" PortIndex="182"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:28" NodeType="2" PortIndex="181"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:27" NodeType="2" PortIndex="180"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:26" NodeType="2" PortIndex="179"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:25" NodeType="2" PortIndex="178"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:24" NodeType="2" PortIndex="177"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:23" NodeType="2" PortIndex="176"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:22" NodeType="2" PortIndex="175"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:21" NodeType="2" PortIndex="174"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:20" NodeType="2" PortIndex="173"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:19" NodeType="2" PortIndex="172"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:18" NodeType="2" PortIndex="171"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:17" NodeType="2" PortIndex="170"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:16" NodeType="2" PortIndex="169"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:15" NodeType="2" PortIndex="168"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:14" NodeType="2" PortIndex="167"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:13" NodeType="2" PortIndex="166"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:12" NodeType="2" PortIndex="165"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:11" NodeType="2" PortIndex="164"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:10" NodeType="2" PortIndex="163"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:9" NodeType="2" PortIndex="162"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:8" NodeType="2" PortIndex="161"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:7" NodeType="2" PortIndex="160"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:6" NodeType="2" PortIndex="159"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:5" NodeType="2" PortIndex="158"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:4" NodeType="2" PortIndex="157"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:3" NodeType="2" PortIndex="156"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:2" NodeType="2" PortIndex="155"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:1" NodeType="2" PortIndex="154"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:0" NodeType="2" PortIndex="153"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_alarm3_fire" NodeType="0" PortIndex="152"/>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:31" NodeType="2" PortIndex="151"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:30" NodeType="2" PortIndex="150"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:29" NodeType="2" PortIndex="149"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:28" NodeType="2" PortIndex="148"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:27" NodeType="2" PortIndex="147"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:26" NodeType="2" PortIndex="146"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:25" NodeType="2" PortIndex="145"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:24" NodeType="2" PortIndex="144"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:23" NodeType="2" PortIndex="143"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:22" NodeType="2" PortIndex="142"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:21" NodeType="2" PortIndex="141"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:20" NodeType="2" PortIndex="140"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:19" NodeType="2" PortIndex="139"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:18" NodeType="2" PortIndex="138"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:17" NodeType="2" PortIndex="137"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:16" NodeType="2" PortIndex="136"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:15" NodeType="2" PortIndex="135"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:14" NodeType="2" PortIndex="134"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:13" NodeType="2" PortIndex="133"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:12" NodeType="2" PortIndex="132"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:11" NodeType="2" PortIndex="131"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:10" NodeType="2" PortIndex="130"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:9" NodeType="2" PortIndex="129"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:8" NodeType="2" PortIndex="128"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:7" NodeType="2" PortIndex="127"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:6" NodeType="2" PortIndex="126"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:5" NodeType="2" PortIndex="125"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:4" NodeType="2" PortIndex="124"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:3" NodeType="2" PortIndex="123"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:2" NodeType="2" PortIndex="122"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:1" NodeType="2" PortIndex="121"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:0" NodeType="2" PortIndex="120"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/ahb_access" NodeType="0" PortIndex="119"/>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:31" NodeType="2" PortIndex="118"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:30" NodeType="2" PortIndex="117"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:29" NodeType="2" PortIndex="116"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:28" NodeType="2" PortIndex="115"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:27" NodeType="2" PortIndex="114"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:26" NodeType="2" PortIndex="113"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:25" NodeType="2" PortIndex="112"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:24" NodeType="2" PortIndex="111"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:23" NodeType="2" PortIndex="110"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:22" NodeType="2" PortIndex="109"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:21" NodeType="2" PortIndex="108"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:20" NodeType="2" PortIndex="107"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:19" NodeType="2" PortIndex="106"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:18" NodeType="2" PortIndex="105"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:17" NodeType="2" PortIndex="104"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:16" NodeType="2" PortIndex="103"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:15" NodeType="2" PortIndex="102"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:14" NodeType="2" PortIndex="101"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:13" NodeType="2" PortIndex="100"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:12" NodeType="2" PortIndex="99"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:11" NodeType="2" PortIndex="98"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:10" NodeType="2" PortIndex="97"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:9" NodeType="2" PortIndex="96"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:8" NodeType="2" PortIndex="95"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:7" NodeType="2" PortIndex="94"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:6" NodeType="2" PortIndex="93"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:5" NodeType="2" PortIndex="92"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:4" NodeType="2" PortIndex="91"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:3" NodeType="2" PortIndex="90"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:2" NodeType="2" PortIndex="89"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:1" NodeType="2" PortIndex="88"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:0" NodeType="2" PortIndex="87"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwrite_i" NodeType="0" PortIndex="86"/>
+    <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:5" NodeType="2" PortIndex="85"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:4" NodeType="2" PortIndex="84"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:3" NodeType="2" PortIndex="83"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:2" NodeType="2" PortIndex="82"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:1" NodeType="2" PortIndex="81"/>
+     <TraceSignal Color="" IsHidden="false" Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:0" NodeType="2" PortIndex="80"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="soc_sram_re" NodeType="0" PortIndex="79"/>
+    <TraceSignal Color="" IsHidden="false" Name="sram_addr" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:13" NodeType="2" PortIndex="78"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:12" NodeType="2" PortIndex="77"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:11" NodeType="2" PortIndex="76"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:10" NodeType="2" PortIndex="75"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:9" NodeType="2" PortIndex="74"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:8" NodeType="2" PortIndex="73"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:7" NodeType="2" PortIndex="72"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:6" NodeType="2" PortIndex="71"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:5" NodeType="2" PortIndex="70"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:4" NodeType="2" PortIndex="69"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:3" NodeType="2" PortIndex="68"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:2" NodeType="2" PortIndex="67"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:1" NodeType="2" PortIndex="66"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_addr:0" NodeType="2" PortIndex="65"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="sram_dout" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:31" NodeType="2" PortIndex="64"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:30" NodeType="2" PortIndex="63"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:29" NodeType="2" PortIndex="62"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:28" NodeType="2" PortIndex="61"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:27" NodeType="2" PortIndex="60"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:26" NodeType="2" PortIndex="59"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:25" NodeType="2" PortIndex="58"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:24" NodeType="2" PortIndex="57"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:23" NodeType="2" PortIndex="56"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:22" NodeType="2" PortIndex="55"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:21" NodeType="2" PortIndex="54"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:20" NodeType="2" PortIndex="53"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:19" NodeType="2" PortIndex="52"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:18" NodeType="2" PortIndex="51"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:17" NodeType="2" PortIndex="50"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:16" NodeType="2" PortIndex="49"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:15" NodeType="2" PortIndex="48"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:14" NodeType="2" PortIndex="47"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:13" NodeType="2" PortIndex="46"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:12" NodeType="2" PortIndex="45"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:11" NodeType="2" PortIndex="44"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:10" NodeType="2" PortIndex="43"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:9" NodeType="2" PortIndex="42"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:8" NodeType="2" PortIndex="41"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:7" NodeType="2" PortIndex="40"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:6" NodeType="2" PortIndex="39"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:5" NodeType="2" PortIndex="38"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:4" NodeType="2" PortIndex="37"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:3" NodeType="2" PortIndex="36"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:2" NodeType="2" PortIndex="35"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:1" NodeType="2" PortIndex="34"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_dout:0" NodeType="2" PortIndex="33"/>
+    </TraceSignal>
+    <TraceSignal Color="" IsHidden="false" Name="sram_we" NodeType="0" PortIndex="32"/>
+    <TraceSignal Color="" IsHidden="false" Name="sram_din" NodeType="1" PortIndex="-1">
+     <BusRadix Radix="3"/>
+     <IsExpanded Expand="false"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:31" NodeType="2" PortIndex="31"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:30" NodeType="2" PortIndex="30"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:29" NodeType="2" PortIndex="29"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:28" NodeType="2" PortIndex="28"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:27" NodeType="2" PortIndex="27"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:26" NodeType="2" PortIndex="26"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:25" NodeType="2" PortIndex="25"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:24" NodeType="2" PortIndex="24"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:23" NodeType="2" PortIndex="23"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:22" NodeType="2" PortIndex="22"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:21" NodeType="2" PortIndex="21"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:20" NodeType="2" PortIndex="20"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:19" NodeType="2" PortIndex="19"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:18" NodeType="2" PortIndex="18"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:17" NodeType="2" PortIndex="17"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:16" NodeType="2" PortIndex="16"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:15" NodeType="2" PortIndex="15"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:14" NodeType="2" PortIndex="14"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:13" NodeType="2" PortIndex="13"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:12" NodeType="2" PortIndex="12"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:11" NodeType="2" PortIndex="11"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:10" NodeType="2" PortIndex="10"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:9" NodeType="2" PortIndex="9"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:8" NodeType="2" PortIndex="8"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:7" NodeType="2" PortIndex="7"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:6" NodeType="2" PortIndex="6"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:5" NodeType="2" PortIndex="5"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:4" NodeType="2" PortIndex="4"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:3" NodeType="2" PortIndex="3"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:2" NodeType="2" PortIndex="2"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:1" NodeType="2" PortIndex="1"/>
+     <TraceSignal Color="" IsHidden="false" Name="sram_din:0" NodeType="2" PortIndex="0"/>
+    </TraceSignal>
+   </TraceSigTreeData>
+   <TriggerUI PreSelect="1" PreSelectType="0" UserSelect="0" UserSelectPos="0"/>
+   <CoreRun Run="true"/>
+   <CoreWndUIData>
+    <ClockFrequency Frequency="-1.0" Unit="ns"/>
+   </CoreWndUIData>
+  </WinUI>
+ </Device>
+</ispTLA>

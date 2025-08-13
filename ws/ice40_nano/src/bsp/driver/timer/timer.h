@@ -3,15 +3,15 @@
 #include <stdint.h>
 // timer0 is used for delay function
 
-#define TMER0_INT	0x001
-#define TMER1_INT	0x002
-#define TMER2_INT	0x004
-#define TMER3_INT	0x008
+#define TIMER0_INT	0x001
+#define TIMER1_INT	0x002
+#define TIMER2_INT	0x004
+#define TIMER3_INT	0x008
 
-#define TMER0_SRC	0x00
-#define TMER1_SRC	0x01
-#define TMER2_SRC	0x02
-#define TMER3_SRC	0x03
+#define TIMER0_SRC	0x00
+#define TIMER1_SRC	0x01
+#define TIMER2_SRC	0x02
+#define TIMER3_SRC	0x03
 
 #define TIMER_REPEAT 0x01
 #define TIMER_ONESHOT 0x00
@@ -42,6 +42,10 @@ struct timer_dev {
 	volatile unsigned en1        ;// Alarm1 enable/disable
 	volatile unsigned en2        ;// Alarm2 enable/disable
 	volatile unsigned en3        ;// Alarm3 enable/disable
+	volatile unsigned int0_en    ;// Alarm0 / interrupts
+	volatile unsigned int1_en    ;// Alarm1 / interrupts
+	volatile unsigned int2_en    ;// Alarm2 / interrupts
+	volatile unsigned int3_en    ;// Alarm3 / interrupts
 };
 
 void timer_isr(void *ctx);

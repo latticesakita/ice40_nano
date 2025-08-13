@@ -61,19 +61,22 @@ unsigned char pic_init(unsigned int base)
 	/* init interrupt table */
 	for (idx = 0; idx < S_INT_NUM; idx++) {
 		int_table[idx].context = NULL;
+		int_table[idx].addr_irq = NULL;
 		int_table[idx].isr = NULL;
 	}
 
 	/* enable external interrupt */
-	__asm__ __volatile__("csrw mie, %0"::"r"(0x800));
+	__asm__ __volatile__("csrw mie, %0"::"r"(0x080));
 
 	/* enable interrupts */
 	__asm__ __volatile__("csrw mstatus, %0"::"r"(0x1808));
 	return 0;
 }
 
-unsigned char pic_isr_register(unsigned char src, void (*isr) (void *),
-			       void *context)
+unsigned char pic_isr_register(unsigned char src,
+		void (*isr) (void *),
+		uint32_t *addr_irq,
+		void *context)
 {
 	if (src > S_INT_NUM) {
 		return 1;
@@ -81,9 +84,13 @@ unsigned char pic_isr_register(unsigned char src, void (*isr) (void *),
 	//if (NULL == context) {
 	//	return 1;
 	//}
+	if( addr_irq == NULL ){
+		return 1;
+	}
 
 	/* register on the isr */
 	int_table[src].isr = isr;
+	int_table[src].addr_irq = addr_irq;
 	int_table[src].context = context;
 
 	return 0;

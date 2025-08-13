@@ -202,7 +202,7 @@
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>ahbl_uart_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="personal" library="ip" name="ahbl_uart" version="1.0.5" />
+                <ipxact:componentRef vendor="personal" library="ip" name="ahbl_uart" version="1.1.1" />
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>cpu0_inst</ipxact:instanceName>
@@ -218,7 +218,7 @@
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>timer_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="personal" library="ip" name="timer" version="1.0.4" />
+                <ipxact:componentRef vendor="personal" library="ip" name="timer" version="1.1.3" />
             </ipxact:componentInstance>
         </ipxact:componentInstances>
         <ipxact:interconnections>
@@ -293,10 +293,10 @@
                 <ipxact:displayName>cpu0_inst_system_resetn_o_net</ipxact:displayName>
                 <ipxact:portReferences>
                     <ipxact:internalPortReference componentRef="cpu0_inst" portRef="system_resetn_o" />
-                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="resetn" />
                     <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HRESETn" />
                     <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hresetn_i" />
                     <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hresetn_i" />
+                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="resetn" />
                     <ipxact:internalPortReference componentRef="timer_inst" portRef="resetn_i" />
                     <ipxact:internalPortReference componentRef="system1_inst" portRef="ahbl_hresetn_i" />
                 </ipxact:portReferences>
@@ -306,10 +306,10 @@
                 <ipxact:displayName>ice40_nano_clk_i_net</ipxact:displayName>
                 <ipxact:portReferences>
                     <ipxact:internalPortReference componentRef="cpu0_inst" portRef="clk_i" />
-                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="clk" />
                     <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HCLK" />
                     <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hclk_i" />
                     <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hclk_i" />
+                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="clk" />
                     <ipxact:internalPortReference componentRef="timer_inst" portRef="clk_i" />
                     <ipxact:internalPortReference componentRef="system1_inst" portRef="ahbl_hclk_i" />
                     <ipxact:externalPortReference portRef="clk_i" />
@@ -433,6 +433,28 @@
                             </ipxact:range>
                         </ipxact:partSelect>
                     </ipxact:externalPortReference>
+                </ipxact:portReferences>
+            </ipxact:adHocConnection>
+            <ipxact:adHocConnection>
+                <ipxact:name>timer_inst_systime_o_netbus</ipxact:name>
+                <ipxact:displayName>timer_inst_systime_o_netbus</ipxact:displayName>
+                <ipxact:portReferences>
+                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="systime_i">
+                        <ipxact:partSelect>
+                            <ipxact:range>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:range>
+                        </ipxact:partSelect>
+                    </ipxact:internalPortReference>
+                    <ipxact:internalPortReference componentRef="timer_inst" portRef="systime_o">
+                        <ipxact:partSelect>
+                            <ipxact:range>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:range>
+                        </ipxact:partSelect>
+                    </ipxact:internalPortReference>
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
         </ipxact:adHocConnections>
@@ -1505,11 +1527,11 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>INIT_VALUE_00</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000100110001001010110001001110000000000000x00000000000000000000000000011111110100101100000100100000000000000x00000000000000000000000001100111010000100110011001100000000000000x00000000000000000000000001000111001100000101010000010010001000100x00000000000000000000000001100010010101100100011001110000000000000x10000111011100000000000011000000001111111000010101000000000000000x00011101011100000000000001110101010001100000011101010010001000100x1100010011000011000000000010011010011100101001000011110011001100</ipxact:value>
+                <ipxact:value>0x00000000000001100000011000000010011000100101011000100111000001110x00000000000011110000110000000001111111010010110000010010000000110x00000000001001100000011100000110011101000010011001100110000000100x00000000101011000000010100000100011100110000010101000001101000000x11110000011101100010011000000110001001010110010001100111011001100x11110000010001101001111000001100000000111111100001010100001101000x11110000011000100110001000000111010101000110000001110101011000100x1111000100011010110010001010001001101001110010100100001101010101</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>INIT_VALUE_01</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000010x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000011110x00000000000000000000000000000000000000000000000000000000000011110x00000000000000000000000000000000000000000000000000000000000011110x0000000000000000000000000000000000000000000000000000000000001111</ipxact:value>
+                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>INIT_VALUE_02</ipxact:name>
@@ -19367,7 +19389,7 @@
         <ipxact:vendor>personal</ipxact:vendor>
         <ipxact:library>ip</ipxact:library>
         <ipxact:name>ahbl_uart</ipxact:name>
-        <ipxact:version>1.0.5</ipxact:version>
+        <ipxact:version>1.1.1</ipxact:version>
         <ipxact:busInterfaces>
             <ipxact:busInterface>
                 <ipxact:name>AHBL</ipxact:name>
@@ -19523,6 +19545,7 @@
         <ipxact:memoryMaps>
             <ipxact:memoryMap>
                 <ipxact:name>ahb_uart</ipxact:name>
+                <ipxact:displayName>ahb_uart</ipxact:displayName>
                 <ipxact:description>New Memorymap</ipxact:description>
                 <ipxact:addressBlock>
                     <ipxact:name>NewAddressBlock1</ipxact:name>
@@ -19542,7 +19565,7 @@
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
                     <ipxact:name>ahbl_uart_design</ipxact:name>
-                    <ipxact:designRef vendor="personal" library="ip" name="ahbl_uart" version="1.0.5" />
+                    <ipxact:designRef vendor="personal" library="ip" name="ahbl_uart" version="1.1.1" />
                 </ipxact:designInstantiation>
             </ipxact:instantiations>
             <ipxact:ports>
@@ -19714,6 +19737,19 @@
                         </ipxact:vectors>
                     </ipxact:wire>
                 </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>systime_i</ipxact:name>
+                    <ipxact:displayName>systime_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
             </ipxact:ports>
         </ipxact:model>
         <ipxact:fileSets>
@@ -19721,7 +19757,7 @@
                 <ipxact:name>IP</ipxact:name>
                 <ipxact:group>ip</ipxact:group>
                 <ipxact:file>
-                    <ipxact:name>./lib/personal/ip/ahbl_uart/1.0.5/component.xml</ipxact:name>
+                    <ipxact:name>./lib/personal/ip/ahbl_uart/1.1.1/component.xml</ipxact:name>
                     <ipxact:fileType user="xml">user</ipxact:fileType>
                 </ipxact:file>
             </ipxact:fileSet>
@@ -19741,7 +19777,7 @@
             </ipxact:parameter>
         </ipxact:parameters>
         <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="ahb_uart" lsccip:vendor="personal" lsccip:version="1.0.5" lsccip:display_name="ahb_uart" lsccip:display_vendor="personal" />
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="ahb_uart" lsccip:vendor="personal" lsccip:version="1.1.1" lsccip:display_name="ahb_uart" lsccip:display_vendor="personal" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>
@@ -20141,7 +20177,7 @@
         <ipxact:vendor>personal</ipxact:vendor>
         <ipxact:library>ip</ipxact:library>
         <ipxact:name>timer</ipxact:name>
-        <ipxact:version>1.0.4</ipxact:version>
+        <ipxact:version>1.1.3</ipxact:version>
         <ipxact:busInterfaces>
             <ipxact:busInterface>
                 <ipxact:name>AHBL_S0</ipxact:name>
@@ -20304,7 +20340,7 @@
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
                     <ipxact:name>timer_design</ipxact:name>
-                    <ipxact:designRef vendor="personal" library="ip" name="timer" version="1.0.4" />
+                    <ipxact:designRef vendor="personal" library="ip" name="timer" version="1.1.3" />
                 </ipxact:designInstantiation>
             </ipxact:instantiations>
             <ipxact:ports>
@@ -20442,6 +20478,19 @@
                         </ipxact:vectors>
                     </ipxact:wire>
                 </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>systime_o</ipxact:name>
+                    <ipxact:displayName>systime_o</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>31</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
             </ipxact:ports>
         </ipxact:model>
         <ipxact:fileSets>
@@ -20449,7 +20498,7 @@
                 <ipxact:name>IP</ipxact:name>
                 <ipxact:group>ip</ipxact:group>
                 <ipxact:file>
-                    <ipxact:name>./lib/personal/ip/timer/1.0.4/component.xml</ipxact:name>
+                    <ipxact:name>./lib/personal/ip/timer/1.1.3/component.xml</ipxact:name>
                     <ipxact:fileType user="xml">user</ipxact:fileType>
                 </ipxact:file>
             </ipxact:fileSet>
@@ -20465,7 +20514,7 @@
             </ipxact:parameter>
         </ipxact:parameters>
         <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="timer_ahb" lsccip:vendor="personal" lsccip:version="1.0.4" lsccip:display_name="timer_ahb" lsccip:display_vendor="personal" />
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="timer_ahb" lsccip:vendor="personal" lsccip:version="1.1.3" lsccip:display_name="timer_ahb" lsccip:display_vendor="personal" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>

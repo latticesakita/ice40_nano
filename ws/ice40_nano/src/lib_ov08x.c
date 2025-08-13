@@ -689,6 +689,7 @@ int ov08x_stop(unsigned char ov08x_slave)
 	gpio_output_write(&gpio_inst, GPIO_SENSOR_RESETN, GPIO_LOW);
 	gpio_set_direction(&gpio_inst, GPIO_OSC_EN,        GPIO_OUTPUT);
 	gpio_set_direction(&gpio_inst, GPIO_SENSOR_RESETN, GPIO_OUTPUT);
+	return 0;
 }
 
 /* ***************************************************

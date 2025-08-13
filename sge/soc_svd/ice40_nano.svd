@@ -51,7 +51,7 @@
     </peripheral>
     <peripheral>
           <name>ahbl_uart_inst</name>
-          <version>1.0.5</version>
+          <version>1.1.1</version>
           <baseAddress>0x00025000</baseAddress>
           <groupName>ahb_uart</groupName>
           <description></description>
@@ -85,7 +85,7 @@
     </peripheral>
     <peripheral>
           <name>timer_inst</name>
-          <version>1.0.4</version>
+          <version>1.1.3</version>
           <baseAddress>0x00030000</baseAddress>
           <groupName>timer_ahb</groupName>
           <description></description>

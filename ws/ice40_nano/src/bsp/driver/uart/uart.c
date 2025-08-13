@@ -316,14 +316,20 @@ unsigned char uart_puts(struct uart_instance *this_uart,
 	return 0;
 }
 
-void uart_printf(struct uart_instance *this_uart, const char *format, ...) {
-    unsigned char buffer[80];  // 出力用バッファ（必要に応じてサイズ調整）
+void log_printf(struct uart_instance *this_uart, uint32_t print_timestamp, const char *format, ...) {
+    unsigned char buffer[80];
     va_list args;
 
+    if(this_uart!=NULL){
+    	volatile struct uart_dev *dev = (volatile struct uart_dev *)(this_uart->base);
+    	dev->timestamp = print_timestamp;
+    }
+    else{
+    	return;
+    }
     va_start(args, format);
     vsnprintf(buffer, sizeof(buffer), format, args);
     va_end(args);
-
     uart_puts(this_uart, buffer);
 }
 

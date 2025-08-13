@@ -56,21 +56,16 @@ extern struct interrupt_entry int_table[S_INT_NUM];
 void irq_callback(unsigned int mcause)
 {
 
-	if ((mcause & MCAUSE_VAL_MASK) == MCAUSE_VAL_MTIP) {
-		if (int_table[S_INT_TIMER].isr) {
-			int_table[S_INT_TIMER].isr(int_table[S_INT_TIMER].
-						   context);
-		}
-	} else if ((mcause & MCAUSE_VAL_MASK) == MCASUE_VAL_MEIP) {
 		int idx;
 		for (idx = S_INT_PIC0; idx < S_INT_NUM; idx++) {
 			if (int_table[idx].isr) {
-				int_table[idx].isr(int_table[idx].
-							  context);
+				uint32_t *irq = int_table[idx].addr_irq;
+				if(*irq != 0){
+					int_table[idx].isr(int_table[idx].context);
+				}
 			}
 			
 		}
-	}
 }
 
 void __attribute__ ((weak)) esr_log(unsigned int mcause, unsigned int mepc,unsigned int sp)

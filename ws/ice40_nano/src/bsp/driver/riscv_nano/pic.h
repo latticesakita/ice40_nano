@@ -85,11 +85,13 @@ enum interrupt_src {
 
 struct interrupt_entry {
 	void (*isr) (void *);	// ISR
+	uint32_t *addr_irq;  // none-0 value to indicate interrupt to happen.
 	void *context;		// base address of IP
 };
 
 unsigned char pic_init(unsigned int base);
 unsigned char pic_isr_register(unsigned char src, void (*isr) (void *),
-			       void *context);
+		uint32_t *addr_irq,
+		void *context);
 
 #endif				/* PIC_H_ */

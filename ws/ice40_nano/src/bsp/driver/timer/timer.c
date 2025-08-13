@@ -10,25 +10,29 @@ static void (*func_timer3)(void);
 
 void timer_isr(void *ctx)
 {
-	
+	uint32_t inta = dev->inta;
 	if(dev == NULL){
 		return;
 	}
 
-	if(dev->inta==0){
+	if(inta==0){
 		return;
 	}
 
-	if((dev->int0 != 0) && (func_timer0 != NULL)){
+	if((inta & TIMER0_INT) && (func_timer0 != NULL)){
+		dev->int0 = 0;
 		func_timer0();
 	}
-	if((dev->int1 != 0) && (func_timer1 != NULL)){
+	if((inta & TIMER1_INT) && (func_timer1 != NULL)){
+		dev->int1 = 0;
 		func_timer1();
 	}
-	if((dev->int2 != 0) && (func_timer2 != NULL)){
+	if((inta & TIMER2_INT) && (func_timer2 != NULL)){
+		dev->int2 = 0;
 		func_timer2();
 	}
-	if((dev->int3 != 0) && (func_timer3 != NULL)){
+	if((inta & TIMER3_INT) && (func_timer3 != NULL)){
+		dev->int3 = 0;
 		func_timer3();
 	}
 }
@@ -52,17 +56,24 @@ unsigned char timer_init(
 }
 void timer_register(unsigned char src, void (*func)())
 {
+	if(dev == NULL){
+		return;
+	}
 	if(src==0){
 		func_timer0 = func;
+		dev->int0_en = (func != NULL) ? 1 : 0;
 	}
 	else if(src==1){
 		func_timer1 = func;
+		dev->int1_en = (func != NULL) ? 1 : 0;
 	}
 	else if(src==2){
 		func_timer2 = func;
+		dev->int2_en = (func != NULL) ? 1 : 0;
 	}
 	else if(src==3){
 		func_timer3 = func;
+		dev->int3_en = (func != NULL) ? 1 : 0;
 	}
 }
 void timer_set(unsigned char src, uint32_t period, uint32_t repeat)

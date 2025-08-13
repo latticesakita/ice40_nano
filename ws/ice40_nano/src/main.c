@@ -61,6 +61,9 @@ struct gpio_instance gpio_inst;
 #include "timer.h"
 #include "pic.h"
 
+#define PRINT_INTERVAL 1000000
+#define GPIO7_INTERVAL    500000 // 1500(1.5ms) for simulation, 500000(500ms) for target, less than 1ms won't work due to slow processing speed
+
 #if (defined UART_INST_BASE_ADDR)
 struct uart_instance uart_core_uart;
 #elif (defined LOCAL_UART_INST_BASE_ADDR)
@@ -113,6 +116,11 @@ static void bsp_init(void)
 
 }
 
+static void print_sec(void)
+{
+	static unsigned int s = 1;
+	log_printf(&uart_core_uart, 1, "%d sec\n", s++);
+}
 static void toggle_led7(void)
 {
 	static uint16_t pin_state = 0;
@@ -125,43 +133,28 @@ int main(void) {
 	static uint16_t pin_state = GPIO_HIGH;
 
 	bsp_init();
+	pic_init(0);
+	pic_isr_register(TIMER_INST_IRQ, timer_isr, (uint32_t *)TIMER_INST_BASE_ADDR+0, NULL);
 #ifdef TIMER_INST_BASE_ADDR
 	timer_init(TIMER_INST_BASE_ADDR, TIMER_PRESCALE);
 	gpio_set_direction(&gpio_inst, GPIO7, GPIO_OUTPUT);
-	timer_register(TMER3_SRC, toggle_led7);
-	timer_set(TMER3_SRC, 500, TIMER_REPEAT);
+	timer_register(TIMER3_SRC, toggle_led7);
+	timer_register(TIMER2_SRC, print_sec);
+	timer_set(TIMER3_SRC, GPIO7_INTERVAL, TIMER_REPEAT);
+	timer_set(TIMER2_SRC, PRINT_INTERVAL, TIMER_REPEAT);
 
 #endif
-	pic_init(0);
-	pic_isr_register(TIMER_INST_IRQ, timer_isr, NULL);
 
+	// uart_puts(&uart_core_uart, "Started!\nHello RISC-V world!\n");
+	//printf("Started!\nHello RISC-V world!\n");
+	log_printf(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
 
 	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
 	usleep(1000);
 	pin_state = GPIO_LOW;
 	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
-	// uart_puts(&uart_core_uart, "Started!\nHello RISC-V world!\n");
-	// uart_printf(&uart_core_uart, "Started!\nHello RISC-V world!\n");
-	printf("Started!\nHello RISC-V world!\n"); 
 
-	while (true) {
-#ifdef GPIO_INST_BASE_ADDR
-		gpio_output_write(&gpio_inst, idx, pin_state);
-#else
-		printf("0x%02X\n",(pin_state ^ (1<<idx)));
-#endif
-
-		if (++idx == LED_COUNT) {
-			idx = GPIO4;
-			pin_state = ~pin_state;
-		}
-
-		if (RTL_SIM) {
-			delay(1);
-		} else {
-			delay(500);
-		}
-	}
+	while (true);
 
 	return 0;
 }

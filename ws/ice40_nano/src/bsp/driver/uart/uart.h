@@ -90,6 +90,7 @@ struct uart_dev {
 	volatile unsigned int dlr_lsb; // divisor (lsb)
 	volatile unsigned int dlr_msb; // divisor (msb)
 	volatile unsigned int dlr; // divisor (16bits)
+	volatile unsigned int timestamp;
 };
 
 #define UART_BUFFER_SIZE    16
@@ -136,7 +137,6 @@ unsigned char uart_putc(struct uart_instance *this_uart,
 			unsigned char ucChar);
 unsigned char uart_puts(struct uart_instance *this_uart,
 			unsigned char *s);
-void uart_printf(struct uart_instance *this_uart, const char *format, ...);
 unsigned char uart_getc(struct uart_instance *this_uart,
 			unsigned char *pucChar);
 unsigned char uart_set_rate(struct uart_instance *this_uart,
@@ -144,5 +144,7 @@ unsigned char uart_set_rate(struct uart_instance *this_uart,
 unsigned char uart_config(struct uart_instance *this_uart,
 			  unsigned int dwidth, unsigned char parity_en,
 			  unsigned char even_odd, unsigned int stopbits);
+
+void log_printf(struct uart_instance *this_uart, uint32_t print_timestamp, const char *format, ...) ;
 
 #endif				/* UART_H_ */

@@ -1,0 +1,260 @@
+<Project Date="2025-08-13" ModBy="Inserter" Name="O:/src/Propel/iCE40UP/ice40_nano/reveal/ice40_nano.rvl" SigType="0">
+    <IP Version="1_6_042617"/>
+    <Design DesignEntry="Schematic/Verilog HDL" DesignName="ice40_nano" DeviceFamily="iCE40UP" DeviceName="iCE40UP5K" JTAG="soft" Stage="presyn" Synthesis="synplify"/>
+    <Core ID="0" Insert="1" InsertDataset="0" Name="ice40_nano_Top_LA0" Reveal_sig="639273564">
+        <Setting>
+            <Clock EnableClk="" EnableClk_Pri="0" SampleClk="clk_soc" SampleEnable="0"/>
+            <TraceBuffer BitTimeStamp="0" BufferDepth="256" Implementation="0" IncTrigSig="0" hasTimeStamp="0"/>
+            <Capture MinSamplesPerTrig="8" Mode="0"/>
+            <Event CntEnable="0" MaxEventCnt="8"/>
+            <TrigOut EnableTrigOut="0" MinPulseWidth="0" Polarity="0" TrigOutNet="reveal_debug_ice40_nano_Top_LA0_net" TrigOutNetType="0"/>
+            <DistRAM Disable="1"/>
+        </Setting>
+        <Dataset Name="Base">
+            <Trace>
+                <Bus Name="sram_din">
+                    <Sig Name="sram_din:0" Type="SIG"/>
+                    <Sig Name="sram_din:1" Type="SIG"/>
+                    <Sig Name="sram_din:2" Type="SIG"/>
+                    <Sig Name="sram_din:3" Type="SIG"/>
+                    <Sig Name="sram_din:4" Type="SIG"/>
+                    <Sig Name="sram_din:5" Type="SIG"/>
+                    <Sig Name="sram_din:6" Type="SIG"/>
+                    <Sig Name="sram_din:7" Type="SIG"/>
+                    <Sig Name="sram_din:8" Type="SIG"/>
+                    <Sig Name="sram_din:9" Type="SIG"/>
+                    <Sig Name="sram_din:10" Type="SIG"/>
+                    <Sig Name="sram_din:11" Type="SIG"/>
+                    <Sig Name="sram_din:12" Type="SIG"/>
+                    <Sig Name="sram_din:13" Type="SIG"/>
+                    <Sig Name="sram_din:14" Type="SIG"/>
+                    <Sig Name="sram_din:15" Type="SIG"/>
+                    <Sig Name="sram_din:16" Type="SIG"/>
+                    <Sig Name="sram_din:17" Type="SIG"/>
+                    <Sig Name="sram_din:18" Type="SIG"/>
+                    <Sig Name="sram_din:19" Type="SIG"/>
+                    <Sig Name="sram_din:20" Type="SIG"/>
+                    <Sig Name="sram_din:21" Type="SIG"/>
+                    <Sig Name="sram_din:22" Type="SIG"/>
+                    <Sig Name="sram_din:23" Type="SIG"/>
+                    <Sig Name="sram_din:24" Type="SIG"/>
+                    <Sig Name="sram_din:25" Type="SIG"/>
+                    <Sig Name="sram_din:26" Type="SIG"/>
+                    <Sig Name="sram_din:27" Type="SIG"/>
+                    <Sig Name="sram_din:28" Type="SIG"/>
+                    <Sig Name="sram_din:29" Type="SIG"/>
+                    <Sig Name="sram_din:30" Type="SIG"/>
+                    <Sig Name="sram_din:31" Type="SIG"/>
+                </Bus>
+                <Sig Name="sram_we" Type="SIG"/>
+                <Bus Name="sram_dout">
+                    <Sig Name="sram_dout:0" Type="SIG"/>
+                    <Sig Name="sram_dout:1" Type="SIG"/>
+                    <Sig Name="sram_dout:2" Type="SIG"/>
+                    <Sig Name="sram_dout:3" Type="SIG"/>
+                    <Sig Name="sram_dout:4" Type="SIG"/>
+                    <Sig Name="sram_dout:5" Type="SIG"/>
+                    <Sig Name="sram_dout:6" Type="SIG"/>
+                    <Sig Name="sram_dout:7" Type="SIG"/>
+                    <Sig Name="sram_dout:8" Type="SIG"/>
+                    <Sig Name="sram_dout:9" Type="SIG"/>
+                    <Sig Name="sram_dout:10" Type="SIG"/>
+                    <Sig Name="sram_dout:11" Type="SIG"/>
+                    <Sig Name="sram_dout:12" Type="SIG"/>
+                    <Sig Name="sram_dout:13" Type="SIG"/>
+                    <Sig Name="sram_dout:14" Type="SIG"/>
+                    <Sig Name="sram_dout:15" Type="SIG"/>
+                    <Sig Name="sram_dout:16" Type="SIG"/>
+                    <Sig Name="sram_dout:17" Type="SIG"/>
+                    <Sig Name="sram_dout:18" Type="SIG"/>
+                    <Sig Name="sram_dout:19" Type="SIG"/>
+                    <Sig Name="sram_dout:20" Type="SIG"/>
+                    <Sig Name="sram_dout:21" Type="SIG"/>
+                    <Sig Name="sram_dout:22" Type="SIG"/>
+                    <Sig Name="sram_dout:23" Type="SIG"/>
+                    <Sig Name="sram_dout:24" Type="SIG"/>
+                    <Sig Name="sram_dout:25" Type="SIG"/>
+                    <Sig Name="sram_dout:26" Type="SIG"/>
+                    <Sig Name="sram_dout:27" Type="SIG"/>
+                    <Sig Name="sram_dout:28" Type="SIG"/>
+                    <Sig Name="sram_dout:29" Type="SIG"/>
+                    <Sig Name="sram_dout:30" Type="SIG"/>
+                    <Sig Name="sram_dout:31" Type="SIG"/>
+                </Bus>
+                <Bus Name="sram_addr">
+                    <Sig Name="sram_addr:0" Type="SIG"/>
+                    <Sig Name="sram_addr:1" Type="SIG"/>
+                    <Sig Name="sram_addr:2" Type="SIG"/>
+                    <Sig Name="sram_addr:3" Type="SIG"/>
+                    <Sig Name="sram_addr:4" Type="SIG"/>
+                    <Sig Name="sram_addr:5" Type="SIG"/>
+                    <Sig Name="sram_addr:6" Type="SIG"/>
+                    <Sig Name="sram_addr:7" Type="SIG"/>
+                    <Sig Name="sram_addr:8" Type="SIG"/>
+                    <Sig Name="sram_addr:9" Type="SIG"/>
+                    <Sig Name="sram_addr:10" Type="SIG"/>
+                    <Sig Name="sram_addr:11" Type="SIG"/>
+                    <Sig Name="sram_addr:12" Type="SIG"/>
+                    <Sig Name="sram_addr:13" Type="SIG"/>
+                </Bus>
+                <Sig Name="soc_sram_re" Type="SIG"/>
+                <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr">
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:0" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:1" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:2" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:3" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:4" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:5" Type="SIG"/>
+                </Bus>
+                <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwrite_i" Type="SIG"/>
+                <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i">
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:0" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:1" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:2" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:3" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:4" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:5" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:6" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:7" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:8" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:9" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:10" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:11" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:12" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:13" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:14" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:15" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:16" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:17" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:18" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:19" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:20" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:21" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:22" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:23" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:24" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:25" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:26" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:27" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:28" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:29" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:30" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:31" Type="SIG"/>
+                </Bus>
+                <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/ahb_access" Type="SIG"/>
+                <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end">
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:0" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:1" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:2" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:3" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:4" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:5" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:6" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:7" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:8" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:9" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:10" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:11" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:12" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:13" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:14" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:15" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:16" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:17" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:18" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:19" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:20" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:21" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:22" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:23" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:24" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:25" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:26" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:27" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:28" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:29" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:30" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:31" Type="SIG"/>
+                </Bus>
+                <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_alarm3_fire" Type="SIG"/>
+                <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set">
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:0" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:1" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:2" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:3" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:4" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:5" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:6" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:7" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:8" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:9" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:10" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:11" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:12" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:13" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:14" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:15" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:16" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:17" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:18" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:19" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:20" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:21" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:22" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:23" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:24" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:25" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:26" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:27" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:28" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:29" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:30" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:31" Type="SIG"/>
+                </Bus>
+                <Bus Name="ice40_nano_inst/timer_inst/systime_o">
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:0" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:1" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:2" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:3" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:4" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:5" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:6" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:7" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:8" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:9" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:10" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:11" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:12" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:13" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:14" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:15" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:16" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:17" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:18" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:19" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:20" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:21" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:22" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:23" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:24" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:25" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:26" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:27" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:28" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:29" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:30" Type="SIG"/>
+                    <Sig Name="ice40_nano_inst/timer_inst/systime_o:31" Type="SIG"/>
+                </Bus>
+            </Trace>
+            <Trigger>
+                <TU ID="1" Serialbits="0" Sig="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_alarm3_fire," Type="0"/>
+                <TU ID="2" Serialbits="0" Sig="soc_sram_re," Type="0"/>
+                <TU ID="3" Serialbits="0" Sig="ice40_nano_inst/timer_inst/timer_ahbl_inst/ahb_access," Type="0"/>
+                <TU ID="4" Serialbits="0" Sig="resetn_soc," Type="0"/>
+                <TU ID="5" Serialbits="0" Sig="sram_we," Type="0"/>
+                <TU ID="6" Serialbits="0" Sig="r_fill," Type="0"/>
+                <TE ID="1" MaxEvnCnt="1" MaxSequence="1" Resource="1"/>
+            </Trigger>
+        </Dataset>
+    </Core>
+</Project>

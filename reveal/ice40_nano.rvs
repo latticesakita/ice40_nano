@@ -1,0 +1,255 @@
+<Project Date="2025-08-13" ModBy="Analyzer" Name="O:/src/Propel/iCE40UP/ice40_nano/reveal/ice40_nano.rvs">
+ <Core Name="ice40_nano_Top_LA0">
+  <Setting>
+   <Capture NumTrigsCap="1" SamplesPerTrig="256"/>
+   <Event CntEnableRun="0" EventCnt="0"/>
+   <TrigSetting AND_ALL="0" PostTrgSamples="" PreTrgSamples="" TURadix="0"/>
+  </Setting>
+  <Dataset Name="Base">
+   <Trace>
+    <Bus Name="sram_din" Radix="0">
+     <Sig Name="sram_din:0"/>
+     <Sig Name="sram_din:1"/>
+     <Sig Name="sram_din:2"/>
+     <Sig Name="sram_din:3"/>
+     <Sig Name="sram_din:4"/>
+     <Sig Name="sram_din:5"/>
+     <Sig Name="sram_din:6"/>
+     <Sig Name="sram_din:7"/>
+     <Sig Name="sram_din:8"/>
+     <Sig Name="sram_din:9"/>
+     <Sig Name="sram_din:10"/>
+     <Sig Name="sram_din:11"/>
+     <Sig Name="sram_din:12"/>
+     <Sig Name="sram_din:13"/>
+     <Sig Name="sram_din:14"/>
+     <Sig Name="sram_din:15"/>
+     <Sig Name="sram_din:16"/>
+     <Sig Name="sram_din:17"/>
+     <Sig Name="sram_din:18"/>
+     <Sig Name="sram_din:19"/>
+     <Sig Name="sram_din:20"/>
+     <Sig Name="sram_din:21"/>
+     <Sig Name="sram_din:22"/>
+     <Sig Name="sram_din:23"/>
+     <Sig Name="sram_din:24"/>
+     <Sig Name="sram_din:25"/>
+     <Sig Name="sram_din:26"/>
+     <Sig Name="sram_din:27"/>
+     <Sig Name="sram_din:28"/>
+     <Sig Name="sram_din:29"/>
+     <Sig Name="sram_din:30"/>
+     <Sig Name="sram_din:31"/>
+    </Bus>
+    <Sig Name="sram_we"/>
+    <Bus Name="sram_dout" Radix="0">
+     <Sig Name="sram_dout:0"/>
+     <Sig Name="sram_dout:1"/>
+     <Sig Name="sram_dout:2"/>
+     <Sig Name="sram_dout:3"/>
+     <Sig Name="sram_dout:4"/>
+     <Sig Name="sram_dout:5"/>
+     <Sig Name="sram_dout:6"/>
+     <Sig Name="sram_dout:7"/>
+     <Sig Name="sram_dout:8"/>
+     <Sig Name="sram_dout:9"/>
+     <Sig Name="sram_dout:10"/>
+     <Sig Name="sram_dout:11"/>
+     <Sig Name="sram_dout:12"/>
+     <Sig Name="sram_dout:13"/>
+     <Sig Name="sram_dout:14"/>
+     <Sig Name="sram_dout:15"/>
+     <Sig Name="sram_dout:16"/>
+     <Sig Name="sram_dout:17"/>
+     <Sig Name="sram_dout:18"/>
+     <Sig Name="sram_dout:19"/>
+     <Sig Name="sram_dout:20"/>
+     <Sig Name="sram_dout:21"/>
+     <Sig Name="sram_dout:22"/>
+     <Sig Name="sram_dout:23"/>
+     <Sig Name="sram_dout:24"/>
+     <Sig Name="sram_dout:25"/>
+     <Sig Name="sram_dout:26"/>
+     <Sig Name="sram_dout:27"/>
+     <Sig Name="sram_dout:28"/>
+     <Sig Name="sram_dout:29"/>
+     <Sig Name="sram_dout:30"/>
+     <Sig Name="sram_dout:31"/>
+    </Bus>
+    <Bus Name="sram_addr" Radix="0">
+     <Sig Name="sram_addr:0"/>
+     <Sig Name="sram_addr:1"/>
+     <Sig Name="sram_addr:2"/>
+     <Sig Name="sram_addr:3"/>
+     <Sig Name="sram_addr:4"/>
+     <Sig Name="sram_addr:5"/>
+     <Sig Name="sram_addr:6"/>
+     <Sig Name="sram_addr:7"/>
+     <Sig Name="sram_addr:8"/>
+     <Sig Name="sram_addr:9"/>
+     <Sig Name="sram_addr:10"/>
+     <Sig Name="sram_addr:11"/>
+     <Sig Name="sram_addr:12"/>
+     <Sig Name="sram_addr:13"/>
+    </Bus>
+    <Sig Name="soc_sram_re"/>
+    <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr" Radix="0">
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:0"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:1"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:2"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:3"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:4"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_addr:5"/>
+    </Bus>
+    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwrite_i"/>
+    <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i" Radix="0">
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:0"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:1"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:2"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:3"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:4"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:5"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:6"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:7"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:8"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:9"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:10"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:11"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:12"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:13"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:14"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:15"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:16"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:17"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:18"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:19"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:20"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:21"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:22"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:23"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:24"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:25"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:26"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:27"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:28"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:29"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:30"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/hwdata_i:31"/>
+    </Bus>
+    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/ahb_access"/>
+    <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end" Radix="0">
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:0"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:1"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:2"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:3"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:4"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:5"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:6"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:7"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:8"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:9"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:10"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:11"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:12"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:13"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:14"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:15"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:16"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:17"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:18"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:19"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:20"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:21"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:22"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:23"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:24"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:25"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:26"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:27"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:28"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:29"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:30"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_end:31"/>
+    </Bus>
+    <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/w_alarm3_fire"/>
+    <Bus Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set" Radix="0">
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:0"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:1"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:2"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:3"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:4"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:5"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:6"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:7"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:8"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:9"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:10"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:11"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:12"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:13"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:14"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:15"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:16"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:17"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:18"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:19"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:20"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:21"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:22"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:23"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:24"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:25"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:26"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:27"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:28"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:29"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:30"/>
+     <Sig Name="ice40_nano_inst/timer_inst/timer_ahbl_inst/r_alarm3_set:31"/>
+    </Bus>
+    <Bus Name="ice40_nano_inst/timer_inst/systime_o" Radix="0">
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:0"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:1"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:2"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:3"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:4"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:5"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:6"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:7"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:8"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:9"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:10"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:11"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:12"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:13"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:14"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:15"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:16"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:17"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:18"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:19"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:20"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:21"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:22"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:23"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:24"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:25"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:26"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:27"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:28"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:29"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:30"/>
+     <Sig Name="ice40_nano_inst/timer_inst/systime_o:31"/>
+    </Bus>
+   </Trace>
+   <Trigger>
+    <TU ID="1" Index="1" Name="TU1" Operator="6" Radix="0" Value="1"/>
+    <TU ID="2" Index="1" Name="TU2" Operator="6" Radix="0" Value="1"/>
+    <TU ID="3" Index="1" Name="TU3" Operator="0" Radix="0" Value="1"/>
+    <TU ID="4" Index="1" Name="TU4" Operator="6" Radix="0" Value="1"/>
+    <TU ID="5" Index="1" Name="TU5" Operator="6" Radix="0" Value="1"/>
+    <TU ID="6" Index="1" Name="TU6" Operator="7" Radix="0" Value="0"/>
+    <TE Enable="1" Expression="TU2" ID="1" Index="1" Name="TE1"/>
+   </Trigger>
+  </Dataset>
+ </Core>
+</Project>
