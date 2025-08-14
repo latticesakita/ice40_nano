@@ -60,6 +60,7 @@ struct gpio_instance gpio_inst;
 
 #include "timer.h"
 #include "pic.h"
+#include "lib_ov08x.h"
 
 #define PRINT_INTERVAL 1000000
 #define GPIO7_INTERVAL    500000 // 1500(1.5ms) for simulation, 500000(500ms) for target, less than 1ms won't work due to slow processing speed
@@ -144,6 +145,7 @@ int main(void) {
 	timer_set(TIMER2_SRC, PRINT_INTERVAL, TIMER_REPEAT);
 
 #endif
+	ov08x_start(I2C_SLAVE_OV08X);
 
 	// uart_puts(&uart_core_uart, "Started!\nHello RISC-V world!\n");
 	//printf("Started!\nHello RISC-V world!\n");
@@ -153,6 +155,7 @@ int main(void) {
 	usleep(1000);
 	pin_state = GPIO_LOW;
 	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
+
 
 	while (true);
 

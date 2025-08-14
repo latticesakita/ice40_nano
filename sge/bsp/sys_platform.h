@@ -62,22 +62,23 @@
 
 #define CPU0_INST_NAME "cpu0_inst"
 
-#define SYSTEM1_INST_NAME "system1_inst"
-#define SYSTEM1_INST_BASE_ADDR 0x20000
+#define SYSTEM1_INST_AHBL_SLV0_MODEL_MEM_MAP_NAME "system1_inst_ahbl_slv0_model_mem_map"
+#define SYSTEM1_INST_AHBL_SLV0_MODEL_MEM_MAP_BASE_ADDR 0x20000
 
-#define AHB_SPSRAM_INST_NAME "ahb_spsram_inst"
-#define AHB_SPSRAM_INST_BASE_ADDR 0x0
+#define AHB_SPSRAM_INST_AHB_SPSRAM_NANO_NAME "ahb_spsram_inst_ahb_spsram_nano"
+#define AHB_SPSRAM_INST_AHB_SPSRAM_NANO_BASE_ADDR 0x0
 
-#define AHBL_UART_INST_NAME "ahbl_uart_inst"
-#define AHBL_UART_INST_BASE_ADDR 0x25000
+#define AHBL_UART_INST_AHB_UART_NAME "ahbl_uart_inst_ahb_uart"
+#define AHBL_UART_INST_AHB_UART_BASE_ADDR 0x25000
 
-#define GPIO0_INST_NAME "gpio0_inst"
-#define GPIO_INST_NAME GPIO0_INST_NAME
-#define GPIO0_INST_BASE_ADDR 0x23000
-#define GPIO_INST_BASE_ADDR GPIO0_INST_BASE_ADDR
+#define GPIO0_INST_GPIO_AHBL_NAME "gpio0_inst_gpio_ahbl"
+#define GPIO0_INST_GPIO_AHBL_BASE_ADDR 0x23000
 
-#define TIMER_INST_NAME "timer_inst"
-#define TIMER_INST_BASE_ADDR 0x30000
+#define I2CM_INST_I2C_CONTROLLER_AHBL_NAME "i2cm_inst_I2C_Controller_AHBL"
+#define I2CM_INST_I2C_CONTROLLER_AHBL_BASE_ADDR 0x24000
+
+#define TIMER_INST_NEWMEMMAP1_NAME "timer_inst_NewMemmap1"
+#define TIMER_INST_NEWMEMMAP1_BASE_ADDR 0x30000
 
 /* ip instance rename */
 #define RISCV_NANO_INST_0 CPU0_INST
@@ -85,6 +86,7 @@
 #define AHB_SPSRAM_NANO_INST_0 AHB_SPSRAM_INST
 #define AHB_UART_INST_0 AHBL_UART_INST
 #define GPIO_AHBL_IO_INST_0 GPIO0_INST
+#define I2C_AHBL_INST_0 I2CM_INST
 #define TIMER_AHB_INST_0 TIMER_INST
 
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
@@ -111,8 +113,18 @@ and make sure to disable it when developing the application firmware. */
 /* gpio0_inst parameters */
 #define GPIO0_INST_BUS_WIDTH 8
 #define GPIO0_INST_DEVICE ICE40UP
-#define GPIO0_INST_DIRECTION 0xFF
+#define GPIO0_INST_DIRECTION 0x00
 #define GPIO0_INST_INIT_OUTVAL 0x00
+
+/* i2cm_inst parameters */
+#define I2CM_INST_COUNTER_SIZE 8
+#define I2CM_INST_NOISE_FILTER EN
+#define I2CM_INST_T_BUF_CLKS 36
+#define I2CM_INST_T_HD_START_CLKS 19
+#define I2CM_INST_T_HIGH_CLKS 23
+#define I2CM_INST_T_LOW_CLKS 33
+#define I2CM_INST_T_SU_START_CLKS 19
+#define I2CM_INST_T_SU_STOP_CLKS 19
 
 /* timer_inst parameters */
 #define TIMER_INST_PRESCALE 23

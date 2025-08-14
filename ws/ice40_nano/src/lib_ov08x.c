@@ -1,16 +1,9 @@
 #include "i2c_controller.h"
 #include "gpio.h"
 #include "timer.h"
-
-#define GPIO_OSC_EN		GPIO2
-#define GPIO_SENSOR_RESETN	GPIO3
+#include "lib_ov08x.h"
 
 extern struct gpio_instance gpio_inst;
-
-struct sensor_i2c_data {
-	unsigned short offset;
-	unsigned char  val;
-};
 
 // this is example code, no guarantee to work with actual sensor.
 const struct sensor_i2c_data ov08x_init[] = {
@@ -668,9 +661,9 @@ int ov08x_start(unsigned char ov08x_slave)
 	gpio_set_direction(&gpio_inst, GPIO_OSC_EN,        GPIO_OUTPUT);
 	gpio_set_direction(&gpio_inst, GPIO_SENSOR_RESETN, GPIO_OUTPUT);
 	gpio_output_write(&gpio_inst, GPIO_OSC_EN,        GPIO_HIGH);
-	usleep(10000); // wait 10ms to stablize the OSC output
+	//usleep(10000); // wait 10ms to stablize the OSC output
 	gpio_output_write(&gpio_inst, GPIO_SENSOR_RESETN, GPIO_HIGH);
-	usleep(5000); // wait 5ms to wait sensor to be reset properly
+	//usleep(5000); // wait 5ms to wait sensor to be reset properly
 	
 
 	for( i=0; (ov08x_init[i].offset != 0xFFFF) && (ov08x_init[i].val != 0xFF); i++ ){

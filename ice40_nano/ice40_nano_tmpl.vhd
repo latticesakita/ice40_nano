@@ -48,6 +48,8 @@ component ice40_nano is
         sram_dout: in std_logic_vector(31 downto 0);
         clk_i: in std_logic;
         rstn_i: in std_logic;
+        scl_io: inout std_logic;
+        sda_io: inout std_logic;
         sram_re: out std_logic;
         sram_read_valid: in std_logic;
         sram_we: out std_logic;
@@ -57,8 +59,7 @@ component ice40_nano is
     );
     
 end component ice40_nano;
-_inst: ice40_nano port map (gpio0_io => __,
-                            sram_addr => __,
+_inst: ice40_nano port map (sram_addr => __,
                             sram_din => __,
                             sram_dout => __,
                             clk_i => __,
@@ -66,7 +67,10 @@ _inst: ice40_nano port map (gpio0_io => __,
                             sram_read_valid => __,
                             sram_we => __,
                             sram_write_done => __,
+                            scl_io => __,
+                            sda_io => __,
                             uart_rxd_00_i => __,
                             uart_txd_00_o => __,
-                            rstn_i => __);
+                            rstn_i => __,
+                            gpio0_io => __);
                             

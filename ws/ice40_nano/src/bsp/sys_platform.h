@@ -78,6 +78,11 @@
 #define TIMER_INST_BASE_ADDR 0x30000
 #define TIMER_PRESCALE   23  // 24MHz system clock
 
+#define I2CM_INST_NAME "i2c_inst"
+#define I2CM_INST_BASE_ADDR 0x24000
+#define I2CM_USE_HARD_IP
+
+
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
 testable register of each IP instance, it might affect the environment during test. 
 Treat this with care, it's expected to be done only once when the SOC is generated on fly, 

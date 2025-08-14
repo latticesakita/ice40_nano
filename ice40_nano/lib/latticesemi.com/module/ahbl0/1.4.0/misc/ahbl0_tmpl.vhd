@@ -2,6 +2,32 @@ component ahbl0 is
     port(
         ahbl_hclk_i: in std_logic;
         ahbl_hresetn_i: in std_logic;
+        ahbl_m05_hready_mstr_i: in std_logic_vector(0 to 0);
+        ahbl_m05_hresp_mstr_i: in std_logic_vector(0 to 0);
+        ahbl_m05_hrdata_mstr_i: in std_logic_vector(31 downto 0);
+        ahbl_m05_hsel_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m05_haddr_mstr_o: out std_logic_vector(31 downto 0);
+        ahbl_m05_hburst_mstr_o: out std_logic_vector(2 downto 0);
+        ahbl_m05_hsize_mstr_o: out std_logic_vector(2 downto 0);
+        ahbl_m05_hmastlock_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m05_hprot_mstr_o: out std_logic_vector(3 downto 0);
+        ahbl_m05_htrans_mstr_o: out std_logic_vector(1 downto 0);
+        ahbl_m05_hwdata_mstr_o: out std_logic_vector(31 downto 0);
+        ahbl_m05_hwrite_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m05_hready_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m04_hready_mstr_i: in std_logic_vector(0 to 0);
+        ahbl_m04_hresp_mstr_i: in std_logic_vector(0 to 0);
+        ahbl_m04_hrdata_mstr_i: in std_logic_vector(31 downto 0);
+        ahbl_m04_hsel_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m04_haddr_mstr_o: out std_logic_vector(31 downto 0);
+        ahbl_m04_hburst_mstr_o: out std_logic_vector(2 downto 0);
+        ahbl_m04_hsize_mstr_o: out std_logic_vector(2 downto 0);
+        ahbl_m04_hmastlock_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m04_hprot_mstr_o: out std_logic_vector(3 downto 0);
+        ahbl_m04_htrans_mstr_o: out std_logic_vector(1 downto 0);
+        ahbl_m04_hwdata_mstr_o: out std_logic_vector(31 downto 0);
+        ahbl_m04_hwrite_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_m04_hready_mstr_o: out std_logic_vector(0 to 0);
         ahbl_m03_hready_mstr_i: in std_logic_vector(0 to 0);
         ahbl_m03_hresp_mstr_i: in std_logic_vector(0 to 0);
         ahbl_m03_hrdata_mstr_i: in std_logic_vector(31 downto 0);
@@ -28,6 +54,19 @@ component ahbl0 is
         ahbl_m02_hwdata_mstr_o: out std_logic_vector(31 downto 0);
         ahbl_m02_hwrite_mstr_o: out std_logic_vector(0 to 0);
         ahbl_m02_hready_mstr_o: out std_logic_vector(0 to 0);
+        ahbl_s01_hsel_slv_i: in std_logic_vector(0 to 0);
+        ahbl_s01_haddr_slv_i: in std_logic_vector(31 downto 0);
+        ahbl_s01_hburst_slv_i: in std_logic_vector(2 downto 0);
+        ahbl_s01_hsize_slv_i: in std_logic_vector(2 downto 0);
+        ahbl_s01_hmastlock_slv_i: in std_logic_vector(0 to 0);
+        ahbl_s01_hprot_slv_i: in std_logic_vector(3 downto 0);
+        ahbl_s01_htrans_slv_i: in std_logic_vector(1 downto 0);
+        ahbl_s01_hwdata_slv_i: in std_logic_vector(31 downto 0);
+        ahbl_s01_hwrite_slv_i: in std_logic_vector(0 to 0);
+        ahbl_s01_hready_slv_i: in std_logic_vector(0 to 0);
+        ahbl_s01_hreadyout_slv_o: out std_logic_vector(0 to 0);
+        ahbl_s01_hresp_slv_o: out std_logic_vector(0 to 0);
+        ahbl_s01_hrdata_slv_o: out std_logic_vector(31 downto 0);
         ahbl_m01_hready_mstr_i: in std_logic_vector(0 to 0);
         ahbl_m01_hresp_mstr_i: in std_logic_vector(0 to 0);
         ahbl_m01_hrdata_mstr_i: in std_logic_vector(31 downto 0);
@@ -73,6 +112,32 @@ end component;
 __: ahbl0 port map(
     ahbl_hclk_i=>,
     ahbl_hresetn_i=>,
+    ahbl_m05_hready_mstr_i=>,
+    ahbl_m05_hresp_mstr_i=>,
+    ahbl_m05_hrdata_mstr_i=>,
+    ahbl_m05_hsel_mstr_o=>,
+    ahbl_m05_haddr_mstr_o=>,
+    ahbl_m05_hburst_mstr_o=>,
+    ahbl_m05_hsize_mstr_o=>,
+    ahbl_m05_hmastlock_mstr_o=>,
+    ahbl_m05_hprot_mstr_o=>,
+    ahbl_m05_htrans_mstr_o=>,
+    ahbl_m05_hwdata_mstr_o=>,
+    ahbl_m05_hwrite_mstr_o=>,
+    ahbl_m05_hready_mstr_o=>,
+    ahbl_m04_hready_mstr_i=>,
+    ahbl_m04_hresp_mstr_i=>,
+    ahbl_m04_hrdata_mstr_i=>,
+    ahbl_m04_hsel_mstr_o=>,
+    ahbl_m04_haddr_mstr_o=>,
+    ahbl_m04_hburst_mstr_o=>,
+    ahbl_m04_hsize_mstr_o=>,
+    ahbl_m04_hmastlock_mstr_o=>,
+    ahbl_m04_hprot_mstr_o=>,
+    ahbl_m04_htrans_mstr_o=>,
+    ahbl_m04_hwdata_mstr_o=>,
+    ahbl_m04_hwrite_mstr_o=>,
+    ahbl_m04_hready_mstr_o=>,
     ahbl_m03_hready_mstr_i=>,
     ahbl_m03_hresp_mstr_i=>,
     ahbl_m03_hrdata_mstr_i=>,
@@ -99,6 +164,19 @@ __: ahbl0 port map(
     ahbl_m02_hwdata_mstr_o=>,
     ahbl_m02_hwrite_mstr_o=>,
     ahbl_m02_hready_mstr_o=>,
+    ahbl_s01_hsel_slv_i=>,
+    ahbl_s01_haddr_slv_i=>,
+    ahbl_s01_hburst_slv_i=>,
+    ahbl_s01_hsize_slv_i=>,
+    ahbl_s01_hmastlock_slv_i=>,
+    ahbl_s01_hprot_slv_i=>,
+    ahbl_s01_htrans_slv_i=>,
+    ahbl_s01_hwdata_slv_i=>,
+    ahbl_s01_hwrite_slv_i=>,
+    ahbl_s01_hready_slv_i=>,
+    ahbl_s01_hreadyout_slv_o=>,
+    ahbl_s01_hresp_slv_o=>,
+    ahbl_s01_hrdata_slv_o=>,
     ahbl_m01_hready_mstr_i=>,
     ahbl_m01_hresp_mstr_i=>,
     ahbl_m01_hrdata_mstr_i=>,

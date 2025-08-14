@@ -114,8 +114,22 @@
 							<tool id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.createmem.1874145685" name="Lattice Create Memory Deployment" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.createmem">
 								<option id="ilg.gnumcueclipse.managedbuild.cross.option.createmem.fillrange.564361084" name="Address Range" superClass="ilg.gnumcueclipse.managedbuild.cross.option.createmem.fillrange" value="0x1000" valueType="string"/>
 							</tool>
-							<tool id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.codemem.882588585" name="Lattice Multi Memory Deployment (CODE SEGMENT)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.codemem"/>
-							<tool id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.datamem.800914727" name="Lattice Multi Memory Deployment (DATA SEGMENT)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.datamem"/>
+							<tool id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.codemem.882588585" name="Lattice Multi Memory Deployment (CODE SEGMENT)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.codemem">
+								<option id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.codemem.defaultsections.442365332" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.codemem.defaultsections" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.codemem.sections.2134847600" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.codemem.sections" useByScannerDiscovery="false" valueType="stringList">
+									<listOptionValue builtIn="false" value=".text"/>
+									<listOptionValue builtIn="false" value=".ctors"/>
+									<listOptionValue builtIn="false" value=".dtors"/>
+									<listOptionValue builtIn="false" value=".rodata"/>
+								</option>
+							</tool>
+							<tool id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.datamem.800914727" name="Lattice Multi Memory Deployment (DATA SEGMENT)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.datamem">
+								<option id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.datamem.defaultsections.1182666771" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.datamem.defaultsections" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.datamem.sections.550869695" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.datamem.sections" useByScannerDiscovery="false" valueType="stringList">
+									<listOptionValue builtIn="false" value=".data"/>
+									<listOptionValue builtIn="false" value=".bss"/>
+								</option>
+							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
@@ -124,6 +138,7 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="ilg.gnumcueclipse.managedbuild.packs"/>
 		</cconfiguration>
 		<cconfiguration id="ilg.gnumcueclipse.managedbuild.cross.riscv.config.elf.release.1308197168">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnumcueclipse.managedbuild.cross.riscv.config.elf.release.1308197168" moduleId="org.eclipse.cdt.core.settings" name="Release">

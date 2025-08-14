@@ -24,22 +24,16 @@ end
 wire uart_rx;
 wire uart_tx;
 wire [15:0] led;
-wire [1:0] scl_io;
-wire [1:0] sda_io;
-wire       scl_i3c_io;
-wire       sda_i3c_io;
+wire scl_io;
+wire sda_io;
 wire spi_cs  ;
 wire spi_clk ;
 wire spi_mosi;
 wire spi_miso;
 
 pullup(uart_rx);
-pullup(scl_io[0]);
-pullup(scl_io[1]);
-pullup(scl_i3c_io);
-pullup(sda_io[0]);
-pullup(sda_io[1]);
-pullup(sda_i3c_io);
+pullup(scl_io);
+pullup(sda_io);
 pullup(led[0]);
 pullup(led[1]);
 pullup(led[2]);
@@ -65,6 +59,8 @@ ice40_nano_Top dut (
 	//.clk12m	(clk),
 	.txd_o	(uart_tx),
 	.led_o	(led[7:0]),
+	.scl	(scl_io),
+	.sda	(sda_io),
 	.spi_cs  	(spi_cs  ),
 	.spi_clk 	(spi_clk ), 
 	.spi_miso	(spi_miso),
@@ -77,6 +73,15 @@ spi_flash spi_flash_i (
 	.miso		(spi_miso),
 	.mosi		(spi_mosi)
 );
+// I2C slave
+i2c_slave_tb ov08x (
+	.scl(scl_io),
+	.sda(sda_io),
+	.clk(clk)
+);
+
+
+
 integer code_log;
 integer data_log;
 

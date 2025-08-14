@@ -2,12 +2,12 @@
 <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
     <ipxact:vendor>personal</ipxact:vendor>
     <ipxact:library>ip</ipxact:library>
-    <ipxact:name>ahbl_uart</ipxact:name>
-    <ipxact:version>1.1.1</ipxact:version>
+    <ipxact:name>gpio0</ipxact:name>
+    <ipxact:version>1.0.8</ipxact:version>
     <ipxact:busInterfaces>
         <ipxact:busInterface>
             <ipxact:name>AHBL</ipxact:name>
-            <ipxact:displayName>AHBL_S</ipxact:displayName>
+            <ipxact:displayName>AHBL</ipxact:displayName>
             <ipxact:description/>
             <ipxact:busType library="AMBA3" name="AHBLite" vendor="amba.com" version="r1p0"/>
             <ipxact:abstractionTypes>
@@ -28,22 +28,6 @@
                             </ipxact:logicalPort>
                             <ipxact:physicalPort>
                                 <ipxact:name>ahbl_hburst_i</ipxact:name>
-                            </ipxact:physicalPort>
-                        </ipxact:portMap>
-                        <ipxact:portMap>
-                            <ipxact:logicalPort>
-                                <ipxact:name>HMASTLOCK</ipxact:name>
-                            </ipxact:logicalPort>
-                            <ipxact:physicalPort>
-                                <ipxact:name>ahbl_hmastlock_i</ipxact:name>
-                            </ipxact:physicalPort>
-                        </ipxact:portMap>
-                        <ipxact:portMap>
-                            <ipxact:logicalPort>
-                                <ipxact:name>HPROT</ipxact:name>
-                            </ipxact:logicalPort>
-                            <ipxact:physicalPort>
-                                <ipxact:name>ahbl_hprot_i</ipxact:name>
                             </ipxact:physicalPort>
                         </ipxact:portMap>
                         <ipxact:portMap>
@@ -122,12 +106,12 @@
                 </ipxact:abstractionType>
             </ipxact:abstractionTypes>
             <ipxact:slave>
-                <ipxact:memoryMapRef memoryMapRef="ahb_uart"/>
+                <ipxact:memoryMapRef memoryMapRef="gpio_ahbl"/>
             </ipxact:slave>
         </ipxact:busInterface>
         <ipxact:busInterface>
-            <ipxact:name>INT</ipxact:name>
-            <ipxact:displayName>INT</ipxact:displayName>
+            <ipxact:name>IRQ</ipxact:name>
+            <ipxact:displayName>IRQ</ipxact:displayName>
             <ipxact:description/>
             <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
             <ipxact:abstractionTypes>
@@ -146,22 +130,22 @@
                 </ipxact:abstractionType>
             </ipxact:abstractionTypes>
             <ipxact:master>
-                <ipxact:addressSpaceRef addressSpaceRef="INT_Address_Space"/>
+                <ipxact:addressSpaceRef addressSpaceRef="IRQ_Address_Space"/>
             </ipxact:master>
         </ipxact:busInterface>
     </ipxact:busInterfaces>
     <ipxact:addressSpaces>
         <ipxact:addressSpace>
-            <ipxact:name>INT_Address_Space</ipxact:name>
+            <ipxact:name>IRQ_Address_Space</ipxact:name>
             <ipxact:range>4294967296</ipxact:range>
             <ipxact:width>32</ipxact:width>
         </ipxact:addressSpace>
     </ipxact:addressSpaces>
     <ipxact:memoryMaps>
         <ipxact:memoryMap>
-            <ipxact:name>ahb_uart</ipxact:name>
-            <ipxact:displayName>ahb_uart</ipxact:displayName>
-            <ipxact:description>New Memorymap</ipxact:description>
+            <ipxact:name>gpio_ahbl</ipxact:name>
+            <ipxact:displayName>gpio_ahbl</ipxact:displayName>
+            <ipxact:description>gpio_ahbl</ipxact:description>
             <ipxact:addressBlock>
                 <ipxact:name>NewAddressBlock1</ipxact:name>
                 <ipxact:baseAddress>0</ipxact:baseAddress>
@@ -173,33 +157,38 @@
     <ipxact:model>
         <ipxact:instantiations>
             <ipxact:componentInstantiation>
-                <ipxact:name>ahbl_uart</ipxact:name>
+                <ipxact:name>gpio0</ipxact:name>
             </ipxact:componentInstantiation>
             <ipxact:designInstantiation>
-                <ipxact:name>ahbl_uart_design</ipxact:name>
-                <ipxact:designRef library="ip" name="ahbl_uart" vendor="personal" version="1.1.1"/>
+                <ipxact:name>gpio0_design</ipxact:name>
+                <ipxact:designRef library="ip" name="gpio0" vendor="personal" version="1.0.8"/>
             </ipxact:designInstantiation>
         </ipxact:instantiations>
         <ipxact:ports>
             <ipxact:port>
-                <ipxact:name>clk</ipxact:name>
-                <ipxact:displayName>clk</ipxact:displayName>
-                <ipxact:wire>
-                    <ipxact:direction>in</ipxact:direction>
-                </ipxact:wire>
-            </ipxact:port>
-            <ipxact:port>
-                <ipxact:name>i_rxd</ipxact:name>
-                <ipxact:displayName>i_rxd</ipxact:displayName>
-                <ipxact:wire>
-                    <ipxact:direction>in</ipxact:direction>
-                </ipxact:wire>
-            </ipxact:port>
-            <ipxact:port>
-                <ipxact:name>o_txd</ipxact:name>
-                <ipxact:displayName>o_txd</ipxact:displayName>
+                <ipxact:name>gpi_o</ipxact:name>
+                <ipxact:displayName>gpi_o</ipxact:displayName>
                 <ipxact:wire>
                     <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>gpo_o</ipxact:name>
+                <ipxact:displayName>gpo_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
                 </ipxact:wire>
             </ipxact:port>
             <ipxact:port>
@@ -230,19 +219,6 @@
                     <ipxact:vectors>
                         <ipxact:vector>
                             <ipxact:left>2</ipxact:left>
-                            <ipxact:right>0</ipxact:right>
-                        </ipxact:vector>
-                    </ipxact:vectors>
-                </ipxact:wire>
-            </ipxact:port>
-            <ipxact:port>
-                <ipxact:name>ahbl_hprot_i</ipxact:name>
-                <ipxact:displayName>ahbl_hprot_i</ipxact:displayName>
-                <ipxact:wire>
-                    <ipxact:direction>in</ipxact:direction>
-                    <ipxact:vectors>
-                        <ipxact:vector>
-                            <ipxact:left>3</ipxact:left>
                             <ipxact:right>0</ipxact:right>
                         </ipxact:vector>
                     </ipxact:vectors>
@@ -301,8 +277,15 @@
                 </ipxact:wire>
             </ipxact:port>
             <ipxact:port>
-                <ipxact:name>ahbl_hmastlock_i</ipxact:name>
-                <ipxact:displayName>ahbl_hmastlock_i</ipxact:displayName>
+                <ipxact:name>ahbl_hclk_i</ipxact:name>
+                <ipxact:displayName>ahbl_hclk_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_hresetn_i</ipxact:name>
+                <ipxact:displayName>ahbl_hresetn_i</ipxact:displayName>
                 <ipxact:wire>
                     <ipxact:direction>in</ipxact:direction>
                 </ipxact:wire>
@@ -322,6 +305,13 @@
                 </ipxact:wire>
             </ipxact:port>
             <ipxact:port>
+                <ipxact:name>ahbl_hresp_o</ipxact:name>
+                <ipxact:displayName>ahbl_hresp_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
                 <ipxact:name>ahbl_hsel_i</ipxact:name>
                 <ipxact:displayName>ahbl_hsel_i</ipxact:displayName>
                 <ipxact:wire>
@@ -336,27 +326,13 @@
                 </ipxact:wire>
             </ipxact:port>
             <ipxact:port>
-                <ipxact:name>resetn</ipxact:name>
-                <ipxact:displayName>resetn</ipxact:displayName>
+                <ipxact:name>gpio_io</ipxact:name>
+                <ipxact:displayName>gpio_io</ipxact:displayName>
                 <ipxact:wire>
-                    <ipxact:direction>in</ipxact:direction>
-                </ipxact:wire>
-            </ipxact:port>
-            <ipxact:port>
-                <ipxact:name>ahbl_hresp_o</ipxact:name>
-                <ipxact:displayName>ahbl_hresp_o</ipxact:displayName>
-                <ipxact:wire>
-                    <ipxact:direction>out</ipxact:direction>
-                </ipxact:wire>
-            </ipxact:port>
-            <ipxact:port>
-                <ipxact:name>systime_i</ipxact:name>
-                <ipxact:displayName>systime_i</ipxact:displayName>
-                <ipxact:wire>
-                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:direction>inout</ipxact:direction>
                     <ipxact:vectors>
                         <ipxact:vector>
-                            <ipxact:left>31</ipxact:left>
+                            <ipxact:left>7</ipxact:left>
                             <ipxact:right>0</ipxact:right>
                         </ipxact:vector>
                     </ipxact:vectors>
@@ -368,23 +344,23 @@
         <ipxact:fileSet>
             <ipxact:name>ipx_file_list</ipxact:name>
             <ipxact:file>
-                <ipxact:name>rtl/ahbl_uart_bb.v</ipxact:name>
+                <ipxact:name>rtl/gpio0_bb.v</ipxact:name>
                 <ipxact:fileType user="black_box_verilog">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>ahbl_uart.cfg</ipxact:name>
+                <ipxact:name>gpio0.cfg</ipxact:name>
                 <ipxact:fileType user="cfg">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>misc/ahbl_uart_tmpl.v</ipxact:name>
+                <ipxact:name>misc/gpio0_tmpl.v</ipxact:name>
                 <ipxact:fileType user="template_verilog">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>misc/ahbl_uart_tmpl.vhd</ipxact:name>
+                <ipxact:name>misc/gpio0_tmpl.vhd</ipxact:name>
                 <ipxact:fileType user="template_vhdl">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
-                <ipxact:name>rtl/ahbl_uart.v</ipxact:name>
+                <ipxact:name>rtl/gpio0.v</ipxact:name>
                 <ipxact:fileType user="top_level_verilog">user</ipxact:fileType>
             </ipxact:file>
             <ipxact:file>
@@ -394,7 +370,7 @@
         </ipxact:fileSet>
     </ipxact:fileSets>
     <ipxact:vendorExtensions>
-        <lsccip:moduleRef lsccip:display_name="ahb_uart" lsccip:display_vendor="personal" lsccip:library="ip" lsccip:name="ahb_uart" lsccip:vendor="personal" lsccip:version="1.1.1"/>
+        <lsccip:moduleRef lsccip:display_name="gpio_ahbl_io" lsccip:display_vendor="personal" lsccip:library="ip" lsccip:name="gpio_ahbl_io" lsccip:vendor="personal" lsccip:version="1.0.8"/>
         <lsccip:deviceInfo>
             <lsccip:device>iCE40UP5K</lsccip:device>
             <lsccip:device_int>itpa08</lsccip:device_int>
@@ -409,7 +385,7 @@
         </lsccip:deviceInfo>
         <lsccip:generationInfo>
             <lsccip:fileVersion>20180929</lsccip:fileVersion>
-            <lsccip:createdTimestamp>2025 08 12 09:18:44</lsccip:createdTimestamp>
+            <lsccip:createdTimestamp>2025 08 13 12:45:44</lsccip:createdTimestamp>
             <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2025.1.0.2506031608</lsccip:radiantBuild>
         </lsccip:generationInfo>
     </ipxact:vendorExtensions>
