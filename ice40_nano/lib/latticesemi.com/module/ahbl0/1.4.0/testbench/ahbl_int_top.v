@@ -66,8 +66,8 @@ input         ahbl_hresetn_i     ,
 
 input  [1:0] ahbl_mstr_dummy_in ,
 output [1:0] ahbl_mstr_dummy_out,
-input  [5:0] ahbl_slv_dummy_in  ,
-output [5:0] ahbl_slv_dummy_out
+input  [4:0] ahbl_slv_dummy_in  ,
+output [4:0] ahbl_slv_dummy_out
 );
 
 `include "dut_params.v"
@@ -170,20 +170,6 @@ output [5:0] ahbl_slv_dummy_out
   wire                    ahbl_m04_hready_mstr_i   ;
   wire                    ahbl_m04_hresp_mstr_i    ;
   wire [DATA_WIDTH-1:0]   ahbl_m04_hrdata_mstr_i   ;
-
-  wire                    ahbl_m05_hsel_mstr_o     ;
-  wire                    ahbl_m05_hready_mstr_o   ;
-  wire [M_ADDR_WIDTH-1:0] ahbl_m05_haddr_mstr_o    ;
-  wire [2:0]              ahbl_m05_hburst_mstr_o   ;
-  wire [2:0]              ahbl_m05_hsize_mstr_o    ;
-  wire                    ahbl_m05_hmastlock_mstr_o;
-  wire [3:0]              ahbl_m05_hprot_mstr_o    ;
-  wire [1:0]              ahbl_m05_htrans_mstr_o   ;
-  wire [DATA_WIDTH-1:0]   ahbl_m05_hwdata_mstr_o   ;
-  wire                    ahbl_m05_hwrite_mstr_o   ;
-  wire                    ahbl_m05_hready_mstr_i   ;
-  wire                    ahbl_m05_hresp_mstr_i    ;
-  wire [DATA_WIDTH-1:0]   ahbl_m05_hrdata_mstr_i   ;
 
   lscc_ahbl_master_dummy #(
     .DATA_WIDTH(DATA_WIDTH  ),
@@ -334,27 +320,6 @@ output [5:0] ahbl_slv_dummy_out
     .ahbl_hrdata_o     (ahbl_m04_hrdata_mstr_i   ),
     .ahbl_slv_dummy_in (ahbl_slv_dummy_in[4]     ),
     .ahbl_slv_dummy_out(ahbl_slv_dummy_out[4]    ));
-  lscc_ahbl_slave_dummy #(
-    .DATA_WIDTH(DATA_WIDTH  ),
-    .ADDR_WIDTH(M_ADDR_WIDTH))
-  ahbl_slv_05 (
-    .ahbl_hclk_i       (ahbl_hclk_i              ),
-    .ahbl_hresetn_i    (ahbl_hresetn_i           ),
-    .ahbl_hsel_i       (ahbl_m05_hsel_mstr_o     ),
-    .ahbl_hready_i     (ahbl_m05_hready_mstr_o   ),
-    .ahbl_haddr_i      (ahbl_m05_haddr_mstr_o    ),
-    .ahbl_hburst_i     (ahbl_m05_hburst_mstr_o   ),
-    .ahbl_hsize_i      (ahbl_m05_hsize_mstr_o    ),
-    .ahbl_hmastlock_i  (ahbl_m05_hmastlock_mstr_o),
-    .ahbl_hprot_i      (ahbl_m05_hprot_mstr_o    ),
-    .ahbl_htrans_i     (ahbl_m05_htrans_mstr_o   ),
-    .ahbl_hwdata_i     (ahbl_m05_hwdata_mstr_o   ),
-    .ahbl_hwrite_i     (ahbl_m05_hwrite_mstr_o   ),
-    .ahbl_hreadyout_o  (ahbl_m05_hready_mstr_i   ),
-    .ahbl_hresp_o      (ahbl_m05_hresp_mstr_i    ),
-    .ahbl_hrdata_o     (ahbl_m05_hrdata_mstr_i   ),
-    .ahbl_slv_dummy_in (ahbl_slv_dummy_in[5]     ),
-    .ahbl_slv_dummy_out(ahbl_slv_dummy_out[5]    ));
 
 `include "dut_inst.v"
 

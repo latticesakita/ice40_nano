@@ -1,5 +1,5 @@
 localparam TOTAL_MASTER_CNT = 2;
-localparam TOTAL_SLAVE_CNT = 6;
+localparam TOTAL_SLAVE_CNT = 5;
 localparam M_ADDR_WIDTH = 32;
 localparam FULL_DECODE_EN = 1;
 localparam DATA_WIDTH = 32;
@@ -11,7 +11,7 @@ localparam M0_S1_CONNECT_EN = 0;
 localparam M0_S2_CONNECT_EN = 0;
 localparam M0_S3_CONNECT_EN = 0;
 localparam M0_S4_CONNECT_EN = 0;
-localparam M0_S5_CONNECT_EN = 0;
+localparam M0_S5_CONNECT_EN = 1;
 localparam M0_S6_CONNECT_EN = 1;
 localparam M0_S7_CONNECT_EN = 1;
 localparam M0_S8_CONNECT_EN = 1;

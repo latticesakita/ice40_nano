@@ -145,6 +145,7 @@ unsigned char uart_config(struct uart_instance *this_uart,
 			  unsigned int dwidth, unsigned char parity_en,
 			  unsigned char even_odd, unsigned int stopbits);
 
+unsigned char log_puts(struct uart_instance *this_uart, uint32_t print_timestamp, unsigned char *s);
 void log_printf(struct uart_instance *this_uart, uint32_t print_timestamp, const char *format, ...) ;
 
 #endif				/* UART_H_ */

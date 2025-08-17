@@ -36,6 +36,7 @@ wire [31:0]	soc_sram_addr;
 wire [31:0]	soc_sram_din;
 wire [31:0]	soc_sram_dout;
 wire		soc_sram_we;
+wire [3:0]	soc_sram_maskwe;
 wire		soc_sram_re;
 wire		soc_sram_write_done;
 reg		soc_sram_read_valid;
@@ -43,10 +44,12 @@ wire [13:0]	sram_addr;
 wire [31:0]	sram_din;
 wire [31:0]	sram_dout;
 wire		sram_we;
+wire [3:0]	sram_maskwe;
 
 assign sram_addr = load_done ? soc_sram_addr[13:0] : r_spi_sram_addr ;
 assign sram_din  = load_done ? soc_sram_din  : spi_sram_din    ;
 assign sram_we   = load_done ? soc_sram_we   : spi_sram_we     ;
+assign sram_maskwe = load_done ? soc_sram_maskwe : 4'b1111;
 assign soc_sram_dout = sram_dout;
 assign load_done = ~r_fill;
 assign soc_sram_write_done = 1'b1;
@@ -72,6 +75,7 @@ always @(posedge oclk) begin
 	end
 end
 
+// DIV:00 = 48MHz, DIV:01=24MHz, DIV:10=12MHz, DIV:11=6MHz
 HSOSC #(.CLKHF_DIV ("0b01")) osc0(.CLKHFEN (1'b1), .CLKHFPU(1'b1), .CLKHF(oclk));
 
 ice40_nano ice40_nano_inst (
@@ -87,6 +91,7 @@ ice40_nano ice40_nano_inst (
 	.sram_dout	(soc_sram_dout),
 	.sram_re  	(soc_sram_re  ),
 	.sram_we  	(soc_sram_we  ),
+	.sram_maskwe	(soc_sram_maskwe),
 	.sram_write_done(soc_sram_write_done),
 	.sram_read_valid(soc_sram_read_valid)
 	);
@@ -97,6 +102,7 @@ spram16384x32 system0 (
 	.addr_i		(sram_addr[13:0]),
 	.wr_data_i	(sram_din ),
 	.rd_data_o	(sram_dout),
+	.mask_we	(sram_maskwe),
 	.wr_en_i	(sram_we)
 );
 always @(posedge clk_soc or negedge resetn) begin

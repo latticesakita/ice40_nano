@@ -117,21 +117,26 @@ static void bsp_init(void)
 
 }
 
-static void print_sec(void)
-{
-	static unsigned int s = 1;
-	log_printf(&uart_core_uart, 1, "%d sec\n", s++);
-}
-static void toggle_led7(void)
+static void every500ms(void)
 {
 	static uint16_t pin_state = 0;
+	static uint8_t print_en = 0;
+	static unsigned int s = 1;
+
 	pin_state = ~pin_state;
 	gpio_output_write(&gpio_inst, GPIO7, pin_state);
+	if(print_en ==0){
+		print_en=1;
+	}
+	else{
+		print_en=0;
+		log_printf(&uart_core_uart, 1, "%d sec\n", s++);
+	}
 }
 
 int main(void) {
 	static uint16_t idx = GPIO4;
-	static uint16_t pin_state = GPIO_HIGH;
+	static uint16_t pin_state;
 
 	bsp_init();
 	pic_init(0);
@@ -139,18 +144,16 @@ int main(void) {
 #ifdef TIMER_INST_BASE_ADDR
 	timer_init(TIMER_INST_BASE_ADDR, TIMER_PRESCALE);
 	gpio_set_direction(&gpio_inst, GPIO7, GPIO_OUTPUT);
-	timer_register(TIMER3_SRC, toggle_led7);
-	timer_register(TIMER2_SRC, print_sec);
-	timer_set(TIMER3_SRC, GPIO7_INTERVAL, TIMER_REPEAT);
-	timer_set(TIMER2_SRC, PRINT_INTERVAL, TIMER_REPEAT);
+	timer_register(TIMER1_SRC, every500ms);
+	timer_set(TIMER1_SRC, GPIO7_INTERVAL, TIMER_REPEAT);
 
 #endif
+	log_puts(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
+	//log_printf(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
+	//printf("Started!\nHello RISC-V world!\n");
 	ov08x_start(I2C_SLAVE_OV08X);
 
-	// uart_puts(&uart_core_uart, "Started!\nHello RISC-V world!\n");
-	//printf("Started!\nHello RISC-V world!\n");
-	log_printf(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
-
+	pin_state = GPIO_HIGH;
 	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
 	usleep(1000);
 	pin_state = GPIO_LOW;

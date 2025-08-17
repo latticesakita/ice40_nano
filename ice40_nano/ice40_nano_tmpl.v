@@ -44,6 +44,7 @@
 ice40_nano _inst (.sram_addr(), 
                   .sram_din(), 
                   .sram_dout(), 
+                  .sram_maskwe(), 
                   .clk_i(), 
                   .sram_re(), 
                   .sram_read_valid(), 

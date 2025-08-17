@@ -16,25 +16,8 @@
 
       <peripherals>
           <peripheral>
-          <name>system1_inst</name>
-          <version>2.4.0</version>
-          <baseAddress>0x00020000</baseAddress>
-          <groupName>system_memory</groupName>
-          <description></description>
-
-          <addressBlock>
-            <offset>0x0</offset>
-            <size>0x00001000</size>
-            <usage>registers</usage>
-          </addressBlock>
-
-          <registers>
-          
-          </registers>
-    </peripheral>
-    <peripheral>
           <name>ahb_spsram_inst</name>
-          <version>1.0.0</version>
+          <version>1.1.0</version>
           <baseAddress>0x00000000</baseAddress>
           <groupName>ahb_spsram_nano</groupName>
           <description></description>
@@ -102,7 +85,7 @@
     </peripheral>
     <peripheral>
           <name>timer_inst</name>
-          <version>1.1.4</version>
+          <version>1.2.0</version>
           <baseAddress>0x00030000</baseAddress>
           <groupName>timer_ahb</groupName>
           <description></description>

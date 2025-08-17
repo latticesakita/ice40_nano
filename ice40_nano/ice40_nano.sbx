@@ -148,6 +148,19 @@
                         </ipxact:vectors>
                     </ipxact:wire>
                 </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>sram_maskwe</ipxact:name>
+                    <ipxact:displayName>sram_maskwe</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>3</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
             </ipxact:ports>
         </ipxact:model>
         <ipxact:fileSets>
@@ -208,7 +221,7 @@
         <ipxact:componentInstances>
             <ipxact:componentInstance>
                 <ipxact:instanceName>ahb_spsram_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="personal" library="ip" name="ahb_spsram" version="1.0.0" />
+                <ipxact:componentRef vendor="personal" library="ip" name="ahb_spsram" version="1.1.0" />
             </ipxact:componentInstance>
             <ipxact:componentInstance>
                 <ipxact:instanceName>ahbl0_inst</ipxact:instanceName>
@@ -231,12 +244,8 @@
                 <ipxact:componentRef vendor="personal" library="ip" name="i2cm" version="1.0.9" />
             </ipxact:componentInstance>
             <ipxact:componentInstance>
-                <ipxact:instanceName>system1_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="latticesemi.com" library="ip" name="system1" version="2.4.0" />
-            </ipxact:componentInstance>
-            <ipxact:componentInstance>
                 <ipxact:instanceName>timer_inst</ipxact:instanceName>
-                <ipxact:componentRef vendor="personal" library="ip" name="timer" version="1.1.4" />
+                <ipxact:componentRef vendor="personal" library="ip" name="timer" version="1.2.0" />
             </ipxact:componentInstance>
         </ipxact:componentInstances>
         <ipxact:interconnections>
@@ -248,7 +257,7 @@
             <ipxact:interconnection>
                 <ipxact:name>ahbl0_inst_AHBL_M01_interconnect</ipxact:name>
                 <ipxact:activeInterface busRef="AHBL_M01" componentRef="ahbl0_inst" />
-                <ipxact:activeInterface busRef="AHBL_S0" componentRef="system1_inst" />
+                <ipxact:activeInterface busRef="AHBL_S0" componentRef="i2cm_inst" />
             </ipxact:interconnection>
             <ipxact:interconnection>
                 <ipxact:name>ahbl0_inst_AHBL_M02_interconnect</ipxact:name>
@@ -264,11 +273,6 @@
                 <ipxact:name>ahbl0_inst_AHBL_M04_interconnect</ipxact:name>
                 <ipxact:activeInterface busRef="AHBL_M04" componentRef="ahbl0_inst" />
                 <ipxact:activeInterface busRef="AHBL" componentRef="gpio0_inst" />
-            </ipxact:interconnection>
-            <ipxact:interconnection>
-                <ipxact:name>ahbl0_inst_AHBL_M05_interconnect</ipxact:name>
-                <ipxact:activeInterface busRef="AHBL_M05" componentRef="ahbl0_inst" />
-                <ipxact:activeInterface busRef="AHBL_S0" componentRef="i2cm_inst" />
             </ipxact:interconnection>
             <ipxact:interconnection>
                 <ipxact:name>ahbl_uart_inst_INT_interconnect</ipxact:name>
@@ -321,13 +325,12 @@
                 <ipxact:displayName>cpu0_inst_system_resetn_o_net</ipxact:displayName>
                 <ipxact:portReferences>
                     <ipxact:internalPortReference componentRef="cpu0_inst" portRef="system_resetn_o" />
-                    <ipxact:internalPortReference componentRef="timer_inst" portRef="resetn_i" />
                     <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="resetn" />
                     <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hresetn_i" />
-                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HRESETn" />
-                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hresetn_i" />
-                    <ipxact:internalPortReference componentRef="system1_inst" portRef="ahbl_hresetn_i" />
                     <ipxact:internalPortReference componentRef="i2cm_inst" portRef="resetn_i" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HRESETn" />
+                    <ipxact:internalPortReference componentRef="timer_inst" portRef="resetn_i" />
+                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hresetn_i" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
             <ipxact:adHocConnection>
@@ -335,13 +338,12 @@
                 <ipxact:displayName>ice40_nano_clk_i_net</ipxact:displayName>
                 <ipxact:portReferences>
                     <ipxact:internalPortReference componentRef="cpu0_inst" portRef="clk_i" />
-                    <ipxact:internalPortReference componentRef="timer_inst" portRef="clk_i" />
                     <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="clk" />
                     <ipxact:internalPortReference componentRef="gpio0_inst" portRef="ahbl_hclk_i" />
-                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HCLK" />
-                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hclk_i" />
-                    <ipxact:internalPortReference componentRef="system1_inst" portRef="ahbl_hclk_i" />
                     <ipxact:internalPortReference componentRef="i2cm_inst" portRef="clk_i" />
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="HCLK" />
+                    <ipxact:internalPortReference componentRef="timer_inst" portRef="clk_i" />
+                    <ipxact:internalPortReference componentRef="ahbl0_inst" portRef="ahbl_hclk_i" />
                     <ipxact:externalPortReference portRef="clk_i" />
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
@@ -438,6 +440,28 @@
                 </ipxact:portReferences>
             </ipxact:adHocConnection>
             <ipxact:adHocConnection>
+                <ipxact:name>ahb_spsram_inst_sram_maskwe_netbus</ipxact:name>
+                <ipxact:displayName>ahb_spsram_inst_sram_maskwe_netbus</ipxact:displayName>
+                <ipxact:portReferences>
+                    <ipxact:internalPortReference componentRef="ahb_spsram_inst" portRef="sram_maskwe">
+                        <ipxact:partSelect>
+                            <ipxact:range>
+                                <ipxact:left>3</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:range>
+                        </ipxact:partSelect>
+                    </ipxact:internalPortReference>
+                    <ipxact:externalPortReference portRef="sram_maskwe">
+                        <ipxact:partSelect>
+                            <ipxact:range>
+                                <ipxact:left>3</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:range>
+                        </ipxact:partSelect>
+                    </ipxact:externalPortReference>
+                </ipxact:portReferences>
+            </ipxact:adHocConnection>
+            <ipxact:adHocConnection>
                 <ipxact:name>ice40_nano_gpio0_io_netbus</ipxact:name>
                 <ipxact:displayName>ice40_nano_gpio0_io_netbus</ipxact:displayName>
                 <ipxact:portReferences>
@@ -485,7 +509,7 @@
                 <ipxact:name>timer_inst_systime_o_netbus</ipxact:name>
                 <ipxact:displayName>timer_inst_systime_o_netbus</ipxact:displayName>
                 <ipxact:portReferences>
-                    <ipxact:internalPortReference componentRef="timer_inst" portRef="systime_o">
+                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="systime_i">
                         <ipxact:partSelect>
                             <ipxact:range>
                                 <ipxact:left>31</ipxact:left>
@@ -493,7 +517,7 @@
                             </ipxact:range>
                         </ipxact:partSelect>
                     </ipxact:internalPortReference>
-                    <ipxact:internalPortReference componentRef="ahbl_uart_inst" portRef="systime_i">
+                    <ipxact:internalPortReference componentRef="timer_inst" portRef="systime_o">
                         <ipxact:partSelect>
                             <ipxact:range>
                                 <ipxact:left>31</ipxact:left>
@@ -795,12 +819,6 @@
                         <ipxact:range>32&apos;h00000400</ipxact:range>
                     </ipxact:segment>
                     <ipxact:segment>
-                        <ipxact:name>ice40_nano_system1_inst_ahbl_slv0_model_mem_map</ipxact:name>
-                        <ipxact:displayName>ice40_nano/system1_inst/ahbl_slv0_model_mem_map</ipxact:displayName>
-                        <ipxact:addressOffset>32&apos;h00020000</ipxact:addressOffset>
-                        <ipxact:range>32&apos;h00001000</ipxact:range>
-                    </ipxact:segment>
-                    <ipxact:segment>
                         <ipxact:name>ice40_nano_timer_inst_NewMemmap1</ipxact:name>
                         <ipxact:displayName>ice40_nano/timer_inst/NewMemmap1</ipxact:displayName>
                         <ipxact:addressOffset>32&apos;h00030000</ipxact:addressOffset>
@@ -836,12 +854,6 @@
                         <ipxact:displayName>ice40_nano/i2cm_inst/I2C_Controller_AHBL</ipxact:displayName>
                         <ipxact:addressOffset>32&apos;h00024000</ipxact:addressOffset>
                         <ipxact:range>32&apos;h00000400</ipxact:range>
-                    </ipxact:segment>
-                    <ipxact:segment>
-                        <ipxact:name>ice40_nano_system1_inst_ahbl_slv0_model_mem_map</ipxact:name>
-                        <ipxact:displayName>ice40_nano/system1_inst/ahbl_slv0_model_mem_map</ipxact:displayName>
-                        <ipxact:addressOffset>32&apos;h00020000</ipxact:addressOffset>
-                        <ipxact:range>32&apos;h00001000</ipxact:range>
                     </ipxact:segment>
                     <ipxact:segment>
                         <ipxact:name>ice40_nano_timer_inst_NewMemmap1</ipxact:name>
@@ -1185,1065 +1197,6 @@
         </ipxact:parameters>
         <ipxact:vendorExtensions>
             <lsccip:moduleRef lsccip:library="ip" lsccip:name="riscv_nano" lsccip:vendor="latticesemi.com" lsccip:version="1.1.0" lsccip:type="cpu" lsccip:display_name="RISC-V NANO" lsccip:display_vendor="latticesemi.com" />
-            <lsccip:deviceInfo>
-                <lsccip:device>iCE40UP5K</lsccip:device>
-                <lsccip:architecture>ice40tp</lsccip:architecture>
-                <lsccip:package>SG48</lsccip:package>
-                <lsccip:family>iCE40UP</lsccip:family>
-                <lsccip:operation>Industrial</lsccip:operation>
-            </lsccip:deviceInfo>
-            <lattice:radiant>2025.1.0.23.0</lattice:radiant>
-            <lattice:addressMerge>False</lattice:addressMerge>
-        </ipxact:vendorExtensions>
-    </ipxact:component>
-    <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
-        <ipxact:vendor>latticesemi.com</ipxact:vendor>
-        <ipxact:library>ip</ipxact:library>
-        <ipxact:name>system1</ipxact:name>
-        <ipxact:version>2.4.0</ipxact:version>
-        <ipxact:busInterfaces>
-            <ipxact:busInterface>
-                <ipxact:name>AHBL_S0</ipxact:name>
-                <ipxact:displayName>AHBL_S0</ipxact:displayName>
-                <ipxact:description>AHB-Lite Slave Port S0</ipxact:description>
-                <ipxact:busType vendor="amba.com" library="AMBA3" name="AHBLite" version="r1p0" />
-                <ipxact:abstractionTypes>
-                    <ipxact:abstractionType>
-                        <ipxact:abstractionRef vendor="amba.com" library="AMBA3" name="AHBLite_rtl" version="r1p0" />
-                        <ipxact:portMaps>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HADDR</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_haddr_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HBURST</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hburst_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HMASTLOCK</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hmastlock_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HPROT</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hprot_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HRDATA</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hrdata_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HREADY</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hready_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HREADYOUT</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hreadyout_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HRESP</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hresp_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HSELx</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hsel_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HSIZE</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hsize_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HTRANS</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_htrans_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HWDATA</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hwdata_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HWRITE</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_s0_hwrite_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                        </ipxact:portMaps>
-                    </ipxact:abstractionType>
-                </ipxact:abstractionTypes>
-                <ipxact:slave>
-                    <ipxact:memoryMapRef memoryMapRef="ahbl_slv0_model_mem_map" />
-                </ipxact:slave>
-            </ipxact:busInterface>
-        </ipxact:busInterfaces>
-        <ipxact:memoryMaps>
-            <ipxact:memoryMap>
-                <ipxact:name>ahbl_slv0_model_mem_map</ipxact:name>
-                <ipxact:description>AHB-Lite Slave Model memory map</ipxact:description>
-                <ipxact:addressBlock>
-                    <ipxact:name>memory</ipxact:name>
-                    <ipxact:displayName>memory</ipxact:displayName>
-                    <ipxact:description>Memory Block</ipxact:description>
-                    <ipxact:baseAddress>32&apos;h00020000</ipxact:baseAddress>
-                    <ipxact:range>32&apos;h00001000</ipxact:range>
-                    <ipxact:width>32</ipxact:width>
-                    <ipxact:usage>memory</ipxact:usage>
-                    <ipxact:vendorExtensions>
-                        <lattice:fixedOffset>true</lattice:fixedOffset>
-                    </ipxact:vendorExtensions>
-                </ipxact:addressBlock>
-            </ipxact:memoryMap>
-        </ipxact:memoryMaps>
-        <ipxact:model>
-            <ipxact:instantiations>
-                <ipxact:componentInstantiation>
-                    <ipxact:name>system1</ipxact:name>
-                    <ipxact:moduleParameters>
-                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="" parameterId="MEM_ID" resolve="generated" type="string">
-                            <ipxact:name>MEM_ID</ipxact:name>
-                            <ipxact:displayName>MEM_ID</ipxact:displayName>
-                            <ipxact:value>system1</ipxact:value>
-                        </ipxact:moduleParameter>
-                    </ipxact:moduleParameters>
-                </ipxact:componentInstantiation>
-                <ipxact:designInstantiation>
-                    <ipxact:name>system1_design</ipxact:name>
-                    <ipxact:designRef vendor="latticesemi.com" library="ip" name="system1" version="2.4.0" />
-                </ipxact:designInstantiation>
-            </ipxact:instantiations>
-            <ipxact:ports>
-                <ipxact:port>
-                    <ipxact:name>ahbl_hclk_i</ipxact:name>
-                    <ipxact:displayName>ahbl_hclk_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                    <ipxact:vendorExtensions>
-                        <lsccip:isClk>true</lsccip:isClk>
-                    </ipxact:vendorExtensions>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_hresetn_i</ipxact:name>
-                    <ipxact:displayName>ahbl_hresetn_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                    <ipxact:vendorExtensions>
-                        <lsccip:isRst>true</lsccip:isRst>
-                    </ipxact:vendorExtensions>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hmastlock_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hmastlock_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hready_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hready_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hreadyout_o</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hreadyout_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hresp_o</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hresp_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hsel_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hsel_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hwrite_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hwrite_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_haddr_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_haddr_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>31</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hburst_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hburst_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>2</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hprot_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hprot_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>3</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hrdata_o</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hrdata_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>31</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hsize_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hsize_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>2</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_htrans_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_htrans_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>1</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_s0_hwdata_i</ipxact:name>
-                    <ipxact:displayName>ahbl_s0_hwdata_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>31</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-            </ipxact:ports>
-        </ipxact:model>
-        <ipxact:fileSets>
-            <ipxact:fileSet>
-                <ipxact:name>IP</ipxact:name>
-                <ipxact:group>ip</ipxact:group>
-                <ipxact:file>
-                    <ipxact:name>./lib/latticesemi.com/ip/system1/2.4.0/component.xml</ipxact:name>
-                    <ipxact:fileType user="xml">user</ipxact:fileType>
-                </ipxact:file>
-            </ipxact:fileSet>
-        </ipxact:fileSets>
-        <ipxact:parameters>
-            <ipxact:parameter>
-                <ipxact:name>ACCESS_TYPE_S0</ipxact:name>
-                <ipxact:value>R/W</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ACCESS_TYPE_S1</ipxact:name>
-                <ipxact:value>DISABLED</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ADDR_DEPTH</ipxact:name>
-                <ipxact:value>1024</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ADDR_SPACE_S0</ipxact:name>
-                <ipxact:value>4096</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ADDR_SPACE_S1</ipxact:name>
-                <ipxact:value>4096</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ADDR_WIDTH</ipxact:name>
-                <ipxact:value>10</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ARBITER_EN</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>BYTE_ENABLE_S0</ipxact:name>
-                <ipxact:value>True</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>BYTE_ENABLE_S1</ipxact:name>
-                <ipxact:value>True</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>DATA_STREAMER_EN</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>DATA_WIDTH</ipxact:name>
-                <ipxact:value>32</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>DEVICE</ipxact:name>
-                <ipxact:value>iCE40UP5K</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ECC_ENABLE</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>EDIT_ADDRESS_S0</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>EDIT_ADDRESS_S1</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>FAMILY</ipxact:name>
-                <ipxact:value>iCE40UP</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>ID_WIDTH</ipxact:name>
-                <ipxact:value>4</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_CHK</ipxact:name>
-                <ipxact:value>hex</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_FILE</ipxact:name>
-                <ipxact:value>O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../ws/ice40_nano/Debug/ice40_nano_Data.mem</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_FILE_FORMAT</ipxact:name>
-                <ipxact:value>hex</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_FILE_IN</ipxact:name>
-                <ipxact:value>O:/src/Propel/iCE40UP/ice40_nano/ws/ice40_nano/Debug/ice40_nano_Data.mem</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_MEM</ipxact:name>
-                <ipxact:value>True</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_00</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000100x00000000000000000000000000000000000000000000000000001111000001000x00000000000000000000000000000000000000000000000000001111000000000x00000000000000000000000000000000000000000000000000001111000000000x0000000000000000000000000000000000000000000000000000111100010000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_01</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_02</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_03</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_04</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_05</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_06</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_07</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_08</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_09</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_0A</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_0B</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_0C</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_0D</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_0E</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_0F</ipxact:name>
-                <ipxact:value>0x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x00000000000000000000000000000000000000000000000000000000000000000x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_10</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_11</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_12</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_13</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_14</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_15</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_16</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_17</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_18</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_19</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_1A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_1B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_1C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_1D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_1E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_1F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_20</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_21</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_22</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_23</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_24</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_25</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_26</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_27</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_28</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_29</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_2A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_2B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_2C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_2D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_2E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_2F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_30</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_31</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_32</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_33</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_34</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_35</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_36</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_37</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_38</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_39</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_3A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_3B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_3C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_3D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_3E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_3F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_40</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_41</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_42</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_43</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_44</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_45</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_46</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_47</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_48</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_49</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_4A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_4B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_4C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_4D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_4E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_4F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_50</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_51</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_52</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_53</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_54</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_55</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_56</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_57</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_58</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_59</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_5A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_5B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_5C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_5D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_5E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_5F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_60</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_61</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_62</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_63</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_64</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_65</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_66</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_67</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_68</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_69</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_6A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_6B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_6C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_6D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_6E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_6F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_70</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_71</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_72</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_73</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_74</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_75</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_76</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_77</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_78</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_79</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_7A</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_7B</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_7C</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_7D</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_7E</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INIT_VALUE_7F</ipxact:name>
-                <ipxact:value>0x0000000000000000000000000000000000000000000000000000000000000000</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>INTERFACE</ipxact:name>
-                <ipxact:value>AHBL</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>MEMORY_TYPE</ipxact:name>
-                <ipxact:value>EBR</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>MEM_ID</ipxact:name>
-                <ipxact:value>system1</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>MEM_SIZE</ipxact:name>
-                <ipxact:value>32,1024</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>PORT_COUNT</ipxact:name>
-                <ipxact:value>1</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>READ_PIPELINE_S0</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>READ_PIPELINE_S1</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>REGMODE_S0</ipxact:name>
-                <ipxact:value>True</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>REGMODE_S1</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>RESET_MODE_S0</ipxact:name>
-                <ipxact:value>sync</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>RESET_MODE_S1</ipxact:name>
-                <ipxact:value>sync</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>S0_END_ADDR</ipxact:name>
-                <ipxact:value>4095</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>S0_START_ADDR</ipxact:name>
-                <ipxact:value>0</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>S1_END_ADDR</ipxact:name>
-                <ipxact:value>4095</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>S1_START_ADDR</ipxact:name>
-                <ipxact:value>0</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>SHIFT_DIRECTION_S0</ipxact:name>
-                <ipxact:value>none</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>SHIFT_DIRECTION_S1</ipxact:name>
-                <ipxact:value>none</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>STREAMER_CLK_BYPASS</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>STREAMER_INTF</ipxact:name>
-                <ipxact:value>FIFO</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>STREAMER_START_ADDR</ipxact:name>
-                <ipxact:value>0</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>TT_FAMILY</ipxact:name>
-                <ipxact:value>iCE40UP</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>UNALIGNED_ACCESS_EN_S0</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>UNALIGNED_ACCESS_EN_S1</ipxact:name>
-                <ipxact:value>False</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>load_file</ipxact:name>
-                <ipxact:value>EBR</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>s0_end</ipxact:name>
-                <ipxact:value>0FFF</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>s0_start</ipxact:name>
-                <ipxact:value>0</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>s1_end</ipxact:name>
-                <ipxact:value>0FFF</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>s1_start</ipxact:name>
-                <ipxact:value>0</ipxact:value>
-            </ipxact:parameter>
-            <ipxact:parameter>
-                <ipxact:name>u_access_type</ipxact:name>
-                <ipxact:value>R/W</ipxact:value>
-            </ipxact:parameter>
-        </ipxact:parameters>
-        <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="system_memory" lsccip:vendor="latticesemi.com" lsccip:version="2.4.0" lsccip:type="cacheable" lsccip:display_name="System Memory" lsccip:display_vendor="latticesemi.com" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>
@@ -2922,138 +1875,6 @@
                 </ipxact:parameters>
             </ipxact:busInterface>
             <ipxact:busInterface>
-                <ipxact:name>AHBL_M05</ipxact:name>
-                <ipxact:displayName>AHBL_M05</ipxact:displayName>
-                <ipxact:description>AHB-Lite master port</ipxact:description>
-                <ipxact:busType vendor="amba.com" library="AMBA3" name="AHBLite" version="r1p0" />
-                <ipxact:abstractionTypes>
-                    <ipxact:abstractionType>
-                        <ipxact:abstractionRef vendor="amba.com" library="AMBA3" name="AHBLite_rtl" version="r1p0" />
-                        <ipxact:portMaps>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HADDR</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_haddr_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HBURST</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hburst_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HMASTLOCK</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hmastlock_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HPROT</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hprot_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HRDATA</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hrdata_mstr_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HREADY</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hready_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HREADYOUT</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hready_mstr_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HRESP</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hresp_mstr_i</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HSELx</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hsel_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HSIZE</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hsize_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HTRANS</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_htrans_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HWDATA</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hwdata_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                            <ipxact:portMap>
-                                <ipxact:logicalPort>
-                                    <ipxact:name>HWRITE</ipxact:name>
-                                </ipxact:logicalPort>
-                                <ipxact:physicalPort>
-                                    <ipxact:name>ahbl_m05_hwrite_mstr_o</ipxact:name>
-                                </ipxact:physicalPort>
-                            </ipxact:portMap>
-                        </ipxact:portMaps>
-                    </ipxact:abstractionType>
-                </ipxact:abstractionTypes>
-                <ipxact:master />
-                <ipxact:parameters>
-                    <ipxact:parameter>
-                        <ipxact:name>SB_BASE_ADDR</ipxact:name>
-                        <ipxact:value>S5_BASE_ADDR</ipxact:value>
-                    </ipxact:parameter>
-                    <ipxact:parameter>
-                        <ipxact:name>SB_NUM_OF_FRAGMENTS</ipxact:name>
-                        <ipxact:value>S5_FRAGMENT_EN</ipxact:value>
-                    </ipxact:parameter>
-                    <ipxact:parameter>
-                        <ipxact:name>SB_RANGE</ipxact:name>
-                        <ipxact:value>S5_ADDR_RANGE</ipxact:value>
-                    </ipxact:parameter>
-                </ipxact:parameters>
-            </ipxact:busInterface>
-            <ipxact:busInterface>
                 <ipxact:name>AHBL_S00</ipxact:name>
                 <ipxact:displayName>AHBL_S00</ipxact:displayName>
                 <ipxact:description>AHB-Lite slave port</ipxact:description>
@@ -3323,12 +2144,12 @@
                         <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="" parameterId="S1_ADDR_RANGE" resolve="generated" type="string">
                             <ipxact:name>S1_ADDR_RANGE</ipxact:name>
                             <ipxact:displayName>INFO: Actual Address Range</ipxact:displayName>
-                            <ipxact:value>32&apos;h00001000</ipxact:value>
+                            <ipxact:value>32&apos;h00000400</ipxact:value>
                         </ipxact:moduleParameter>
                         <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="000000400" parameterId="S1_BASE_ADDR" resolve="generated" type="string">
                             <ipxact:name>S1_BASE_ADDR</ipxact:name>
                             <ipxact:displayName>INFO: Actual Base Address</ipxact:displayName>
-                            <ipxact:value>32&apos;h00020000</ipxact:value>
+                            <ipxact:value>32&apos;h00024000</ipxact:value>
                         </ipxact:moduleParameter>
                         <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="1" parameterId="S1_FRAGMENT_EN" resolve="generated" type="int">
                             <ipxact:name>S1_FRAGMENT_EN</ipxact:name>
@@ -3378,21 +2199,6 @@
                         <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="1" parameterId="S4_FRAGMENT_EN" resolve="generated" type="int">
                             <ipxact:name>S4_FRAGMENT_EN</ipxact:name>
                             <ipxact:displayName>S4_FRAGMENT_EN</ipxact:displayName>
-                            <ipxact:value>1</ipxact:value>
-                        </ipxact:moduleParameter>
-                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="" parameterId="S5_ADDR_RANGE" resolve="generated" type="string">
-                            <ipxact:name>S5_ADDR_RANGE</ipxact:name>
-                            <ipxact:displayName>INFO: Actual Address Range</ipxact:displayName>
-                            <ipxact:value>32&apos;h00000400</ipxact:value>
-                        </ipxact:moduleParameter>
-                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="000000400" parameterId="S5_BASE_ADDR" resolve="generated" type="string">
-                            <ipxact:name>S5_BASE_ADDR</ipxact:name>
-                            <ipxact:displayName>INFO: Actual Base Address</ipxact:displayName>
-                            <ipxact:value>32&apos;h00024000</ipxact:value>
-                        </ipxact:moduleParameter>
-                        <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="1" parameterId="S5_FRAGMENT_EN" resolve="generated" type="int">
-                            <ipxact:name>S5_FRAGMENT_EN</ipxact:name>
-                            <ipxact:displayName>S5_FRAGMENT_EN</ipxact:displayName>
                             <ipxact:value>1</ipxact:value>
                         </ipxact:moduleParameter>
                     </ipxact:moduleParameters>
@@ -3629,48 +2435,6 @@
                 <ipxact:port>
                     <ipxact:name>ahbl_m04_hwrite_mstr_o</ipxact:name>
                     <ipxact:displayName>ahbl_m04_hwrite_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hmastlock_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hmastlock_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hready_mstr_i</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hready_mstr_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hready_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hready_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hresp_mstr_i</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hresp_mstr_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hsel_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hsel_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hwrite_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hwrite_mstr_o</ipxact:displayName>
                     <ipxact:wire>
                         <ipxact:direction>out</ipxact:direction>
                     </ipxact:wire>
@@ -4215,97 +2979,6 @@
                     </ipxact:wire>
                 </ipxact:port>
                 <ipxact:port>
-                    <ipxact:name>ahbl_m05_haddr_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_haddr_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>31</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hburst_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hburst_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>2</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hprot_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hprot_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>3</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hrdata_mstr_i</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hrdata_mstr_i</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>in</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>31</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hsize_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hsize_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>2</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_htrans_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_htrans_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>1</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
-                    <ipxact:name>ahbl_m05_hwdata_mstr_o</ipxact:name>
-                    <ipxact:displayName>ahbl_m05_hwdata_mstr_o</ipxact:displayName>
-                    <ipxact:wire>
-                        <ipxact:direction>out</ipxact:direction>
-                        <ipxact:vectors>
-                            <ipxact:vector>
-                                <ipxact:left>31</ipxact:left>
-                                <ipxact:right>0</ipxact:right>
-                            </ipxact:vector>
-                        </ipxact:vectors>
-                    </ipxact:wire>
-                </ipxact:port>
-                <ipxact:port>
                     <ipxact:name>ahbl_s00_haddr_slv_i</ipxact:name>
                     <ipxact:displayName>ahbl_s00_haddr_slv_i</ipxact:displayName>
                     <ipxact:wire>
@@ -4634,7 +3307,7 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>M0_S5_CONNECT_EN</ipxact:name>
-                <ipxact:value>0</ipxact:value>
+                <ipxact:value>1</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>M0_S6_CONNECT_EN</ipxact:name>
@@ -9410,7 +8083,7 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>TOTAL_SLAVE_CNT</ipxact:name>
-                <ipxact:value>6</ipxact:value>
+                <ipxact:value>5</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>en_m0</ipxact:name>
@@ -9650,7 +8323,7 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>en_s5</ipxact:name>
-                <ipxact:value>1</ipxact:value>
+                <ipxact:value>0</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>en_s6</ipxact:name>
@@ -9778,7 +8451,7 @@
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>m0_s5_conn_en</ipxact:name>
-                <ipxact:value>False</ipxact:value>
+                <ipxact:value>True</ipxact:value>
             </ipxact:parameter>
             <ipxact:parameter>
                 <ipxact:name>m0_s6_conn_en</ipxact:name>
@@ -19930,7 +18603,7 @@
         <ipxact:vendor>personal</ipxact:vendor>
         <ipxact:library>ip</ipxact:library>
         <ipxact:name>ahb_spsram</ipxact:name>
-        <ipxact:version>1.0.0</ipxact:version>
+        <ipxact:version>1.1.0</ipxact:version>
         <ipxact:busInterfaces>
             <ipxact:busInterface>
                 <ipxact:name>AHBL_S0</ipxact:name>
@@ -20039,7 +18712,7 @@
         <ipxact:memoryMaps>
             <ipxact:memoryMap>
                 <ipxact:name>ahb_spsram_nano</ipxact:name>
-                <ipxact:displayName>NewMemmap1</ipxact:displayName>
+                <ipxact:displayName>ahb_spsram_nano</ipxact:displayName>
                 <ipxact:description>AHBL_S0</ipxact:description>
                 <ipxact:addressBlock>
                     <ipxact:name>SPSRAM_SRAM</ipxact:name>
@@ -20061,7 +18734,7 @@
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
                     <ipxact:name>ahb_spsram_design</ipxact:name>
-                    <ipxact:designRef vendor="personal" library="ip" name="ahb_spsram" version="1.0.0" />
+                    <ipxact:designRef vendor="personal" library="ip" name="ahb_spsram" version="1.1.0" />
                 </ipxact:designInstantiation>
             </ipxact:instantiations>
             <ipxact:ports>
@@ -20259,6 +18932,19 @@
                         </ipxact:vectors>
                     </ipxact:wire>
                 </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>sram_maskwe</ipxact:name>
+                    <ipxact:displayName>sram_maskwe</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>out</ipxact:direction>
+                        <ipxact:vectors>
+                            <ipxact:vector>
+                                <ipxact:left>3</ipxact:left>
+                                <ipxact:right>0</ipxact:right>
+                            </ipxact:vector>
+                        </ipxact:vectors>
+                    </ipxact:wire>
+                </ipxact:port>
             </ipxact:ports>
         </ipxact:model>
         <ipxact:fileSets>
@@ -20266,13 +18952,13 @@
                 <ipxact:name>IP</ipxact:name>
                 <ipxact:group>ip</ipxact:group>
                 <ipxact:file>
-                    <ipxact:name>./lib/personal/ip/ahb_spsram/1.0.0/component.xml</ipxact:name>
+                    <ipxact:name>./lib/personal/ip/ahb_spsram/1.1.0/component.xml</ipxact:name>
                     <ipxact:fileType user="xml">user</ipxact:fileType>
                 </ipxact:file>
             </ipxact:fileSet>
         </ipxact:fileSets>
         <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="ahb_spsram_nano" lsccip:vendor="personal" lsccip:version="1.0.0" lsccip:display_name="ahb_spsram_nano" lsccip:display_vendor="personal" />
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="ahb_spsram_nano" lsccip:vendor="personal" lsccip:version="1.1.0" lsccip:display_name="ahb_spsram_nano" lsccip:display_vendor="personal" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>
@@ -21422,7 +20108,7 @@
         <ipxact:vendor>personal</ipxact:vendor>
         <ipxact:library>ip</ipxact:library>
         <ipxact:name>timer</ipxact:name>
-        <ipxact:version>1.1.4</ipxact:version>
+        <ipxact:version>1.2.0</ipxact:version>
         <ipxact:busInterfaces>
             <ipxact:busInterface>
                 <ipxact:name>AHBL_S0</ipxact:name>
@@ -21585,7 +20271,7 @@
                 </ipxact:componentInstantiation>
                 <ipxact:designInstantiation>
                     <ipxact:name>timer_design</ipxact:name>
-                    <ipxact:designRef vendor="personal" library="ip" name="timer" version="1.1.4" />
+                    <ipxact:designRef vendor="personal" library="ip" name="timer" version="1.2.0" />
                 </ipxact:designInstantiation>
             </ipxact:instantiations>
             <ipxact:ports>
@@ -21743,7 +20429,7 @@
                 <ipxact:name>IP</ipxact:name>
                 <ipxact:group>ip</ipxact:group>
                 <ipxact:file>
-                    <ipxact:name>./lib/personal/ip/timer/1.1.4/component.xml</ipxact:name>
+                    <ipxact:name>./lib/personal/ip/timer/1.2.0/component.xml</ipxact:name>
                     <ipxact:fileType user="xml">user</ipxact:fileType>
                 </ipxact:file>
             </ipxact:fileSet>
@@ -21759,7 +20445,7 @@
             </ipxact:parameter>
         </ipxact:parameters>
         <ipxact:vendorExtensions>
-            <lsccip:moduleRef lsccip:library="ip" lsccip:name="timer_ahb" lsccip:vendor="personal" lsccip:version="1.1.4" lsccip:display_name="timer_ahb" lsccip:display_vendor="personal" />
+            <lsccip:moduleRef lsccip:library="ip" lsccip:name="timer_ahb" lsccip:vendor="personal" lsccip:version="1.2.0" lsccip:display_name="timer_ahb" lsccip:display_vendor="personal" />
             <lsccip:deviceInfo>
                 <lsccip:device>iCE40UP5K</lsccip:device>
                 <lsccip:architecture>ice40tp</lsccip:architecture>

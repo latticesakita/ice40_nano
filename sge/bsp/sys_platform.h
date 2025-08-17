@@ -62,9 +62,6 @@
 
 #define CPU0_INST_NAME "cpu0_inst"
 
-#define SYSTEM1_INST_AHBL_SLV0_MODEL_MEM_MAP_NAME "system1_inst_ahbl_slv0_model_mem_map"
-#define SYSTEM1_INST_AHBL_SLV0_MODEL_MEM_MAP_BASE_ADDR 0x20000
-
 #define AHB_SPSRAM_INST_AHB_SPSRAM_NANO_NAME "ahb_spsram_inst_ahb_spsram_nano"
 #define AHB_SPSRAM_INST_AHB_SPSRAM_NANO_BASE_ADDR 0x0
 
@@ -82,7 +79,6 @@
 
 /* ip instance rename */
 #define RISCV_NANO_INST_0 CPU0_INST
-#define SYSTEM_MEMORY_INST_0 SYSTEM1_INST
 #define AHB_SPSRAM_NANO_INST_0 AHB_SPSRAM_INST
 #define AHB_UART_INST_0 AHBL_UART_INST
 #define GPIO_AHBL_IO_INST_0 GPIO0_INST

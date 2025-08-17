@@ -17,8 +17,8 @@
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/timer/1.1.4/rtl/timer.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahbl_uart/1.1.2/rtl/ahbl_uart.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/gpio0/1.0.8/rtl/gpio0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahb_spsram/1.0.0/rtl/ahb_spsram.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/i2cm/1.0.9/rtl/i2cm.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahb_spsram/1.1.0/rtl/ahb_spsram.v" type="VERILOG" worklib="work"/>
     <SimLib value="pmi_work ovi_ice40up"/>
     <GlbInc value="&quot;.&quot;"/>
     <Macro value=""/>

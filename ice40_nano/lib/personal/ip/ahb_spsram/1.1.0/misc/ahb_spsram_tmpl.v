@@ -17,4 +17,5 @@
         .sram_din( ),
         .sram_dout( ),
         .sram_write_done( ),
-        .sram_read_valid( ));
+        .sram_read_valid( ),
+        .sram_maskwe( ));

@@ -19,7 +19,8 @@ component ahb_spsram is
         sram_din: out std_logic_vector(31 downto 0);
         sram_dout: in std_logic_vector(31 downto 0);
         sram_write_done: in std_logic;
-        sram_read_valid: in std_logic
+        sram_read_valid: in std_logic;
+        sram_maskwe: out std_logic_vector(3 downto 0)
     );
 end component;
 
@@ -43,5 +44,6 @@ __: ahb_spsram port map(
     sram_din=>,
     sram_dout=>,
     sram_write_done=>,
-    sram_read_valid=>
+    sram_read_valid=>,
+    sram_maskwe=>
 );

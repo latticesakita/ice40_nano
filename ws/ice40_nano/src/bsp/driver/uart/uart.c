@@ -315,7 +315,31 @@ unsigned char uart_puts(struct uart_instance *this_uart,
 	/* all done */
 	return 0;
 }
+unsigned char log_puts(struct uart_instance *this_uart, uint32_t print_timestamp,
+			unsigned char *s)
+{
+	volatile unsigned char uiValue;
+	volatile struct uart_dev *dev;
+	if (NULL == this_uart) {
+		return 1;
+	}
+	dev = (volatile struct uart_dev *) (this_uart->base);
+	dev->timestamp = print_timestamp;
+	uiValue = dev->txb;
+	while(*s != 0) {
+		if (uiValue != 0) {
+			dev->rxtx = *s++;
+			uiValue--;
+		}
+		else {
+			uiValue = dev->txb;
+		}
+	}
 
+	/* all done */
+	return 0;
+
+}
 void log_printf(struct uart_instance *this_uart, uint32_t print_timestamp, const char *format, ...) {
     unsigned char buffer[80];
     va_list args;

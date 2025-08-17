@@ -3,11 +3,11 @@
     <ipxact:vendor>personal</ipxact:vendor>
     <ipxact:library>ip</ipxact:library>
     <ipxact:name>ahb_spsram</ipxact:name>
-    <ipxact:version>1.0.0</ipxact:version>
+    <ipxact:version>1.1.0</ipxact:version>
     <ipxact:componentInstances>
         <ipxact:componentInstance>
             <ipxact:instanceName>ahb_spsram_nano_inst</ipxact:instanceName>
-            <ipxact:componentRef library="ip" name="ahb_spsram_nano" vendor="personal" version="1.0.0">
+            <ipxact:componentRef library="ip" name="ahb_spsram_nano" vendor="personal" version="1.1.0">
                 <ipxact:configurableElementValues/>
             </ipxact:componentRef>
         </ipxact:componentInstance>
@@ -277,6 +277,27 @@
             <ipxact:portReferences>
                 <ipxact:internalPortReference componentRef="ahb_spsram" portRef="sram_read_valid"/>
                 <ipxact:externalPortReference portRef="sram_read_valid"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahb_spsram.sram_maskwe.3:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahb_spsram" portRef="sram_maskwe">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="sram_maskwe">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
             </ipxact:portReferences>
         </ipxact:adHocConnection>
     </ipxact:adHocConnections>

@@ -3,11 +3,11 @@
     <ipxact:vendor>personal</ipxact:vendor>
     <ipxact:library>ip</ipxact:library>
     <ipxact:name>timer</ipxact:name>
-    <ipxact:version>1.1.4</ipxact:version>
+    <ipxact:version>1.2.0</ipxact:version>
     <ipxact:componentInstances>
         <ipxact:componentInstance>
             <ipxact:instanceName>timer_ahbl_inst</ipxact:instanceName>
-            <ipxact:componentRef library="ip" name="timer_ahb" vendor="personal" version="1.1.4">
+            <ipxact:componentRef library="ip" name="timer_ahb" vendor="personal" version="1.2.0">
                 <ipxact:configurableElementValues>
                     <ipxact:configurableElementValue referenceId="PRESCALE">23</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="USE_DSP">1</ipxact:configurableElementValue>
