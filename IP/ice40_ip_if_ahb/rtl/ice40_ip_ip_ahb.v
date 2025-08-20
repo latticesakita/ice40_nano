@@ -2,7 +2,7 @@
 // HSIZE is for write operation is not supported
 // HSIZE is only for read operation
 
-module ice40_ip_if (
+module ice40_ip_if_ahb (
     input         clk,
     input         resetn,
     output        int_o,

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lsccip:ip xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip" xmlns:xi="http://www.w3.org/2001/XInclude" version="2.0" platform="Propel" platform_version="2025.1">
+    <lsccip:general>
+        <lsccip:vendor>personal</lsccip:vendor>
+        <lsccip:library>ip</lsccip:library>
+        <lsccip:name>i2c_ahbl</lsccip:name>
+        <lsccip:display_name>i2c_ahbl</lsccip:display_name>
+        <lsccip:version>1.0.0</lsccip:version>
+        <lsccip:category />
+        <lsccip:min_radiant_version>2025.1</lsccip:min_radiant_version>
+        <lsccip:min_esi_version>2025.1</lsccip:min_esi_version>
+        <lsccip:supported_products>
+            <lsccip:supported_family name="*" />
+        </lsccip:supported_products>
+        <lsccip:supported_platforms>
+            <lsccip:supported_platform name="esi" />
+            <lsccip:supported_platform name="radiant" />
+        </lsccip:supported_platforms>
+    </lsccip:general>
+    <lsccip:settings>
+        <lsccip:setting id="NOISE_FILTER"
+                        type="param"
+                        value_type="string"
+                        conn_mod="i2c_controller"
+                        options='[&quot;EN&quot;,&quot;DIS&quot;]'
+                        output_formatter="str"
+                        group1="Group1"
+                        group2="Tab1"
+         />
+    </lsccip:settings>
+    <lsccip:ports>
+        <lsccip:port name="scl_io"
+                     dir="inout"
+                     conn_mod="i2c_controller"
+         />
+        <lsccip:port name="sda_io"
+                     dir="inout"
+                     conn_mod="i2c_controller"
+         />
+        <lsccip:port name="int_o"
+                     dir="out"
+                     conn_mod="i2c_controller"
+                     bus_interface="IRQ"
+         />
+        <lsccip:port name="ahbl_haddr_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     range="(31,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hburst_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     range="(2,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hrdata_o"
+                     dir="out"
+                     conn_mod="i2c_controller"
+                     range="(31,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hsize_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     range="(2,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_htrans_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     range="(1,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hwdata_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     range="(31,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hready_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hreadyout_o"
+                     dir="out"
+                     conn_mod="i2c_controller"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hresp_o"
+                     dir="out"
+                     conn_mod="i2c_controller"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hsel_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ahbl_hwrite_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="clk_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+         />
+        <lsccip:port name="resetn_i"
+                     dir="in"
+                     conn_mod="i2c_controller"
+         />
+    </lsccip:ports>
+    <lsccip:outFileConfigs>
+        <lsccip:fileConfig name="wrapper" rtl_seq="i2c_controller_ahbl.v" />
+    </lsccip:outFileConfigs>
+    <xi:include parse="xml" href="bus_interface.xml" />
+    <xi:include parse="xml" href="address_space.xml" />
+    <xi:include parse="xml" href="memory_map.xml" />
+</lsccip:ip>

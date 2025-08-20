@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<lscc:hdlparseresult version="1.0">
+    <modules>
+        <module name="ice40_ip_if_ahb">
+            <ports>
+                <port dir="in" name="clk"/>
+                <port dir="in" name="resetn"/>
+                <port dir="out" name="int_o"/>
+                <port dir="in" name="HADDR" range="(31,0)"/>
+                <port dir="in" name="HBURST" range="(2,0)"/>
+                <port dir="in" name="HTRANS" range="(1,0)"/>
+                <port dir="in" name="HSIZE" range="(2,0)"/>
+                <port dir="in" name="HWRITE"/>
+                <port dir="in" name="HSEL"/>
+                <port dir="in" name="HREADY"/>
+                <port dir="in" name="HWDATA" range="(31,0)"/>
+                <port dir="out" name="HRDATA" range="(31,0)"/>
+                <port dir="out" name="HREADYOUT"/>
+                <port dir="out" name="HRESP"/>
+                <port dir="out" name="ip_addr_o" range="(7,0)"/>
+                <port dir="out" name="ip_wdata_o" range="(7,0)"/>
+                <port dir="in" name="ip_rdata_i" range="(7,0)"/>
+                <port dir="out" name="ip_we_o"/>
+                <port dir="out" name="ip_stb_o"/>
+                <port dir="in" name="ip_int_i" range="(1,0)"/>
+                <port dir="in" name="ip_ack_i"/>
+            </ports>
+        </module>
+    </modules>
+</lscc:hdlparseresult>

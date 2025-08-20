@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lsccip:ip xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip" xmlns:xi="http://www.w3.org/2001/XInclude" version="2.0" platform="Propel" platform_version="2025.1">
+    <lsccip:general>
+        <lsccip:vendor>personal</lsccip:vendor>
+        <lsccip:library>ip</lsccip:library>
+        <lsccip:name>ice40_ip_if_ahb</lsccip:name>
+        <lsccip:display_name>ice40_ip_if_ahb</lsccip:display_name>
+        <lsccip:version>1.0.0</lsccip:version>
+        <lsccip:category />
+        <lsccip:min_radiant_version>2025.1</lsccip:min_radiant_version>
+        <lsccip:min_esi_version>2025.1</lsccip:min_esi_version>
+        <lsccip:supported_products>
+            <lsccip:supported_family name="*" />
+            <lsccip:supported_family name="iCE40UP" />
+        </lsccip:supported_products>
+        <lsccip:supported_platforms>
+            <lsccip:supported_platform name="esi" />
+            <lsccip:supported_platform name="radiant" />
+        </lsccip:supported_platforms>
+    </lsccip:general>
+    <lsccip:settings>
+        <lsccip:setting id="__dummy__"
+                        type="param"
+                        value_type="string"
+                        conn_mod="ice40_ip_if_ahb"
+                        hidden="True"
+         />
+    </lsccip:settings>
+    <lsccip:ports>
+        <lsccip:port name="clk"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+         />
+        <lsccip:port name="resetn"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+         />
+        <lsccip:port name="int_o"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+                     bus_interface="IRQ"
+         />
+        <lsccip:port name="HADDR"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(31,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HBURST"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(2,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HTRANS"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(1,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HSIZE"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(2,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HWRITE"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HSEL"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HREADY"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HWDATA"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(31,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HRDATA"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(31,0)"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HREADYOUT"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="HRESP"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+                     bus_interface="AHBL_S0"
+         />
+        <lsccip:port name="ip_addr_o"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(7,0)"
+         />
+        <lsccip:port name="ip_wdata_o"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(7,0)"
+         />
+        <lsccip:port name="ip_rdata_i"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(7,0)"
+         />
+        <lsccip:port name="ip_we_o"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+         />
+        <lsccip:port name="ip_stb_o"
+                     dir="out"
+                     conn_mod="ice40_ip_if_ahb"
+         />
+        <lsccip:port name="ip_int_i"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+                     range="(1,0)"
+         />
+        <lsccip:port name="ip_ack_i"
+                     dir="in"
+                     conn_mod="ice40_ip_if_ahb"
+         />
+    </lsccip:ports>
+    <lsccip:outFileConfigs>
+        <lsccip:fileConfig name="wrapper" rtl_seq="ice40_ip_ip_ahb.v" />
+    </lsccip:outFileConfigs>
+    <xi:include parse="xml" href="bus_interface.xml" />
+    <xi:include parse="xml" href="address_space.xml" />
+    <xi:include parse="xml" href="memory_map.xml" />
+</lsccip:ip>
