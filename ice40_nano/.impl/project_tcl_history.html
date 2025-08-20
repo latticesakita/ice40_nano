@@ -2,7 +2,97 @@
 <HEAD>
 <TITLE>Lattice TCL Log</TITLE>
 </HEAD>
-<BODY><DIV id="content" ><PRE><A name="250820100452" href="#250820100452"></A><B><U><big>250820100452</big></U></B>
+<BODY><DIV id="content" ><PRE><A name="250820142656" href="#250820142656"></A><B><U><big>250820142656</big></U></B>
+#Start recording tcl command: 8/20/2025 13:53:37
+sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
+sbp_delete {ice40_nano/timer_inst} -type component
+sbp_config_ip -vlnv {personal:ip:timer:1.0.0} -meta_vlnv {personal:ip:timer_ahb:1.0.0}
+sbp_add_component -vlnv {personal:ip:timer:1.0.0} -name {timer_inst}
+sbp_connect_interface_net {ice40_nano/cpu0_inst/IRQ_S0} {ice40_nano/timer_inst/IRQ}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M03} {ice40_nano/timer_inst/AHBL_S0}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/timer_inst/clk_i}
+sbp_connect_net -name {ice40_nano/ice40_nano_rstn_i_net} {ice40_nano/timer_inst/resetn_i}
+sbp_disconnect_net {ice40_nano/timer_inst/resetn_i}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/timer_inst/resetn_i}
+sbp_delete {ice40_nano/ahb_spsram_inst} -type component
+sbp_config_ip -vlnv {personal:ip:spram_if:1.0.0} -meta_vlnv {personal:ip:spsram_if_ahb:1.0.0}
+sbp_add_component -vlnv {personal:ip:spram_if:1.0.0} -name {spram_if_inst}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M00} {ice40_nano/spram_if_inst/AHBL_S0}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/spram_if_inst/HCLK}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/spram_if_inst/HRESETn}
+sbp_connect_net {ice40_nano/sram_addr} {ice40_nano/spram_if_inst/sram_addr}
+sbp_connect_net {ice40_nano/sram_din} {ice40_nano/spram_if_inst/sram_din}
+sbp_connect_net {ice40_nano/sram_maskwe} {ice40_nano/spram_if_inst/sram_maskwe}
+sbp_connect_net {ice40_nano/sram_we} {ice40_nano/spram_if_inst/sram_we}
+sbp_connect_net {ice40_nano/sram_re} {ice40_nano/spram_if_inst/sram_re}
+sbp_connect_net {ice40_nano/sram_dout} {ice40_nano/spram_if_inst/sram_dout}
+sbp_connect_net {ice40_nano/sram_read_valid} {ice40_nano/spram_if_inst/sram_read_valid}
+sbp_connect_net {ice40_nano/sram_write_done} {ice40_nano/spram_if_inst/sram_write_done}
+sbp_delete {ice40_nano/ahbl_uart_inst} -type component
+sbp_config_ip -vlnv {personal:ip:uart:1.0.0} -meta_vlnv {personal:ip:uart_ahb:1.0.0}
+sbp_add_component -vlnv {personal:ip:uart:1.0.0} -name {uart_inst}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M02} {ice40_nano/uart_inst/AHBL}
+sbp_connect_net {ice40_nano/timer_inst/systime_o} {ice40_nano/uart_inst/systime_i}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/uart_inst/clk}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/uart_inst/resetn}
+sbp_connect_interface_net {ice40_nano/cpu0_inst/IRQ_S1} {ice40_nano/uart_inst/IRQ}
+sbp_connect_net {ice40_nano/uart_txd_00_o} {ice40_nano/uart_inst/o_txd}
+sbp_connect_net {ice40_nano/uart_rxd_00_i} {ice40_nano/uart_inst/i_rxd}
+sbp_delete {ice40_nano/gpio0_inst} -type component
+sbp_config_ip -vlnv {personal:ip:gpio:1.0.0} -meta_vlnv {personal:ip:gpio_ahb:1.0.0} -cfg_value {DEVICE:ICE40UP}
+sbp_add_component -vlnv {personal:ip:gpio:1.0.0} -name {gpio_inst}
+sbp_connect_net {ice40_nano/gpio0_io} {ice40_nano/gpio_inst/gpio_io}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M04} {ice40_nano/gpio_inst/AHBL_S0}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/gpio_inst/clk_i}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/gpio_inst/resetn_i}
+sbp_delete {ice40_nano/ice40_ip_interface_inst} -type component
+sbp_config_ip -vlnv {personal:ip:ice40up_ip_if:1.0.0} -meta_vlnv {personal:ip:ice40_ip_if:1.0.0}
+sbp_add_component -vlnv {personal:ip:ice40up_ip_if:1.0.0} -name {ice40up_ip_if_inst}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M01} {ice40_nano/ice40up_ip_if_inst/AHBL_S0}
+sbp_connect_net {ice40_nano/ice40_ip_addr} {ice40_nano/ice40up_ip_if_inst/ip_addr_o}
+sbp_connect_net {ice40_nano/ice40_ip_wdata} {ice40_nano/ice40up_ip_if_inst/ip_wdata_o}
+sbp_connect_net {ice40_nano/ice40_ip_stb} {ice40_nano/ice40up_ip_if_inst/ip_stb_o}
+sbp_connect_net {ice40_nano/ice40_ip_we} {ice40_nano/ice40up_ip_if_inst/ip_we_o}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/ice40up_ip_if_inst/clk}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/ice40up_ip_if_inst/resetn}
+sbp_connect_net {ice40_nano/ice40_ip_int} {ice40_nano/ice40up_ip_if_inst/ip_int_i}
+sbp_connect_net {ice40_nano/ice40_ip_rdata} {ice40_nano/ice40up_ip_if_inst/ip_rdata_i}
+sbp_connect_net {ice40_nano/ice40_ip_ack} {ice40_nano/ice40up_ip_if_inst/ip_ack_i}
+sbp_delete {ice40_nano/ice40up_ip_if_inst} -type component
+sbp_config_ip -vlnv {personal:ip:ice40_ip_if:1.0.0} -meta_vlnv {personal:ip:ice40_ip_if_ahb:1.0.0}
+sbp_add_component -vlnv {personal:ip:ice40_ip_if:1.0.0} -name {ice40_ip_if_inst}
+sbp_delete {ice40_nano/ice40_ip_if_inst} -type component
+sbp_config_ip -vlnv {personal:ip:ice40_ip_if:1.0.0} -meta_vlnv {personal:ip:ice40_ip_if_ahb:1.0.0}
+sbp_add_component -vlnv {personal:ip:ice40_ip_if:1.0.0} -name {ice40_ip_if_inst}
+sbp_connect_interface_net {ice40_nano/ahbl0_inst/AHBL_M01} {ice40_nano/ice40_ip_if_inst/AHBL_S0}
+sbp_connect_net -name {ice40_nano/ice40_nano_clk_i_net} {ice40_nano/ice40_ip_if_inst/clk}
+sbp_connect_net -name {ice40_nano/cpu0_inst_system_resetn_o_net} {ice40_nano/ice40_ip_if_inst/resetn}
+sbp_connect_net {ice40_nano/ice40_ip_addr} {ice40_nano/ice40_ip_if_inst/ip_addr_o}
+sbp_connect_net {ice40_nano/ice40_ip_wdata} {ice40_nano/ice40_ip_if_inst/ip_wdata_o}
+sbp_connect_net {ice40_nano/ice40_ip_stb} {ice40_nano/ice40_ip_if_inst/ip_stb_o}
+sbp_connect_net {ice40_nano/ice40_ip_we} {ice40_nano/ice40_ip_if_inst/ip_we_o}
+sbp_connect_net {ice40_nano/ice40_ip_int} {ice40_nano/ice40_ip_if_inst/ip_int_i}
+sbp_connect_net {ice40_nano/ice40_ip_rdata} {ice40_nano/ice40_ip_if_inst/ip_rdata_i}
+sbp_connect_net {ice40_nano/ice40_ip_ack} {ice40_nano/ice40_ip_if_inst/ip_ack_i}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_assign_addr_seg -offset 'h00023000 {ice40_nano/ahbl0_inst/AHBL_M04} {ice40_nano/gpio_inst/AHBL_S0}
+sbp_assign_addr_seg -offset 'h00020000 {ice40_nano/ahbl0_inst/AHBL_M01} {ice40_nano/ice40_ip_if_inst/AHBL_S0}
+sbp_assign_addr_seg -offset 'h00030000 {ice40_nano/ahbl0_inst/AHBL_M03} {ice40_nano/timer_inst/AHBL_S0}
+sbp_assign_addr_seg -offset 'h00025000 {ice40_nano/ahbl0_inst/AHBL_M02} {ice40_nano/uart_inst/AHBL}
+sbp_assign_addr_seg -offset 'h00000000 {ice40_nano/ahbl0_inst/AHBL_M00} {ice40_nano/spram_if_inst/AHBL_S0}
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design save
+sbp_design generate
+sbp_design pge sge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -o {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/../} -nc
+sbp_design pge dge  -i {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx} -radiant
+sbp_design close
+#Stop recording: 8/20/2025 14:26:56
+
+<A name="250820100452" href="#250820100452"></A><B><U><big>250820100452</big></U></B>
 #Start recording tcl command: 8/20/2025 09:40:19
 sbp_design open -name ice40_nano -path {O:/src/Propel/iCE40UP/ice40_nano/ice40_nano/ice40_nano.sbx}
 sbp_design save

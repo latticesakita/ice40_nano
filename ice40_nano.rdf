@@ -27,6 +27,9 @@
         <Source name="ice40_nano/ice40_common/spram16384x32.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
+        <Source name="ice40_nano/hard_ip.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
         <Source name="ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/ahbl0.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
@@ -48,22 +51,19 @@
         <Source name="ice40_nano/lib/latticesemi.com/ip/cpu0/1.1.0/cpu0.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="ice40_nano/lib/personal/ip/ahb_spsram/1.1.0/ahb_spsram.ipx" type="IPX_Module" type_short="IPX">
+        <Source name="ice40_nano/lib/personal/ip/spram_if/1.0.0/spram_if.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="ice40_nano/hard_ip.v" type="Verilog" type_short="Verilog">
+        <Source name="ice40_nano/lib/personal/ip/ice40_ip_if/1.0.0/ice40_ip_if.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="ice40_nano/lib/personal/ip/ice40_ip_interface/1.0.1/ice40_ip_interface.ipx" type="IPX_Module" type_short="IPX">
+        <Source name="ice40_nano/lib/personal/ip/timer/1.0.0/timer.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="ice40_nano/lib/personal/ip/ahbl_uart/1.1.3/ahbl_uart.ipx" type="IPX_Module" type_short="IPX">
+        <Source name="ice40_nano/lib/personal/ip/gpio/1.0.0/gpio.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="ice40_nano/lib/personal/ip/gpio0/1.1.1/gpio0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="ice40_nano/lib/personal/ip/timer/1.2.1/timer.ipx" type="IPX_Module" type_short="IPX">
+        <Source name="ice40_nano/lib/personal/ip/uart/1.0.0/uart.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="ice40_nano.pdc" type="Physical Constraints File" type_short="PDC">

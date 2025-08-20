@@ -13,12 +13,12 @@
     <Source include="none" langstandard="Verilog 2001" path="dpram4096x8/rtl/dpram4096x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram2048x2_512x8/rtl/dpram2048x2_512x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/cpu0/1.1.0/rtl/cpu0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahb_spsram/1.1.0/rtl/ahb_spsram.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/hard_ip.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ice40_ip_interface/1.0.1/rtl/ice40_ip_interface.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ahbl_uart/1.1.3/rtl/ahbl_uart.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/gpio0/1.1.1/rtl/gpio0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/timer/1.2.1/rtl/timer.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/spram_if/1.0.0/rtl/spram_if.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ice40_ip_if/1.0.0/rtl/ice40_ip_if.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/timer/1.0.0/rtl/timer.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/gpio/1.0.0/rtl/gpio.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/uart/1.0.0/rtl/uart.v" type="VERILOG" worklib="work"/>
     <SimLib value="pmi_work ovi_ice40up"/>
     <GlbInc value="&quot;.&quot;"/>
     <Macro value=""/>

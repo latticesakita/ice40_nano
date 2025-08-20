@@ -25,33 +25,33 @@
                         <ipxact:width>32</ipxact:width>
                         <ipxact:segments>
                             <ipxact:segment>
-                                <ipxact:name>ice40_nano_ahb_spsram_inst_ahb_spsram_nano</ipxact:name>
-                                <ipxact:displayName>ice40_nano/ahb_spsram_inst/ahb_spsram_nano</ipxact:displayName>
-                                <ipxact:addressOffset>0x0</ipxact:addressOffset>
-                                <ipxact:range>0x20000</ipxact:range>
-                            </ipxact:segment>
-                            <ipxact:segment>
-                                <ipxact:name>ice40_nano_ahbl_uart_inst_ahb_uart</ipxact:name>
-                                <ipxact:displayName>ice40_nano/ahbl_uart_inst/ahb_uart</ipxact:displayName>
-                                <ipxact:addressOffset>0x25000</ipxact:addressOffset>
-                                <ipxact:range>0x400</ipxact:range>
-                            </ipxact:segment>
-                            <ipxact:segment>
-                                <ipxact:name>ice40_nano_gpio0_inst_gpio_ahbl</ipxact:name>
-                                <ipxact:displayName>ice40_nano/gpio0_inst/gpio_ahbl</ipxact:displayName>
+                                <ipxact:name>ice40_nano_gpio_inst_gpio_ahb</ipxact:name>
+                                <ipxact:displayName>ice40_nano/gpio_inst/gpio_ahb</ipxact:displayName>
                                 <ipxact:addressOffset>0x23000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                             <ipxact:segment>
-                                <ipxact:name>ice40_nano_ice40_ip_interface_inst_iCE40_IP_IF</ipxact:name>
-                                <ipxact:displayName>ice40_nano/ice40_ip_interface_inst/iCE40_IP_IF</ipxact:displayName>
+                                <ipxact:name>ice40_nano_ice40_ip_if_inst_iCE40_IP_IF</ipxact:name>
+                                <ipxact:displayName>ice40_nano/ice40_ip_if_inst/iCE40_IP_IF</ipxact:displayName>
                                 <ipxact:addressOffset>0x20000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
+                            </ipxact:segment>
+                            <ipxact:segment>
+                                <ipxact:name>ice40_nano_spram_if_inst_ahb_spsram</ipxact:name>
+                                <ipxact:displayName>ice40_nano/spram_if_inst/ahb_spsram</ipxact:displayName>
+                                <ipxact:addressOffset>0x0</ipxact:addressOffset>
+                                <ipxact:range>0x20000</ipxact:range>
                             </ipxact:segment>
                             <ipxact:segment>
                                 <ipxact:name>ice40_nano_timer_inst_timer_memmap</ipxact:name>
                                 <ipxact:displayName>ice40_nano/timer_inst/timer_memmap</ipxact:displayName>
                                 <ipxact:addressOffset>0x30000</ipxact:addressOffset>
+                                <ipxact:range>0x400</ipxact:range>
+                            </ipxact:segment>
+                            <ipxact:segment>
+                                <ipxact:name>ice40_nano_uart_inst_ahb_uart</ipxact:name>
+                                <ipxact:displayName>ice40_nano/uart_inst/ahb_uart</ipxact:displayName>
+                                <ipxact:addressOffset>0x25000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                         </ipxact:segments>
@@ -62,33 +62,33 @@
                         <ipxact:width>32</ipxact:width>
                         <ipxact:segments>
                             <ipxact:segment>
-                                <ipxact:name>ice40_nano_ahb_spsram_inst_ahb_spsram_nano</ipxact:name>
-                                <ipxact:displayName>ice40_nano/ahb_spsram_inst/ahb_spsram_nano</ipxact:displayName>
-                                <ipxact:addressOffset>0x0</ipxact:addressOffset>
-                                <ipxact:range>0x20000</ipxact:range>
-                            </ipxact:segment>
-                            <ipxact:segment>
-                                <ipxact:name>ice40_nano_ahbl_uart_inst_ahb_uart</ipxact:name>
-                                <ipxact:displayName>ice40_nano/ahbl_uart_inst/ahb_uart</ipxact:displayName>
-                                <ipxact:addressOffset>0x25000</ipxact:addressOffset>
-                                <ipxact:range>0x400</ipxact:range>
-                            </ipxact:segment>
-                            <ipxact:segment>
-                                <ipxact:name>ice40_nano_gpio0_inst_gpio_ahbl</ipxact:name>
-                                <ipxact:displayName>ice40_nano/gpio0_inst/gpio_ahbl</ipxact:displayName>
+                                <ipxact:name>ice40_nano_gpio_inst_gpio_ahb</ipxact:name>
+                                <ipxact:displayName>ice40_nano/gpio_inst/gpio_ahb</ipxact:displayName>
                                 <ipxact:addressOffset>0x23000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                             <ipxact:segment>
-                                <ipxact:name>ice40_nano_ice40_ip_interface_inst_iCE40_IP_IF</ipxact:name>
-                                <ipxact:displayName>ice40_nano/ice40_ip_interface_inst/iCE40_IP_IF</ipxact:displayName>
+                                <ipxact:name>ice40_nano_ice40_ip_if_inst_iCE40_IP_IF</ipxact:name>
+                                <ipxact:displayName>ice40_nano/ice40_ip_if_inst/iCE40_IP_IF</ipxact:displayName>
                                 <ipxact:addressOffset>0x20000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
+                            </ipxact:segment>
+                            <ipxact:segment>
+                                <ipxact:name>ice40_nano_spram_if_inst_ahb_spsram</ipxact:name>
+                                <ipxact:displayName>ice40_nano/spram_if_inst/ahb_spsram</ipxact:displayName>
+                                <ipxact:addressOffset>0x0</ipxact:addressOffset>
+                                <ipxact:range>0x20000</ipxact:range>
                             </ipxact:segment>
                             <ipxact:segment>
                                 <ipxact:name>ice40_nano_timer_inst_timer_memmap</ipxact:name>
                                 <ipxact:displayName>ice40_nano/timer_inst/timer_memmap</ipxact:displayName>
                                 <ipxact:addressOffset>0x30000</ipxact:addressOffset>
+                                <ipxact:range>0x400</ipxact:range>
+                            </ipxact:segment>
+                            <ipxact:segment>
+                                <ipxact:name>ice40_nano_uart_inst_ahb_uart</ipxact:name>
+                                <ipxact:displayName>ice40_nano/uart_inst/ahb_uart</ipxact:displayName>
+                                <ipxact:addressOffset>0x25000</ipxact:addressOffset>
                                 <ipxact:range>0x400</ipxact:range>
                             </ipxact:segment>
                         </ipxact:segments>
@@ -123,93 +123,7 @@
                 <lattice:driverVersion>1.1.0</lattice:driverVersion>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="ahb_spsram_nano" version="1.1.0">ahb_spsram_inst</lattice:instanceName>
-                <ipxact:memoryMaps>
-                    <ipxact:memoryMap>
-                        <ipxact:name>ahb_spsram_nano</ipxact:name>
-                        <ipxact:displayName>ahb_spsram_nano</ipxact:displayName>
-                        <ipxact:description>AHBL_S0</ipxact:description>
-                        <ipxact:addressBlock>
-                            <ipxact:name>SPSRAM_SRAM</ipxact:name>
-                            <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
-                            <ipxact:description>NewAddressBlock1</ipxact:description>
-                            <ipxact:baseAddress>0x0</ipxact:baseAddress>
-                            <ipxact:range>0x20000</ipxact:range>
-                            <ipxact:width>32</ipxact:width>
-                            <ipxact:vendorExtensions/>
-                        </ipxact:addressBlock>
-                    </ipxact:memoryMap>
-                    <ipxact:memoryMap>
-                        <ipxact:name>ahb_spsram_nano</ipxact:name>
-                        <ipxact:displayName>ahb_spsram_nano</ipxact:displayName>
-                        <ipxact:description>AHBL_S0</ipxact:description>
-                        <ipxact:addressBlock>
-                            <ipxact:name>SPSRAM_SRAM</ipxact:name>
-                            <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
-                            <ipxact:description>NewAddressBlock1</ipxact:description>
-                            <ipxact:baseAddress>0x0</ipxact:baseAddress>
-                            <ipxact:range>0x20000</ipxact:range>
-                            <ipxact:width>32</ipxact:width>
-                            <ipxact:vendorExtensions/>
-                        </ipxact:addressBlock>
-                    </ipxact:memoryMap>
-                </ipxact:memoryMaps>
-                <lattice:configurableParameters/>
-            </lattice:ipInstance>
-            <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="ahb_uart" version="1.1.3">ahbl_uart_inst</lattice:instanceName>
-                <ipxact:addressSpaces>
-                    <ipxact:addressSpace>
-                        <ipxact:name>INT_Address_Space</ipxact:name>
-                        <ipxact:range>4294967296</ipxact:range>
-                        <ipxact:width>32</ipxact:width>
-                        <ipxact:segments/>
-                    </ipxact:addressSpace>
-                </ipxact:addressSpaces>
-                <ipxact:memoryMaps>
-                    <ipxact:memoryMap>
-                        <ipxact:name>ahb_uart</ipxact:name>
-                        <ipxact:displayName>ahb_uart</ipxact:displayName>
-                        <ipxact:description>New Memorymap</ipxact:description>
-                        <ipxact:addressBlock>
-                            <ipxact:name>NewAddressBlock1</ipxact:name>
-                            <ipxact:baseAddress>0x25000</ipxact:baseAddress>
-                            <ipxact:range>0x400</ipxact:range>
-                            <ipxact:width>32</ipxact:width>
-                            <ipxact:vendorExtensions/>
-                        </ipxact:addressBlock>
-                    </ipxact:memoryMap>
-                    <ipxact:memoryMap>
-                        <ipxact:name>ahb_uart</ipxact:name>
-                        <ipxact:displayName>ahb_uart</ipxact:displayName>
-                        <ipxact:description>New Memorymap</ipxact:description>
-                        <ipxact:addressBlock>
-                            <ipxact:name>NewAddressBlock1</ipxact:name>
-                            <ipxact:baseAddress>0x25000</ipxact:baseAddress>
-                            <ipxact:range>0x400</ipxact:range>
-                            <ipxact:width>32</ipxact:width>
-                            <ipxact:vendorExtensions/>
-                        </ipxact:addressBlock>
-                    </ipxact:memoryMap>
-                </ipxact:memoryMaps>
-                <lattice:configurableParameters>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="0">CLOCK_FREQ</lattice:name>
-                        <lattice:value>24000000</lattice:value>
-                    </lattice:configurableParameter>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="0">UART_BAUDRATE</lattice:name>
-                        <lattice:value>115200</lattice:value>
-                    </lattice:configurableParameter>
-                    <lattice:configurableParameter>
-                        <lattice:name sequence_id="0">BUFFER_SIZE</lattice:name>
-                        <lattice:value>512</lattice:value>
-                    </lattice:configurableParameter>
-                </lattice:configurableParameters>
-                <lattice:interruptPort>IRQ_S1</lattice:interruptPort>
-            </lattice:ipInstance>
-            <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="gpio_ahbl_io" version="1.1.1">gpio0_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="gpio_ahb" version="1.0.0">gpio_inst</lattice:instanceName>
                 <ipxact:addressSpaces>
                     <ipxact:addressSpace>
                         <ipxact:name>IRQ_Address_Space</ipxact:name>
@@ -220,11 +134,13 @@
                 </ipxact:addressSpaces>
                 <ipxact:memoryMaps>
                     <ipxact:memoryMap>
-                        <ipxact:name>gpio_ahbl</ipxact:name>
-                        <ipxact:displayName>gpio_ahbl</ipxact:displayName>
-                        <ipxact:description>gpio_ahbl</ipxact:description>
+                        <ipxact:name>gpio_ahb</ipxact:name>
+                        <ipxact:displayName>NewMemmap1</ipxact:displayName>
+                        <ipxact:description>gpio_ahb</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
+                            <ipxact:description>NewAddressBlock1</ipxact:description>
                             <ipxact:baseAddress>0x23000</ipxact:baseAddress>
                             <ipxact:range>0x400</ipxact:range>
                             <ipxact:width>32</ipxact:width>
@@ -232,11 +148,13 @@
                         </ipxact:addressBlock>
                     </ipxact:memoryMap>
                     <ipxact:memoryMap>
-                        <ipxact:name>gpio_ahbl</ipxact:name>
-                        <ipxact:displayName>gpio_ahbl</ipxact:displayName>
-                        <ipxact:description>gpio_ahbl</ipxact:description>
+                        <ipxact:name>gpio_ahb</ipxact:name>
+                        <ipxact:displayName>NewMemmap1</ipxact:displayName>
+                        <ipxact:description>gpio_ahb</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
+                            <ipxact:description>NewAddressBlock1</ipxact:description>
                             <ipxact:baseAddress>0x23000</ipxact:baseAddress>
                             <ipxact:range>0x400</ipxact:range>
                             <ipxact:width>32</ipxact:width>
@@ -251,7 +169,7 @@
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">DIRECTION</lattice:name>
-                        <lattice:value>0x00</lattice:value>
+                        <lattice:value>0xFF</lattice:value>
                     </lattice:configurableParameter>
                     <lattice:configurableParameter>
                         <lattice:name sequence_id="0">INIT_OUTVAL</lattice:name>
@@ -264,7 +182,7 @@
                 </lattice:configurableParameters>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="ice40_ip_if" version="1.0.1">ice40_ip_interface_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="ice40_ip_if_ahb" version="1.0.0">ice40_ip_if_inst</lattice:instanceName>
                 <ipxact:addressSpaces>
                     <ipxact:addressSpace>
                         <ipxact:name>NewInterface1_Address_Space</ipxact:name>
@@ -276,7 +194,7 @@
                 <ipxact:memoryMaps>
                     <ipxact:memoryMap>
                         <ipxact:name>iCE40_IP_IF</ipxact:name>
-                        <ipxact:displayName>NewMemmap1</ipxact:displayName>
+                        <ipxact:displayName>iCE40_IP_IF</ipxact:displayName>
                         <ipxact:description>New Memorymap</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>NewAddressBlock1</ipxact:name>
@@ -290,7 +208,7 @@
                     </ipxact:memoryMap>
                     <ipxact:memoryMap>
                         <ipxact:name>iCE40_IP_IF</ipxact:name>
-                        <ipxact:displayName>NewMemmap1</ipxact:displayName>
+                        <ipxact:displayName>iCE40_IP_IF</ipxact:displayName>
                         <ipxact:description>New Memorymap</ipxact:description>
                         <ipxact:addressBlock>
                             <ipxact:name>NewAddressBlock1</ipxact:name>
@@ -306,7 +224,41 @@
                 <lattice:configurableParameters/>
             </lattice:ipInstance>
             <lattice:ipInstance>
-                <lattice:instanceName vendor="personal" library="ip" name="timer_ahb" version="1.2.1">timer_inst</lattice:instanceName>
+                <lattice:instanceName vendor="personal" library="ip" name="spsram_if_ahb" version="1.0.0">spram_if_inst</lattice:instanceName>
+                <ipxact:memoryMaps>
+                    <ipxact:memoryMap>
+                        <ipxact:name>ahb_spsram</ipxact:name>
+                        <ipxact:displayName>ahb_spsram</ipxact:displayName>
+                        <ipxact:description>ahb_spsram</ipxact:description>
+                        <ipxact:addressBlock>
+                            <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
+                            <ipxact:description>NewAddressBlock1</ipxact:description>
+                            <ipxact:baseAddress>0x0</ipxact:baseAddress>
+                            <ipxact:range>0x20000</ipxact:range>
+                            <ipxact:width>32</ipxact:width>
+                            <ipxact:vendorExtensions/>
+                        </ipxact:addressBlock>
+                    </ipxact:memoryMap>
+                    <ipxact:memoryMap>
+                        <ipxact:name>ahb_spsram</ipxact:name>
+                        <ipxact:displayName>ahb_spsram</ipxact:displayName>
+                        <ipxact:description>ahb_spsram</ipxact:description>
+                        <ipxact:addressBlock>
+                            <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:displayName>NewAddressBlock1</ipxact:displayName>
+                            <ipxact:description>NewAddressBlock1</ipxact:description>
+                            <ipxact:baseAddress>0x0</ipxact:baseAddress>
+                            <ipxact:range>0x20000</ipxact:range>
+                            <ipxact:width>32</ipxact:width>
+                            <ipxact:vendorExtensions/>
+                        </ipxact:addressBlock>
+                    </ipxact:memoryMap>
+                </ipxact:memoryMaps>
+                <lattice:configurableParameters/>
+            </lattice:ipInstance>
+            <lattice:ipInstance>
+                <lattice:instanceName vendor="personal" library="ip" name="timer_ahb" version="1.0.0">timer_inst</lattice:instanceName>
                 <ipxact:addressSpaces>
                     <ipxact:addressSpace>
                         <ipxact:name>INT0_Address_Space</ipxact:name>
@@ -356,6 +308,58 @@
                     </lattice:configurableParameter>
                 </lattice:configurableParameters>
                 <lattice:interruptPort>IRQ_S0</lattice:interruptPort>
+            </lattice:ipInstance>
+            <lattice:ipInstance>
+                <lattice:instanceName vendor="personal" library="ip" name="uart_ahb" version="1.0.0">uart_inst</lattice:instanceName>
+                <ipxact:addressSpaces>
+                    <ipxact:addressSpace>
+                        <ipxact:name>INT_Address_Space</ipxact:name>
+                        <ipxact:range>4294967296</ipxact:range>
+                        <ipxact:width>32</ipxact:width>
+                        <ipxact:segments/>
+                    </ipxact:addressSpace>
+                </ipxact:addressSpaces>
+                <ipxact:memoryMaps>
+                    <ipxact:memoryMap>
+                        <ipxact:name>ahb_uart</ipxact:name>
+                        <ipxact:displayName>ahb_uart</ipxact:displayName>
+                        <ipxact:description>New Memorymap</ipxact:description>
+                        <ipxact:addressBlock>
+                            <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:baseAddress>0x25000</ipxact:baseAddress>
+                            <ipxact:range>0x400</ipxact:range>
+                            <ipxact:width>32</ipxact:width>
+                            <ipxact:vendorExtensions/>
+                        </ipxact:addressBlock>
+                    </ipxact:memoryMap>
+                    <ipxact:memoryMap>
+                        <ipxact:name>ahb_uart</ipxact:name>
+                        <ipxact:displayName>ahb_uart</ipxact:displayName>
+                        <ipxact:description>New Memorymap</ipxact:description>
+                        <ipxact:addressBlock>
+                            <ipxact:name>NewAddressBlock1</ipxact:name>
+                            <ipxact:baseAddress>0x25000</ipxact:baseAddress>
+                            <ipxact:range>0x400</ipxact:range>
+                            <ipxact:width>32</ipxact:width>
+                            <ipxact:vendorExtensions/>
+                        </ipxact:addressBlock>
+                    </ipxact:memoryMap>
+                </ipxact:memoryMaps>
+                <lattice:configurableParameters>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">CLOCK_FREQ</lattice:name>
+                        <lattice:value>24000000</lattice:value>
+                    </lattice:configurableParameter>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">UART_BAUDRATE</lattice:name>
+                        <lattice:value>115200</lattice:value>
+                    </lattice:configurableParameter>
+                    <lattice:configurableParameter>
+                        <lattice:name sequence_id="0">BUFFER_SIZE</lattice:name>
+                        <lattice:value>512</lattice:value>
+                    </lattice:configurableParameter>
+                </lattice:configurableParameters>
+                <lattice:interruptPort>IRQ_S1</lattice:interruptPort>
             </lattice:ipInstance>
         </lattice:ipInstances>
         <lattice:memoryRegions/>

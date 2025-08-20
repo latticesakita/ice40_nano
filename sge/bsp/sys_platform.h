@@ -62,28 +62,28 @@
 
 #define CPU0_INST_NAME "cpu0_inst"
 
-#define AHB_SPSRAM_INST_AHB_SPSRAM_NANO_NAME "ahb_spsram_inst_ahb_spsram_nano"
-#define AHB_SPSRAM_INST_AHB_SPSRAM_NANO_BASE_ADDR 0x0
+#define GPIO_INST_GPIO_AHB_NAME "gpio_inst_gpio_ahb"
+#define GPIO_INST_GPIO_AHB_BASE_ADDR 0x23000
 
-#define AHBL_UART_INST_AHB_UART_NAME "ahbl_uart_inst_ahb_uart"
-#define AHBL_UART_INST_AHB_UART_BASE_ADDR 0x25000
+#define ICE40_IP_IF_INST_ICE40_IP_IF_NAME "ice40_ip_if_inst_iCE40_IP_IF"
+#define ICE40_IP_IF_INST_ICE40_IP_IF_BASE_ADDR 0x20000
 
-#define GPIO0_INST_GPIO_AHBL_NAME "gpio0_inst_gpio_ahbl"
-#define GPIO0_INST_GPIO_AHBL_BASE_ADDR 0x23000
-
-#define ICE40_IP_INTERFACE_INST_ICE40_IP_IF_NAME "ice40_ip_interface_inst_iCE40_IP_IF"
-#define ICE40_IP_INTERFACE_INST_ICE40_IP_IF_BASE_ADDR 0x20000
+#define SPRAM_IF_INST_AHB_SPSRAM_NAME "spram_if_inst_ahb_spsram"
+#define SPRAM_IF_INST_AHB_SPSRAM_BASE_ADDR 0x0
 
 #define TIMER_INST_TIMER_MEMMAP_NAME "timer_inst_timer_memmap"
 #define TIMER_INST_TIMER_MEMMAP_BASE_ADDR 0x30000
 
+#define UART_INST_AHB_UART_NAME "uart_inst_ahb_uart"
+#define UART_INST_AHB_UART_BASE_ADDR 0x25000
+
 /* ip instance rename */
 #define RISCV_NANO_INST_0 CPU0_INST
-#define AHB_SPSRAM_NANO_INST_0 AHB_SPSRAM_INST
-#define AHB_UART_INST_0 AHBL_UART_INST
-#define GPIO_AHBL_IO_INST_0 GPIO0_INST
-#define ICE40_IP_IF_INST_0 ICE40_IP_INTERFACE_INST
+#define GPIO_AHB_INST_0 GPIO_INST
+#define ICE40_IP_IF_AHB_INST_0 ICE40_IP_IF_INST
+#define SPSRAM_IF_AHB_INST_0 SPRAM_IF_INST
 #define TIMER_AHB_INST_0 TIMER_INST
+#define UART_AHB_INST_0 UART_INST
 
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
 testable register of each IP instance, it might affect the environment during test. 
@@ -99,28 +99,28 @@ and make sure to disable it when developing the application firmware. */
 #define CPU0_INST_NANO_CPU 1
 #define CPU0_INST_PIC_ENABLE True
 
-/* ahb_spsram_inst parameters */
+/* gpio_inst parameters */
+#define GPIO_INST_BUS_WIDTH 8
+#define GPIO_INST_DEVICE ICE40UP
+#define GPIO_INST_DIRECTION 0xFF
+#define GPIO_INST_INIT_OUTVAL 0x00
 
-/* ahbl_uart_inst parameters */
-#define AHBL_UART_INST_BUFFER_SIZE 512
-#define AHBL_UART_INST_CLOCK_FREQ 24000000
-#define AHBL_UART_INST_UART_BAUDRATE 115200
+/* ice40_ip_if_inst parameters */
 
-/* gpio0_inst parameters */
-#define GPIO0_INST_BUS_WIDTH 8
-#define GPIO0_INST_DEVICE ICE40UP
-#define GPIO0_INST_DIRECTION 0x00
-#define GPIO0_INST_INIT_OUTVAL 0x00
-
-/* ice40_ip_interface_inst parameters */
+/* spram_if_inst parameters */
 
 /* timer_inst parameters */
 #define TIMER_INST_PRESCALE 23
 #define TIMER_INST_USE_DSP 1
 
+/* uart_inst parameters */
+#define UART_INST_BUFFER_SIZE 512
+#define UART_INST_CLOCK_FREQ 24000000
+#define UART_INST_UART_BAUDRATE 115200
+
 /* interrupt */
 
 #define TIMER_INST_IRQ 0
-#define AHBL_UART_INST_IRQ 1
+#define UART_INST_IRQ 1
 
 #endif
