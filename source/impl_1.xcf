@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <!DOCTYPE		ispXCF	SYSTEM	"IspXCF.dtd" >
-<ispXCF version="R2025.1">
+<ispXCF version="R2024.2 SP1">
 	<Comment></Comment>
 	<Chain>
 		<Comm>SPI</Comm>
@@ -18,12 +18,13 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>../../impl_1/ice40_nano_impl_1.bin</File>
-			<FileTime>08/13/25 09:37:55</FileTime>
-			<JedecChecksum>0xD0AD</JedecChecksum>
+			<FileTime>08/20/25 10:05:42</FileTime>
+			<JedecChecksum>0x2296</JedecChecksum>
 			<MemoryType>External SPI Flash Memory (SPI FLASH)</MemoryType>
 			<Operation>Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
+				<SVFProcessor>SVF Processor</SVFProcessor>
 				<AccessMode>Direct Programming</AccessMode>
 			</Option>
 			<FPGALoader>
@@ -48,6 +49,7 @@
 						<SVFVendor>JTAG STANDARD</SVFVendor>
 						<IOState>HighZ</IOState>
 						<IOVectorData>ï</IOVectorData>
+						<SVFProcessor>SVF Processor</SVFProcessor>
 						<AccessMode>Direct Programming</AccessMode>
 					</Option>
 				</Device>
@@ -82,6 +84,7 @@
 					</LocalChainList>
 					<Option>
 						<SVFVendor>JTAG STANDARD</SVFVendor>
+						<SVFProcessor>SVF Processor</SVFProcessor>
 					</Option>
 				</Device>
 			</FPGADevice>
@@ -101,13 +104,12 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>../../ws/ice40_nano/Debug/ice40_nano_Code.bin</File>
-			<FileTime>08/13/25 09:17:09</FileTime>
-			<JedecChecksum>0xA45B</JedecChecksum>
+			<FileTime>08/20/25 12:18:02</FileTime>
+			<JedecChecksum>0xA3C0</JedecChecksum>
 			<MemoryType>External SPI Flash Memory (SPI FLASH)</MemoryType>
 			<Operation>Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
-				<SVFProcessor>SVF Processor</SVFProcessor>
 				<AccessMode>Direct Programming</AccessMode>
 			</Option>
 			<FPGALoader>
@@ -132,7 +134,6 @@
 						<SVFVendor>JTAG STANDARD</SVFVendor>
 						<IOState>HighZ</IOState>
 						<IOVectorData>ï</IOVectorData>
-						<SVFProcessor>SVF Processor</SVFProcessor>
 						<AccessMode>Direct Programming</AccessMode>
 					</Option>
 				</Device>
@@ -150,7 +151,7 @@
 					<AddressBase>0x00030000</AddressBase>
 					<EndAddress>0x00040000</EndAddress>
 					<DeviceSize>32</DeviceSize>
-					<DataSize>6416</DataSize>
+					<DataSize>49160</DataSize>
 					<NumberOfDevices>1</NumberOfDevices>
 					<ReInitialize value="FALSE"/>
 				</Device>
@@ -167,7 +168,6 @@
 					</LocalChainList>
 					<Option>
 						<SVFVendor>JTAG STANDARD</SVFVendor>
-						<SVFProcessor>SVF Processor</SVFProcessor>
 					</Option>
 				</Device>
 			</FPGADevice>
@@ -187,6 +187,6 @@
 	<CableOptions>
 		<CableName>USB2</CableName>
 		<PortAdd>FTUSB-0</PortAdd>
-		<USBID>Lattice iCE40UP5K Breakout A Location 0211 Serial A</USBID>
+		<USBID>UPduino v2.1 Location 0021 Serial </USBID>
 	</CableOptions>
 </ispXCF>

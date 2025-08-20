@@ -43,14 +43,19 @@
 
 component ice40_nano is
     port (gpio0_io: inout std_logic_vector(7 downto 0);
+        ice40_ip_addr: out std_logic_vector(7 downto 0);
+        ice40_ip_int: in std_logic_vector(1 downto 0);
+        ice40_ip_rdata: in std_logic_vector(7 downto 0);
+        ice40_ip_wdata: out std_logic_vector(7 downto 0);
         sram_addr: out std_logic_vector(31 downto 0);
         sram_din: out std_logic_vector(31 downto 0);
         sram_dout: in std_logic_vector(31 downto 0);
         sram_maskwe: out std_logic_vector(3 downto 0);
         clk_i: in std_logic;
+        ice40_ip_ack: in std_logic;
+        ice40_ip_stb: out std_logic;
+        ice40_ip_we: out std_logic;
         rstn_i: in std_logic;
-        scl_io: inout std_logic;
-        sda_io: inout std_logic;
         sram_re: out std_logic;
         sram_read_valid: in std_logic;
         sram_we: out std_logic;
@@ -69,10 +74,15 @@ _inst: ice40_nano port map (sram_addr => __,
                             sram_read_valid => __,
                             sram_we => __,
                             sram_write_done => __,
-                            scl_io => __,
-                            sda_io => __,
                             uart_rxd_00_i => __,
                             uart_txd_00_o => __,
                             rstn_i => __,
-                            gpio0_io => __);
+                            gpio0_io => __,
+                            ice40_ip_addr => __,
+                            ice40_ip_int => __,
+                            ice40_ip_rdata => __,
+                            ice40_ip_wdata => __,
+                            ice40_ip_ack => __,
+                            ice40_ip_stb => __,
+                            ice40_ip_we => __);
                             

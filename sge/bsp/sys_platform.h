@@ -71,18 +71,18 @@
 #define GPIO0_INST_GPIO_AHBL_NAME "gpio0_inst_gpio_ahbl"
 #define GPIO0_INST_GPIO_AHBL_BASE_ADDR 0x23000
 
-#define I2CM_INST_I2C_CONTROLLER_AHBL_NAME "i2cm_inst_I2C_Controller_AHBL"
-#define I2CM_INST_I2C_CONTROLLER_AHBL_BASE_ADDR 0x24000
+#define ICE40_IP_INTERFACE_INST_ICE40_IP_IF_NAME "ice40_ip_interface_inst_iCE40_IP_IF"
+#define ICE40_IP_INTERFACE_INST_ICE40_IP_IF_BASE_ADDR 0x20000
 
-#define TIMER_INST_NEWMEMMAP1_NAME "timer_inst_NewMemmap1"
-#define TIMER_INST_NEWMEMMAP1_BASE_ADDR 0x30000
+#define TIMER_INST_TIMER_MEMMAP_NAME "timer_inst_timer_memmap"
+#define TIMER_INST_TIMER_MEMMAP_BASE_ADDR 0x30000
 
 /* ip instance rename */
 #define RISCV_NANO_INST_0 CPU0_INST
 #define AHB_SPSRAM_NANO_INST_0 AHB_SPSRAM_INST
 #define AHB_UART_INST_0 AHBL_UART_INST
 #define GPIO_AHBL_IO_INST_0 GPIO0_INST
-#define I2C_AHBL_INST_0 I2CM_INST
+#define ICE40_IP_IF_INST_0 ICE40_IP_INTERFACE_INST
 #define TIMER_AHB_INST_0 TIMER_INST
 
 /* register test (reg_test.c) is to test the accessibility of the design by accessing the 
@@ -112,15 +112,7 @@ and make sure to disable it when developing the application firmware. */
 #define GPIO0_INST_DIRECTION 0x00
 #define GPIO0_INST_INIT_OUTVAL 0x00
 
-/* i2cm_inst parameters */
-#define I2CM_INST_COUNTER_SIZE 8
-#define I2CM_INST_NOISE_FILTER EN
-#define I2CM_INST_T_BUF_CLKS 36
-#define I2CM_INST_T_HD_START_CLKS 19
-#define I2CM_INST_T_HIGH_CLKS 23
-#define I2CM_INST_T_LOW_CLKS 33
-#define I2CM_INST_T_SU_START_CLKS 19
-#define I2CM_INST_T_SU_STOP_CLKS 19
+/* ice40_ip_interface_inst parameters */
 
 /* timer_inst parameters */
 #define TIMER_INST_PRESCALE 23

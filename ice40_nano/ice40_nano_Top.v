@@ -10,8 +10,8 @@ module ice40_nano_Top (
 	input rxd_i,
 	output txd_o,
 	inout [7:0] led_o,
-	inout scl,
-	inout sda,
+	inout [1:0] scl_io,
+	inout [1:0] sda_io,
 	output spi_cs ,
 	output spi_clk, 
 	inout  spi_miso,
@@ -45,13 +45,24 @@ wire [31:0]	sram_din;
 wire [31:0]	sram_dout;
 wire		sram_we;
 wire [3:0]	sram_maskwe;
+// hard IP I/F
+wire		ip_done;
+wire [7:0]	ip_addr;
+wire [7:0]	ip_wdata;
+wire [7:0]	ip_rdata;
+wire		ip_we;
+wire		ip_stb;
+wire [1:0]	ip_int;
+wire		ip_ack;
+
+
 
 assign sram_addr = load_done ? soc_sram_addr[13:0] : r_spi_sram_addr ;
 assign sram_din  = load_done ? soc_sram_din  : spi_sram_din    ;
 assign sram_we   = load_done ? soc_sram_we   : spi_sram_we     ;
 assign sram_maskwe = load_done ? soc_sram_maskwe : 4'b1111;
 assign soc_sram_dout = sram_dout;
-assign load_done = ~r_fill;
+assign load_done = (~r_fill) & ip_done;
 assign soc_sram_write_done = 1'b1;
 `ifdef DEBUG_STARTUP
 	reg [1:0] rstn_soc;
@@ -84,8 +95,15 @@ ice40_nano ice40_nano_inst (
 	.uart_rxd_00_i	(rxd_i),
 	.uart_txd_00_o	(txd_o),
 	.gpio0_io	(led_o),
-	.scl_io		(scl),
-	.sda_io		(sda),
+
+	.ice40_ip_addr	(ip_addr),
+	.ice40_ip_wdata	(ip_wdata),
+	.ice40_ip_rdata	(ip_rdata),
+	.ice40_ip_int	(ip_int),
+	.ice40_ip_stb	(ip_stb),
+	.ice40_ip_we	(ip_we),
+	.ice40_ip_ack	(ip_ack),
+
 	.sram_addr	(soc_sram_addr),
 	.sram_din 	(soc_sram_din ),
 	.sram_dout	(soc_sram_dout),
@@ -144,7 +162,26 @@ always @(posedge clk_soc or negedge resetn) begin
 	end
 end
 `endif
-	
+
+hard_ip hard_ip_i (
+	.ipload_i	(resetn),
+	.rst_i		(~resetn),
+	.sb_adr_i	(ip_addr[7:0]),	// 8bits
+	.sb_clk_i	(clk_soc),
+	.sb_dat_i	(ip_wdata[7:0]),	// 8bits
+	.sb_stb_i	(ip_stb),
+	.sb_wr_i	(ip_we),
+	.i2c1_scl_io	(scl_io[0]),
+	.i2c1_sda_io	(sda_io[0]),
+	.i2c2_scl_io	(scl_io[1]),
+	.i2c2_sda_io	(sda_io[1]),
+	.i2c_pirq_o	(ip_int),	// 2 bits
+	.i2c_pwkup_o	(),	// 2 bits
+	.ipdone_o	(ip_done),
+	.sb_ack_o	(ip_ack),
+	.sb_dat_o	(ip_rdata[7:0])	// 8bits
+);
+
 
 
 spi_fifo spi_fifo_i (

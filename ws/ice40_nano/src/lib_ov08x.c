@@ -655,6 +655,7 @@ int ov08x_start(unsigned char ov08x_slave)
 	int ret = 0;
 	int i;
 	uint8_t dev_id[2];
+	i2c_init(I2C_SYS_CLK_FREQ);
 
 	gpio_output_write(&gpio_inst, GPIO_OSC_EN,        GPIO_LOW);
 	gpio_output_write(&gpio_inst, GPIO_SENSOR_RESETN, GPIO_LOW);

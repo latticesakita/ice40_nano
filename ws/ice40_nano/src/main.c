@@ -62,8 +62,8 @@ struct gpio_instance gpio_inst;
 #include "pic.h"
 #include "lib_ov08x.h"
 
-#define PRINT_INTERVAL 1000000
-#define GPIO7_INTERVAL    500000 // 1500(1.5ms) for simulation, 500000(500ms) for target, less than 1ms won't work due to slow processing speed
+#define GPIO_INTERVAL    500000 // 1500(1.5ms) for simulation, 500000(500ms) for target, less than 1ms won't work due to slow processing speed
+//#define GPIO_INTERVAL    1500 // 1500(1.5ms) for simulation, 500000(500ms) for target, less than 1ms won't work due to slow processing speed
 
 #if (defined UART_INST_BASE_ADDR)
 struct uart_instance uart_core_uart;
@@ -120,11 +120,17 @@ static void bsp_init(void)
 static void every500ms(void)
 {
 	static uint16_t pin_state = 0;
-	static uint8_t print_en = 0;
 	static unsigned int s = 1;
+	uint16_t pin_val;
 
 	pin_state = ~pin_state;
-	gpio_output_write(&gpio_inst, GPIO7, pin_state);
+	s++;
+	pin_val = ((s & 0x7F)<<1) | (pin_state & 0x0001);
+
+	gpio_output_write(&gpio_inst, GPIO0|GPIO1|GPIO2|GPIO3|GPIO4|GPIO5, pin_val);
+
+#if 0
+	static uint8_t print_en = 0;
 	if(print_en ==0){
 		print_en=1;
 	}
@@ -132,6 +138,7 @@ static void every500ms(void)
 		print_en=0;
 		log_printf(&uart_core_uart, 1, "%d sec\n", s++);
 	}
+#endif
 }
 
 int main(void) {
@@ -140,25 +147,18 @@ int main(void) {
 
 	bsp_init();
 	pic_init(0);
-	pic_isr_register(TIMER_INST_IRQ, timer_isr, (uint32_t *)TIMER_INST_BASE_ADDR+0, NULL);
+	pic_isr_register(TIMER_INST_IRQ, timer_isr, (uint32_t *)(TIMER_INST_BASE_ADDR+0), NULL);
 #ifdef TIMER_INST_BASE_ADDR
 	timer_init(TIMER_INST_BASE_ADDR, TIMER_PRESCALE);
-	gpio_set_direction(&gpio_inst, GPIO7, GPIO_OUTPUT);
+	gpio_set_direction(&gpio_inst, GPIO0|GPIO1|GPIO2|GPIO3|GPIO4|GPIO5, GPIO_OUTPUT);
 	timer_register(TIMER1_SRC, every500ms);
-	timer_set(TIMER1_SRC, GPIO7_INTERVAL, TIMER_REPEAT);
+	timer_set(TIMER1_SRC, GPIO_INTERVAL, TIMER_REPEAT);
 
 #endif
 	log_puts(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
 	//log_printf(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
 	//printf("Started!\nHello RISC-V world!\n");
 	ov08x_start(I2C_SLAVE_OV08X);
-
-	pin_state = GPIO_HIGH;
-	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
-	usleep(1000);
-	pin_state = GPIO_LOW;
-	gpio_output_write(&gpio_inst, GPIO4 | GPIO5, pin_state);
-
 
 	while (true);
 

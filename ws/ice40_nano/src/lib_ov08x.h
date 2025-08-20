@@ -3,9 +3,10 @@
 
 #include "gpio.h"
 #include "timer.h"
+#include "sys_platform.h"
 
-#define GPIO_OSC_EN		GPIO2
-#define GPIO_SENSOR_RESETN	GPIO3
+#define GPIO_OSC_EN		GPIO7
+#define GPIO_SENSOR_RESETN	GPIO6
 #define I2C_SLAVE_OV08X (0x36)
 struct sensor_i2c_data {
 	unsigned short offset;
