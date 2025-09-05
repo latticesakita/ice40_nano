@@ -13,8 +13,8 @@ struct sensor_i2c_data {
 	unsigned char  val;
 };
 
-int ov08x_start(unsigned char ov08x_slave);
-int ov08x_stop(unsigned char ov08x_slave);
+int ov08x_start(struct gpio_instance *gpio_inst, unsigned char ov08x_slave);
+int ov08x_stop(struct gpio_instance *gpio_inst, unsigned char ov08x_slave);
 
 #endif
 

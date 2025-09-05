@@ -28,6 +28,15 @@
 #define IRQ_TROE		(0x02)	// overrun or nack
 #define IRQ_HGC			(0x01)	// gc in slave mode interrupt
 
+#define SR_TIP		(0x80) // Transmitting in progress
+#define SR_BUSY		(0x40) // Bus busy set when START, cleared by STOP
+#define SR_RARC		(0x20) // received ACK
+#define SR_SRW		(0x10) // Slave RW
+#define SR_ARBL		(0x08) // arbitration lost
+#define SR_TRRDY	(0x04) // transmitter or receiver ready bit
+#define SR_TROE		(0x02) // transmitter or receiver overrun
+#define SR_HGC		(0x01) // Hardware general call received
+
 struct i2cm_dev {
 	volatile unsigned rsvd0			;
 	volatile unsigned rsvd1			;
@@ -60,7 +69,7 @@ void i2c_bus_set(enum I2C_BUS_NUM n)
 		dev = (volatile struct i2cm_dev *)(I2CM_INST_BASE_ADDR | ADDR_I2C2);
 	}
 }
-int i2c_init(uint32_t sys_clock_freq)
+int i2c_init(struct gpio_instance *gpio, uint32_t sys_clock_freq)
 {
     uint32_t prescale = sys_clock_freq / 400000 / 4; // div (400kHz*4) will be the target speed
 
@@ -68,7 +77,7 @@ int i2c_init(uint32_t sys_clock_freq)
     dev->I2CCR1   = 0x8C;
     dev->I2CBRLSB = prescale;
     dev->I2CBRMSB = prescale>>8;
-    dev->I2CIRQEN = IRQEN_INTCLREN | IRQEN_ARBLEN | IRQEN_TRRDYEN | IRQEN_TROEEN ;
+    //dev->I2CIRQEN = IRQEN_INTCLREN | IRQEN_ARBLEN | IRQEN_TRRDYEN | IRQEN_TROEEN ;
 
     dev=(volatile struct i2cm_dev *)(I2CM_INST_BASE_ADDR | ADDR_I2C2);
     dev->I2CCR1   = 0x0C; // 0x8C; // bit7=1 to enable
@@ -81,41 +90,41 @@ int i2c_init(uint32_t sys_clock_freq)
 static uint8_t i2c_start(uint8_t slave)
 {
 	volatile uint8_t val;
-    dev->I2CIRQ = 0;
+	//dev->I2CIRQ = 0;
 	dev->I2CTXDR = slave;
 	dev->I2CCMDR = CMDR_STA | CMDR_WR ;
 	do{
-		val = dev->I2CIRQ;
-	}while((val & IRQ_TRRDY) == 0);
-	return val & (IRQ_ARBL | IRQ_TROE);
+		val = dev->I2CSR;
+	}while((val & SR_TRRDY) == 0);
+	return val & (SR_ARBL | SR_TROE);
 }
 static void i2c_stop()
 {
-    dev->I2CIRQ = 0;
+	//dev->I2CIRQ = 0;
 	dev->I2CCMDR = CMDR_STO ;
 	//while((dev->I2CIRQ & IRQ_TRRDY) == 0);
 }
 static int i2c_write_byte(uint8_t byte)
 {
 	volatile uint8_t val;
-    dev->I2CIRQ = 0;
+	//dev->I2CIRQ = 0;
 	dev->I2CTXDR = byte;
 	dev->I2CCMDR = CMDR_WR ;
 	do{
-		val = dev->I2CIRQ;
-	}while((val & IRQ_TRRDY) == 0);
-	return val & (IRQ_ARBL | IRQ_TROE);
+		val = dev->I2CSR;
+	}while((val & SR_TRRDY) == 0);
+	return val & (SR_ARBL | SR_TROE);
 }
 static uint8_t i2c_read_byte(int ack)
 {
 	volatile uint8_t val;
-    dev->I2CIRQ = 0;
+	//dev->I2CIRQ = 0;
     if(ack){
     	dev->I2CCMDR = CMDR_RD | CMDR_ACK;
     }else{
     	dev->I2CCMDR = CMDR_RD ;
     }
-    while((dev->I2CIRQ & IRQ_TRRDY) == 0);
+	while((dev->I2CSR & SR_TRRDY) == 0);
     val = dev->I2CRXDR;
 	return val ;
 }
@@ -147,10 +156,10 @@ struct i2cm_dev {
 #define I2C_START_STOP  (0x04)
 
 volatile struct i2cm_dev *dev = (volatile struct i2cm_dev *)(I2CM_INST_BASE_ADDR);
-int i2c_init(uint32_t sys_clock_freq)
-(
+int i2c_init(struct gpio_instance *gpio, uint32_t sys_clock_freq)
+{
 		return 0;
-);
+}
 static int i2c_write_byte(uint8_t byte)
 {
 	volatile unsigned int result;
@@ -185,14 +194,15 @@ static void i2c_stop()
 #define SDA_PIN GPIO0
 #define SCL_PIN GPIO1
 
-#define gpio_set_output(pin)	gpio_set_direction(&gpio_inst, pin, GPIO_OUTPUT)
-#define gpio_set_input(pin)	gpio_set_direction(&gpio_inst, pin, GPIO_INPUT)
-#define gpio_write(pin, val)	gpio_output_write(&gpio_inst, pin, val)
-#define gpio_read(pin, val)		gpio_input_get(&gpio_inst, pin, val)
+#define gpio_set_output(pin)	gpio_set_direction(gpio_inst, pin, GPIO_OUTPUT)
+#define gpio_set_input(pin)	gpio_set_direction(gpio_inst, pin, GPIO_INPUT)
+#define gpio_write(pin, val)	gpio_output_write(gpio_inst, pin, val)
+#define gpio_read(pin, val)		gpio_input_get(gpio_inst, pin, val)
 //#define i2c_delay(n)            usleep(n)
 #define i2c_delay(n)
 
-extern struct gpio_instance gpio_inst;
+static struct gpio_instance *gpio_inst;
+
 
 #if 0
 void i2c_delay(int n) 
@@ -202,10 +212,11 @@ void i2c_delay(int n)
     }
 }
 #endif
-int i2c_init(uint32_t sys_clock_freq)
-(
+int i2c_init(struct gpio_instance *gpio, uint32_t sys_clock_freq)
+{
+	gpio_inst = gpio;
 		return 0;
-);
+}
 
 static void i2c_write_bit(int bit) {
     if(bit!=0){

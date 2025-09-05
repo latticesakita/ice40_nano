@@ -158,7 +158,7 @@ int main(void) {
 	log_puts(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
 	//log_printf(&uart_core_uart, 1, "Started!\nHello RISC-V world!\n");
 	//printf("Started!\nHello RISC-V world!\n");
-	ov08x_start(I2C_SLAVE_OV08X);
+	ov08x_start(&gpio_inst, I2C_SLAVE_OV08X);
 
 	while (true);
 

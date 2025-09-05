@@ -18,6 +18,8 @@ module ice40_nano_Top (
 	inout  spi_mosi
 );
 
+localparam MINIMUM_SPI_LOAD_SIZE = (65536 - 1024)/4;
+
 reg [7:0] r_rst_cnt = 0;
 wire oclk; // 24MHz
 wire clk_soc;
@@ -147,7 +149,9 @@ always @(posedge clk_soc or negedge resetn) begin
 	// 	r_fill <= 1'b1;
 	// end
 	else if(spi_sram_we && r_fill) begin
-		r_fill <= (spi_sram_din == 32'hFFFF_FFFF) ? 1'b0: 1'b1;
+		r_fill <=
+			(r_spi_sram_addr<MINIMUM_SPI_LOAD_SIZE) ? 1'b1 :
+			(spi_sram_din == 32'hFFFF_FFFF) ? 1'b0: 1'b1;
 	end
 end
 
