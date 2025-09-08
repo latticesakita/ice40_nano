@@ -4,8 +4,10 @@
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/i2c_slave_tb.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_nano_Top.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_nano.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/genclk.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spi_fifo.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/ice40_common/spram16384x32.v" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/hard_ip.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/module/ahbl0/1.4.0/rtl/ahbl0.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram512x8/rtl/dpram512x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram1024x8/rtl/dpram1024x8.v" type="VERILOG" worklib="work"/>
@@ -13,7 +15,6 @@
     <Source include="none" langstandard="Verilog 2001" path="dpram4096x8/rtl/dpram4096x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="dpram2048x2_512x8/rtl/dpram2048x2_512x8.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/latticesemi.com/ip/cpu0/1.1.0/rtl/cpu0.v" type="VERILOG" worklib="work"/>
-    <Source include="none" langstandard="Verilog 2001" path="ice40_nano/hard_ip.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/spram_if/1.0.0/rtl/spram_if.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/ice40_ip_if/1.0.0/rtl/ice40_ip_if.v" type="VERILOG" worklib="work"/>
     <Source include="none" langstandard="Verilog 2001" path="ice40_nano/lib/personal/ip/timer/1.0.0/rtl/timer.v" type="VERILOG" worklib="work"/>

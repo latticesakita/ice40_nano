@@ -88,12 +88,19 @@ i2c_slave_tb ov08x (
 
 integer code_log;
 integer data_log;
+integer spram_init_log;
 
 initial begin
 	code_log = $fopen("code.log", "w");
 	data_log = $fopen("data.log", "w");
+	spram_init_log = $fopen("spram_init.log", "w");
 end
 
+// ************************
+always @(posedge dut.clk_soc or negedge rstn)
+	if(dut.spi_sram_we)
+		$fwrite(spram_init_log, "%08X\n", dut.spi_sram_din);
+ 
 // ************************
 wire [ 1:0] w_instr_htrans     = dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HTRANS;
 wire [31:0] w_instr_haddr      = dut.ice40_nano_inst.cpu0_inst_AHBL_M0_INSTR_interconnect_HADDR;

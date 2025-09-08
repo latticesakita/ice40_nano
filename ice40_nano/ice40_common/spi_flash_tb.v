@@ -1,4 +1,5 @@
 // simulate dual mode
+`timescale 1 ns / 100 ps
 
 module spi_flash
 (
@@ -127,7 +128,7 @@ always @(negedge clk or posedge cs) begin
 		addrf <= 0;
 	end
 	else begin
-		addrf <= #3000 addr;
+		addrf <= #3 addr;
 	end
 end
 

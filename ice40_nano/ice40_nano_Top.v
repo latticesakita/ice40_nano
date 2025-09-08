@@ -21,12 +21,11 @@ module ice40_nano_Top (
 localparam MINIMUM_SPI_LOAD_SIZE = (65536 - 1024)/4;
 
 reg [7:0] r_rst_cnt = 0;
-wire oclk; // 24MHz
+wire oclk;
 wire clk_soc;
 wire resetn;
 wire resetn_soc;
 
-assign clk_soc = oclk;
 assign resetn = r_rst_cnt[7];
 
 reg [13:0]	r_spi_sram_addr;
@@ -82,14 +81,16 @@ assign soc_sram_write_done = 1'b1;
 	assign resetn_soc = load_done;
 `endif
 
-always @(posedge oclk) begin
+always @(posedge clk_soc) begin
 	if(!resetn) begin
 		r_rst_cnt <= r_rst_cnt + 1;
 	end
 end
 
-// DIV:00 = 48MHz, DIV:01=24MHz, DIV:10=12MHz, DIV:11=6MHz
-HSOSC #(.CLKHF_DIV ("0b01")) osc0(.CLKHFEN (1'b1), .CLKHFPU(1'b1), .CLKHF(oclk));
+genclk genclk_i (
+	.oclk	(oclk),
+	.clk24	(clk_soc)
+);
 
 ice40_nano ice40_nano_inst (
 	.clk_i		(clk_soc), 
@@ -189,7 +190,7 @@ hard_ip hard_ip_i (
 
 
 spi_fifo spi_fifo_i (
-	.clk2x	(clk_soc), //48MHz was failed on board test, use 24MHz
+	.clk2x	(oclk),
 	.clk	(clk_soc) ,
 	
 	.i_flash_addr	(24'h030000),
