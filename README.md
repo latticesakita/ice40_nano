@@ -18,7 +18,9 @@ iCE40_nano プロジェクトは性能よりも小型を目指したものです
   - Lattice Propel（Builder: `ice40_nano.sbx`）
   - Lattice Radiant（Project: `ice40_nano.rdf`）
 - プロセッサ: RISC-V  
-- HDL: Verilog  
+- HDL: Verilog
+- iCE40UP の Hardend IP を RISC-V からアクセス
+- iCE40UP の SPSRAM 上で RISC-V が動作 
 - IP パッケージ: `.ipk`（Propel の `ippack` を使用）
 
 ---
