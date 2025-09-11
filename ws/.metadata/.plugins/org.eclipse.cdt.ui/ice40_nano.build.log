@@ -1,0 +1,61 @@
+22:38:13 **** Incremental Build of configuration Debug for project ice40_nano ****
+make all 
+Building file: ../src/lib_ov08x.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32i -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DLSCC_STDIO_UART_APB -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/gpio" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/riscv_nano" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/uart" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/timer" -std=gnu11 --specs=picolibc.specs -DPICOLIBC_INTEGER_PRINTF_SCANF -MMD -MP -MF"src/lib_ov08x.d" -MT"src/lib_ov08x.o" -c -o "src/lib_ov08x.o" "../src/lib_ov08x.c"
+../src/lib_ov08x.c: In function 'ov08x_start':
+../src/lib_ov08x.c:496:44: warning: passing argument 4 of 'i2c_write' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  496 |   ret = i2c_write(ov08x_slave, offset, sz, &i2c_data[i][3]);
+      |                                            ^~~~~~~~~~~~~~~
+In file included from ../src/lib_ov08x.c:2:
+../src/i2c_controller.h:13:94: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+   13 | int i2c_write(unsigned char slave, unsigned short offset, unsigned int count, unsigned char *val) ;
+      |                                                                               ~~~~~~~~~~~~~~~^~~
+Finished building: ../src/lib_ov08x.c
+ 
+Building file: ../src/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32i -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DLSCC_STDIO_UART_APB -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/gpio" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/riscv_nano" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/uart" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/timer" -std=gnu11 --specs=picolibc.specs -DPICOLIBC_INTEGER_PRINTF_SCANF -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building file: ../src/utils.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32i -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DLSCC_STDIO_UART_APB -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/gpio" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/riscv_nano" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/uart" -I"O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano/src/bsp/driver/timer" -std=gnu11 --specs=picolibc.specs -DPICOLIBC_INTEGER_PRINTF_SCANF -MMD -MP -MF"src/utils.d" -MT"src/utils.o" -c -o "src/utils.o" "../src/utils.c"
+Finished building: ../src/utils.c
+ 
+Building target: ice40_nano.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv-none-embed-gcc -march=rv32i -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "O:/src/Propel/iCE40UP/ice40_nano/ws/ice40_nano/src/linker.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ice40_nano.map" --specs=picolibc.specs -DPICOLIBC_INTEGER_PRINTF_SCANF -o "ice40_nano.elf"  ./src/bsp/driver/uart/uart.o  ./src/bsp/driver/timer/timer.o  ./src/bsp/driver/riscv_nano/crt0.o ./src/bsp/driver/riscv_nano/exit.o ./src/bsp/driver/riscv_nano/interrupt.o ./src/bsp/driver/riscv_nano/iob.o ./src/bsp/driver/riscv_nano/pic.o ./src/bsp/driver/riscv_nano/reg_access.o ./src/bsp/driver/riscv_nano/util.o  ./src/bsp/driver/gpio/gpio.o  ./src/bsp/reg_test.o  ./src/i2c_controller.o ./src/lib_ov08x.o ./src/main.o ./src/utils.o   
+Finished building target: ice40_nano.elf
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-none-embed-objdump --source --all-headers --demangle --line-numbers --wide "ice40_nano.elf" > "ice40_nano.lst"
+Finished building: ice40_nano.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-none-embed-size --format=berkeley "ice40_nano.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5280	   1680	   2972	   9932	   26cc	ice40_nano.elf
+Finished building: ice40_nano.siz
+ 
+Invoking: Lattice Multi Memory Deployment (CODE SEGMENT)
+riscv-none-embed-objcopy -O binary --gap-fill 0 -j .text -j .data -j .bss -j .ctors -j .dtors -j .rodata "ice40_nano.elf" tmp; srec_cat tmp -Binary -byte-swap 4 -DISable Header -Output "ice40_nano_Code.mem" -MEM 32
+Finished building: ice40_nano_Code.mem
+ 
+Invoking: Lattice Multi Memory Deployment (DATA SEGMENT)
+riscv-none-embed-objcopy -O binary --gap-fill 0 -j .data -j .bss "ice40_nano.elf" tmp; srec_cat tmp -Binary -byte-swap 4 -DISable Header -Output "ice40_nano_Data.mem" -MEM 32
+Finished building: ice40_nano_Data.mem
+ 
+post build
+post_build.bat
+
+O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano\Debug>copy /y ice40_nano_Code.mem ..\..\..\tb  
+        1 file(s) copied.
+
+O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano\Debug>python mem2bin.py ice40_nano_Code.mem ice40_nano_Code.bin -be 
+
+O:\src\Propel\iCE40UP\ice40_nano\ws\ice40_nano\Debug>python mem2bin.py ice40_nano_Data.mem ice40_nano_Data.bin -be 
+ 
+
+22:38:18 Build Finished. 0 errors, 1 warnings. (took 4s.565ms)
+

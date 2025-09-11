@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+gdb.client.commands=set mem inaccessible-by-default off\r\nset arch riscv\:rv32
+gdb.client.executable=${cross_prefix}gdb${cross_suffix}
+gdb.client.other=
+gdb.qemu.boardName=spike
+gdb.qemu.deviceName=
+gdb.qemu.doDebugInRam=true
+gdb.qemu.doInitialReset=false
+gdb.qemu.doPreRunReset=true
+gdb.qemu.enableSemihosting=true
+gdb.qemu.init.other=
+gdb.qemu.isVerbose=false
+gdb.qemu.preRun.other=
+gdb.server.doStart=true
+gdb.server.executable=${qemu_path}/${qemu_executable}
+gdb.server.other=-S -d unimp,guest_errors
